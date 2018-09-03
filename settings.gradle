@@ -1,0 +1,4 @@
+include 'TICC'
+findProject(':TICC')?.name = 'TIC'
+include 'Pruebas'
+
