@@ -1,8 +1,6 @@
 package pruebapersistence;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.List;
 
 
 @Entity
@@ -30,6 +28,9 @@ public class Mesas {
     @ManyToOne
     @JoinColumn(name="id_resto", nullable=false)
     private Restuarante miResto;
+
+    @OneToOne(mappedBy = "idCliente")
+    private Integer cliente;
 
     public Mesas(Integer nroMesa, Integer seccion, Integer cantidadPersonas, Restuarante miResto){
 

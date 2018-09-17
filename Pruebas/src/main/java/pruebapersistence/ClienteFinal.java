@@ -4,30 +4,42 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "Cliente_Final")
 public class ClienteFinal implements Serializable {
 
     @Id
-    @Column(name = "id")
-    private Integer id;
+    @OneToOne
+    @JoinTable(name = "id_cliente_res")
+    @Column(name = "id_cliente")
+    private Integer idCliente;
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "celular")
+    @Column(name = "celular", nullable = false, unique = true)
     private String celular;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
+
+
+    public ClienteFinal(Integer id, String firstName, String lastName, String email, String celular){
+        this.idCliente = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.celular = celular;
+    }
 
     @Override
     public String toString() {
-        return "Employee [idEmployee=" + id + ", firstname= " + firstName + ", lastname=" + lastName + ", email= "
+        return "Cliente Final [idCliente=" + idCliente + ", firstname= " + firstName + ", lastname=" + lastName + ", email= "
             + email + ", celular= " + celular + "]";
     }
 
@@ -64,11 +76,11 @@ public class ClienteFinal implements Serializable {
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.idCliente = id;
     }
 
     public Integer getId() {
-        return id;
+        return idCliente;
     }
 
 

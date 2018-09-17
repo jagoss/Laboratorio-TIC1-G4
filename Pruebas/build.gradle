@@ -21,4 +21,13 @@ dependencies {
 
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.12'
+
+    // https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons
+    compile group: 'org.springframework.data', name: 'spring-data-commons', version: '2.0.10.RELEASE'
+
+    compile group: 'org.springframework', name: 'spring-context', version: '5.0.8.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2
+    compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.5.0'
+
 }
