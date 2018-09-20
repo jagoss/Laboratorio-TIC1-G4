@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.UI.controllers.PrimeraPantallaController">
+   <children>
+      <Accordion AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <panes>
+          <TitledPane animated="false" prefHeight="212.0" prefWidth="37.0" text="Barrio">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="267.0">
+                     <children>
+                        <ScrollPane layoutY="41.0" prefHeight="306.0" prefWidth="200.0" AnchorPane.bottomAnchor="-13.0" AnchorPane.leftAnchor="-13.0" AnchorPane.rightAnchor="-13.0" AnchorPane.topAnchor="-13.0">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <GridPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Pocitos">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets></Label>
+                                          <Label text="Punta Carretas" GridPane.rowIndex="1">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin></Label>
+                                          <Label text="Buceo" GridPane.rowIndex="2" />
+                                          <CheckBox fx:id="checkPocitos" mnemonicParsing="false" onAction="#chequearPocitos" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="30.0" />
+                                             </GridPane.margin>
+                                          </CheckBox>
+                                          <CheckBox fx:id="checkPuntaCarretas" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="30.0" />
+                                             </GridPane.margin>
+                                          </CheckBox>
+                                          <CheckBox fx:id="checkBuceo" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="30.0" />
+                                             </GridPane.margin>
+                                          </CheckBox>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Rating">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane prefHeight="306.0" prefWidth="200.0" />
+                        <GridPane prefHeight="200.0" prefWidth="200.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="5">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="4" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="3" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <CheckBox fx:id="check5Estrellas" mnemonicParsing="false" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="check4Estrellas" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="check3Estrellas" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </CheckBox>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Tipo de Comida">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane prefHeight="306.0" prefWidth="200.0">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <GridPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Asado">
+                                             <GridPane.margin>
+                                                <Insets left="20.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label text="Sushi" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="20.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label text="Vegana" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="20.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <CheckBox fx:id="checkTipoAsado" mnemonicParsing="false" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="30.0" />
+                                             </GridPane.margin>
+                                          </CheckBox>
+                                          <CheckBox fx:id="checkTipoSushi" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="30.0" />
+                                             </GridPane.margin>
+                                          </CheckBox>
+                                          <CheckBox fx:id="checkTipoVegana" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="30.0" />
+                                             </GridPane.margin>
+                                          </CheckBox>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </content></ScrollPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+      <AnchorPane layoutX="300.0" layoutY="122.0" prefHeight="400.0" prefWidth="399.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane layoutX="83.0" layoutY="155.0" prefHeight="400.0" prefWidth="399.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane fx:id="opcionRestaurante1" prefHeight="200.0" prefWidth="200.0" />
+                  <AnchorPane fx:id="opcionRestaurante2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                  <AnchorPane fx:id="opcionRestaurante3" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                  <AnchorPane fx:id="opcionRestaurante4" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <AnchorPane fx:id="opcionRestaurante5" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+                  <AnchorPane fx:id="opcionRestaurante6" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
