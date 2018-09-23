@@ -5,11 +5,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import um.edu.uy.bbticg4.exceptions.InvalidRestoInformation;
 import um.edu.uy.bbticg4.exceptions.RestoAlreadyExists;
+import um.edu.uy.bbticg4.persistence.RestaurantRepository;
 import um.edu.uy.bbticg4.service.entities.RestaurantMgr;
 import static junit.framework.TestCase.fail;
 
 
-@SpringBootTest(classes = RestaurantMgr.class)
+@SpringBootTest(classes = {RestaurantRepository.class, RestaurantMgr.class})
 @RunWith(SpringRunner.class)
 public class TestResto {
 
