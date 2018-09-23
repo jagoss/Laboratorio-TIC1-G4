@@ -1,16 +1,12 @@
 package um.edu.uy.bbticg4.service.entities;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import um.edu.uy.bbticg4.exceptions.InvalidRestoInformation;
 import um.edu.uy.bbticg4.exceptions.RestoAlreadyExists;
 import um.edu.uy.bbticg4.persistence.RestaurantRepository;
 
-
-@Controller
-@ComponentScan(basePackageClasses = {um.edu.uy.bbticg4.persistence.RestaurantRepository.class})
+@Service
 public class RestaurantMgr {
 
     @Autowired

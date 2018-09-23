@@ -22,6 +22,10 @@ public class Restaurant {
         this.name = name;
     }
 
+    public Restaurant(){
+
+    }
+
     public void addCategoriaComida(String nuevaCategoria){
 
         listaCategoriaComida.add(nuevaCategoria);
@@ -33,7 +37,6 @@ public class Restaurant {
         if(listaCategoriaComida.remove(categoriaAEliminar)){
             System.out.println("Eliminacion exitosa!");
         }
-
 
     }
 }

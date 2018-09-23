@@ -1,3 +1,6 @@
+package um.edu.uy.bbticg4;
+
+import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -5,12 +8,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import um.edu.uy.bbticg4.exceptions.InvalidRestoInformation;
 import um.edu.uy.bbticg4.exceptions.RestoAlreadyExists;
-import um.edu.uy.bbticg4.persistence.RestaurantRepository;
 import um.edu.uy.bbticg4.service.entities.RestaurantMgr;
 import static junit.framework.TestCase.fail;
 
 
-@SpringBootTest(classes = {RestaurantRepository.class, RestaurantMgr.class})
+@SpringBootTest
 @RunWith(SpringRunner.class)
 public class TestResto {
 
@@ -27,7 +29,7 @@ public class TestResto {
 
         } catch (RestoAlreadyExists clientAlreadyExists) {
 
-            fail(clientAlreadyExists.getMessage());
+            TestCase.fail(clientAlreadyExists.getMessage());
 
         } catch (InvalidRestoInformation invalidRestoInformation) {
             invalidRestoInformation.printStackTrace();
@@ -39,7 +41,7 @@ public class TestResto {
 
             restoMgr.addRestaurant(10, "Bar","Pocitos");
 
-            fail("Resto ya existia");
+            TestCase.fail("Resto ya existia");
 
         } catch (RestoAlreadyExists restoAlreadyExists) {
 
