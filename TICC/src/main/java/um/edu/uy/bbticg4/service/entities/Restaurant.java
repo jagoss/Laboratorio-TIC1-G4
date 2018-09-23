@@ -7,24 +7,28 @@ import java.util.ArrayList;
 
 @Entity
 @Table(name = "restaurant")
-public class Restaurant {
+public class Restaurant{
 
     @Id
     private Integer id;
     private ArrayList<String> listaCategoriaComida = new ArrayList<>(5);
     private String barrio;
     private String name;
+    private String email;
+    private String cellphone;
+    private String password;
 
-    public Restaurant(Integer id, String name, String barrio){
+    public Restaurant(Integer id, String name, String password, String email, String cellphone ,String barrio){
 
         this.id = id;
+        this.cellphone = cellphone;
+        this.email = email;
+        this.password = password;
         this.barrio = barrio;
         this.name = name;
     }
 
-    public Restaurant(){
-
-    }
+    public Restaurant(){}
 
     public void addCategoriaComida(String nuevaCategoria){
 
@@ -38,5 +42,37 @@ public class Restaurant {
             System.out.println("Eliminacion exitosa!");
         }
 
+    }
+
+    public void setId(Integer id){
+        this.id = id;
+    }
+
+    public Integer getId(){
+        return id;
+    }
+
+    public ArrayList<String> getListaCategoriaComida() {
+        return listaCategoriaComida;
+    }
+
+    public void setListaCategoriaComida(ArrayList<String> listaCategoriaComida) {
+        this.listaCategoriaComida = listaCategoriaComida;
+    }
+
+    public String getBarrio() {
+        return barrio;
+    }
+
+    public void setBarrio(String barrio) {
+        this.barrio = barrio;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
