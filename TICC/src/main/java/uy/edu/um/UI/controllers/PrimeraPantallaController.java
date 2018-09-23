@@ -2,62 +2,50 @@ package uy.edu.um.UI.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.layout.AnchorPane;
 
 public class PrimeraPantallaController {
 
-     @FXML
-     private CheckBox checkPocitos;
+    @FXML
+    private Button buttonSearch;
 
-     @FXML
-     private CheckBox checkPuntaCarretas;
+    @FXML
+    private CheckBox checkParrilla;
 
-     @FXML
-     private CheckBox checkBuceo;
+    @FXML
+    private CheckBox checkPizza;
 
-     @FXML
-     private CheckBox check5Estrellas;
+    @FXML
+    private CheckBox checkPasta;
 
-     @FXML
-     private CheckBox check4Estrellas;
+    @FXML
+    private CheckBox check1Star;
 
-     @FXML
-     private CheckBox check3Estrellas;
+    @FXML
+    private CheckBox check2Stars;
 
-     @FXML
-     private CheckBox checkTipoAsado;
+    @FXML
+    private CheckBox check3Stars;
 
-     @FXML
-     private CheckBox checkTipoSushi;
+    @FXML
+    private CheckBox check4Stars;
 
-     @FXML
-     private CheckBox checkTipoVegana;
+    @FXML
+    private CheckBox check5Stars;
 
-     @FXML
-     private AnchorPane opcionRestaurante1;
+    @FXML
+    private CheckBox checkPocitos;
 
-     @FXML
-     private AnchorPane opcionRestaurante2;
+    @FXML
+    private CheckBox checkBuceo;
 
-     @FXML
-     private AnchorPane opcionRestaurante3;
+    @FXML
+    private CheckBox checkMalvinNorte;
 
-     @FXML
-     private AnchorPane opcionRestaurante4;
+    @FXML
+    void handleFilterSearch(ActionEvent event) {
 
-     @FXML
-     private AnchorPane opcionRestaurante5;
+    }
 
-     @FXML
-     private AnchorPane opcionRestaurante6;
-
-     @FXML
-     void chequearPocitos(ActionEvent event) {
-
-
-
-     }
- }
-
-
+}
