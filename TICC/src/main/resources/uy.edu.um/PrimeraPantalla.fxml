@@ -123,7 +123,7 @@
             </BorderPane>
          </left>
          <top>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RESERVAME ESTA" BorderPane.alignment="CENTER">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Restaurantes disponibles" BorderPane.alignment="CENTER">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
