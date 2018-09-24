@@ -12,6 +12,7 @@ public class Restaurant{
     @Id
     private Integer id;
     private ArrayList<String> listaCategoriaComida = new ArrayList<>(5);
+    private Integer rating;
     private String barrio;
     private String name;
     private String email;
@@ -74,5 +75,37 @@ public class Restaurant{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCellphone() {
+        return cellphone;
+    }
+
+    public void setCellphone(String cellphone) {
+        this.cellphone = cellphone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
