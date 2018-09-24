@@ -1,11 +1,14 @@
 package uy.edu.um.UI.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import um.edu.uy.bbticg4.service.entities.Restaurant;
 import um.edu.uy.bbticg4.service.entities.RestaurantMgr;
@@ -24,17 +27,17 @@ public class PrimeraPantallaController {
 
 
     @FXML
-    private TableView<Table> FilteredRestaurants;
+    private TableView FilteredRestaurants;
     @FXML
-    private TableColumn<Table, String> ColumnaNombres;
+    private TableColumn ColumnaNombres;
     @FXML
-    private TableColumn<Table, String> ColumnaBarrio;
+    private TableColumn ColumnaBarrio;
     @FXML
-    private TableColumn<Table, Integer> ColumnaRating;
+    private TableColumn ColumnaRating;
     @FXML
-    private TableColumn<Table, String> ColumnaTelefono;
+    private TableColumn ColumnaTelefono;
     @FXML
-    private TableColumn<Table, String> ColumnaEmail;
+    private TableColumn ColumnaEmail;
 
 
     private String tipoDeComida = null;
@@ -130,6 +133,19 @@ public class PrimeraPantallaController {
 
             }
             restoPorBarrio = listaFinal;
+
+            ObservableList<Restaurant> resultados = FXCollections.observableArrayList();
+            for(int i = 0; i<restoPorBarrio.size(); i++){
+                resultados.add(restoPorBarrio.get(i));
+            }
+
+            ColumnaNombres.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("name"));
+            ColumnaBarrio.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("barrio"));
+            ColumnaRating.setCellValueFactory(new PropertyValueFactory<Restaurant,Integer>("rating"));
+            ColumnaTelefono.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("cellphone"));
+            ColumnaEmail.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("email"));
+
+            FilteredRestaurants.setItems(resultados);
         }
     }
 
