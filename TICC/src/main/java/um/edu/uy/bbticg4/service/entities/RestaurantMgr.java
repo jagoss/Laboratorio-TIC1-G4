@@ -1,12 +1,16 @@
 package um.edu.uy.bbticg4.service.entities;
 
+import org.hibernate.sql.Select;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import um.edu.uy.bbticg4.exceptions.InvalidUserInformation;
 import um.edu.uy.bbticg4.exceptions.UserAlreadyExists;
 import um.edu.uy.bbticg4.persistence.RestaurantRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RestaurantMgr {
@@ -38,5 +42,17 @@ public class RestaurantMgr {
         return restaurantRepository.listaRestoFiltrados(filtroBarrio, estrellas);
     }
 
+    public Restaurant obtenerResto(Integer id){
 
+      return restaurantRepository.findById(id).get();
+    }
+
+    public void updateResto(Restaurant resto){
+
+        restaurantRepository.save(resto);
+    }
+
+    public void deleteResto(Integer id){
+        restaurantRepository.deleteById(id);
+    }
 }

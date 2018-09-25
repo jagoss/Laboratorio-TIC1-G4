@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import um.edu.uy.bbticg4.exceptions.InvalidUserInformation;
 import um.edu.uy.bbticg4.exceptions.UserAlreadyExists;
+import um.edu.uy.bbticg4.service.entities.Restaurant;
 import um.edu.uy.bbticg4.service.entities.RestaurantMgr;
 
 @SpringBootTest
@@ -50,4 +51,31 @@ public class TestResto {
             invalidRestoInformation.printStackTrace();
         }
     }
+
+
+    @Test
+    public void testConsulta(){
+        try {
+
+            restoMgr.addRestaurant(123,"Bar","bar1", "bar@bar.com",
+                    "1111","Pocitos");
+
+            Restaurant resto1 = restoMgr.obtenerResto(123);
+            resto1.addCategoriaComida("Pizza");
+            resto1.addCategoriaComida("Chivito");
+            resto1.addCategoriaComida("Pasta");
+
+            restoMgr.updateResto(resto1);
+
+
+
+            restoMgr.deleteResto(123);
+
+        } catch (UserAlreadyExists userAlreadyExists) {
+            userAlreadyExists.printStackTrace();
+        } catch (InvalidUserInformation invalidUserInformation) {
+            invalidUserInformation.printStackTrace();
+        }
+    }
+
 }
