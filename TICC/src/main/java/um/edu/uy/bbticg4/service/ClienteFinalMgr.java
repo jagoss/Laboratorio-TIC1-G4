@@ -1,10 +1,11 @@
-package um.edu.uy.bbticg4.service.entities;
+package um.edu.uy.bbticg4.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import um.edu.uy.bbticg4.exceptions.InvalidUserInformation;
 import um.edu.uy.bbticg4.exceptions.UserAlreadyExists;
 import um.edu.uy.bbticg4.persistence.ClienteFinalRepository;
+import um.edu.uy.bbticg4.service.entities.ClienteFinal;
 
 @Service
 public class ClienteFinalMgr {

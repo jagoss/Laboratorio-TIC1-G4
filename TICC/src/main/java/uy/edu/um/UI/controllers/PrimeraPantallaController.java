@@ -11,7 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import um.edu.uy.bbticg4.service.entities.Restaurant;
-import um.edu.uy.bbticg4.service.entities.RestaurantMgr;
+import um.edu.uy.bbticg4.service.RestaurantMgr;
 
 import java.util.List;
 
@@ -107,11 +107,11 @@ public class PrimeraPantallaController {
             barrio = "MalvinNorte";  //ACORDARSE QUE NO LLEVA ESPACIO
         }
 
-        if (estrellas.equals(0)) {
-            restoPorBarrio = restoMgr.filtrarRestosporBarrio(barrio);
-        } else {
-            restoPorBarrio = restoMgr.filtrarRestosporBarrio(barrio, estrellas);
-        }
+//        if (estrellas.equals(0)) {
+//            restoPorBarrio = restoMgr.filtrarRestosporBarrio(barrio);
+//        } else {
+//            restoPorBarrio = restoMgr.filtrarRestosporBarrio(barrio, estrellas);
+//        }
 
         if(tipoDeComida != null){
 

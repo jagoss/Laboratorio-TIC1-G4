@@ -9,20 +9,20 @@ import java.util.List;
 
 public interface RestaurantRepository extends CrudRepository<Restaurant, Integer> {
 
-    /**
-     * Obtiene lista de restaurants filtrados
-     * @param filtroBarrio
-     * @param filtroRating
-     * @return
-     */
-    List<Restaurant> listaRestoFiltrados(String filtroBarrio, Integer filtroRating);
-
-    /**
-     *
-      * @param filtroBarrio
-     * @return
-     */
-    List<Restaurant> listaRestoFiltrados(String filtroBarrio);
+//    /**
+//     * Obtiene lista de restaurants filtrados
+//     * @param filtroBarrio
+//     * @param filtroRating
+//     * @return
+//     */
+//    List<Restaurant> listaRestoFiltrados(String filtroBarrio, Integer filtroRating);
+//
+//    /**
+//     *
+//      * @param filtroBarrio
+//     * @return
+//     */
+//    List<Restaurant> listaRestoFiltrados(String filtroBarrio);
 
 //    @Query()
 //    List<Restaurant> filtrarPorComida(@RequestParam(value="listaCategoriaComida", required=false) String comidas);

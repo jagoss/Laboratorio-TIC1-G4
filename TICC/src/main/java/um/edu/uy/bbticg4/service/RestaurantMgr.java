@@ -1,4 +1,4 @@
-package um.edu.uy.bbticg4.service.entities;
+package um.edu.uy.bbticg4.service;
 
 import org.hibernate.sql.Select;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import um.edu.uy.bbticg4.exceptions.InvalidUserInformation;
 import um.edu.uy.bbticg4.exceptions.UserAlreadyExists;
 import um.edu.uy.bbticg4.persistence.RestaurantRepository;
+import um.edu.uy.bbticg4.service.entities.Restaurant;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,15 +33,15 @@ public class RestaurantMgr {
         restaurantRepository.save(new Restaurant(id, name, password, email, cellphone , barrio));
     }
 
-      public List<Restaurant> filtrarRestosporBarrio(String filtroBarrio){
-
-        return restaurantRepository.listaRestoFiltrados(filtroBarrio);
-    }
-
-    public List<Restaurant> filtrarRestosporBarrio(String filtroBarrio, Integer estrellas){
-
-        return restaurantRepository.listaRestoFiltrados(filtroBarrio, estrellas);
-    }
+//      public List<Restaurant> filtrarRestosporBarrio(String filtroBarrio){
+//
+//        return restaurantRepository.listaRestoFiltrados(filtroBarrio);
+//    }
+//
+//    public List<Restaurant> filtrarRestosporBarrio(String filtroBarrio, Integer estrellas){
+//
+//        return restaurantRepository.listaRestoFiltrados(filtroBarrio, estrellas);
+//    }
 
     public Restaurant obtenerResto(Integer id){
 

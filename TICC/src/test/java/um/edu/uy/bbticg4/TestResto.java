@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import um.edu.uy.bbticg4.exceptions.InvalidUserInformation;
 import um.edu.uy.bbticg4.exceptions.UserAlreadyExists;
 import um.edu.uy.bbticg4.service.entities.Restaurant;
-import um.edu.uy.bbticg4.service.entities.RestaurantMgr;
+import um.edu.uy.bbticg4.service.RestaurantMgr;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
