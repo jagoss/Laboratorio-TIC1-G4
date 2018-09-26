@@ -1,17 +1,11 @@
-package um.edu.uy.bbticg4.service;
+package uy.edu.um.bbticg4.service;
 
-import org.hibernate.sql.Select;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
-import um.edu.uy.bbticg4.exceptions.InvalidUserInformation;
-import um.edu.uy.bbticg4.exceptions.UserAlreadyExists;
-import um.edu.uy.bbticg4.persistence.RestaurantRepository;
-import um.edu.uy.bbticg4.service.entities.Restaurant;
-
-import java.util.List;
-import java.util.Optional;
+import uy.edu.um.bbticg4.exceptions.InvalidUserInformation;
+import uy.edu.um.bbticg4.exceptions.UserAlreadyExists;
+import uy.edu.um.bbticg4.persistence.RestaurantRepository;
+import uy.edu.um.bbticg4.service.entities.Restaurant;
 
 @Service
 public class RestaurantMgr {

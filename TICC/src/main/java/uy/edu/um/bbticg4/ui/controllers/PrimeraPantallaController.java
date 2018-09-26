@@ -1,4 +1,4 @@
-package uy.edu.um.UI.controllers;
+package uy.edu.um.bbticg4.ui.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,8 +10,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import um.edu.uy.bbticg4.service.entities.Restaurant;
-import um.edu.uy.bbticg4.service.RestaurantMgr;
+import uy.edu.um.bbticg4.service.entities.Restaurant;
+import uy.edu.um.bbticg4.service.RestaurantMgr;
 
 import java.util.List;
 

@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import um.edu.uy.bbticg4.exceptions.InvalidUserInformation;
-import um.edu.uy.bbticg4.exceptions.UserAlreadyExists;
-import um.edu.uy.bbticg4.service.entities.Restaurant;
-import um.edu.uy.bbticg4.service.RestaurantMgr;
+import uy.edu.um.bbticg4.exceptions.UserAlreadyExists;
+import uy.edu.um.bbticg4.service.entities.Restaurant;
+import uy.edu.um.bbticg4.service.RestaurantMgr;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)

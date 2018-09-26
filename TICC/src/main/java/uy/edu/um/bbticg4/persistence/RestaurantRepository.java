@@ -1,11 +1,7 @@
-package um.edu.uy.bbticg4.persistence;
+package uy.edu.um.bbticg4.persistence;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
-import um.edu.uy.bbticg4.service.entities.Restaurant;
-
-import java.util.List;
+import uy.edu.um.bbticg4.service.entities.Restaurant;
 
 public interface RestaurantRepository extends CrudRepository<Restaurant, Integer> {
 

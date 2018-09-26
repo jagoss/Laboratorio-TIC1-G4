@@ -1,4 +1,4 @@
-package um.edu.uy.bbticg4.service.entities;
+package uy.edu.um.bbticg4.service.entities;
 
 public abstract class Usuario {
 

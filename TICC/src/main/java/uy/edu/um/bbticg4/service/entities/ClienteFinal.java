@@ -1,4 +1,4 @@
-package um.edu.uy.bbticg4.service.entities;
+package uy.edu.um.bbticg4.service.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

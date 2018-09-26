@@ -1,4 +1,4 @@
-package um.edu.uy;
+package uy.edu.um;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import uy.edu.um.UI.controllers.PrimeraPantallaController;
+import uy.edu.um.bbticg4.ui.controllers.PrimeraPantallaController;
 
 @SpringBootApplication
 public class Main extends Application {
