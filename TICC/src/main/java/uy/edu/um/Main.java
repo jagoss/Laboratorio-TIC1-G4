@@ -29,7 +29,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        fxmlLoader.setLocation(PrimeraPantallaController.class.getResource("PrimeraPantalla.fxml"));
+        fxmlLoader.setLocation(PrimeraPantallaController.class.getResource(
+                "PrimeraPantalla.fxml"));
 
         root = fxmlLoader.load();
         primaryStage.setScene(new Scene(root));

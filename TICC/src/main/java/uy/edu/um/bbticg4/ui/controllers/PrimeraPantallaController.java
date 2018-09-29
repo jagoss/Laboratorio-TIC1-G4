@@ -10,11 +10,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 
 import java.util.List;
 
+@Controller
 public class PrimeraPantallaController {
 
 
@@ -72,7 +74,6 @@ public class PrimeraPantallaController {
 
     @FXML
     private Button buttonSearch;
-
 
     @FXML
     void handleFilterSearch(ActionEvent event) {
