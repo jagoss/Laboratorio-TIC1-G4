@@ -76,7 +76,7 @@ public class PrimeraPantallaController {
     private Button buttonSearch;
 
     @FXML
-    void handleFilterSearch(ActionEvent event) {
+    void primeraPantalla(ActionEvent event) {
 
         if (check1Star.isSelected()) {
             estrellas = 1;
