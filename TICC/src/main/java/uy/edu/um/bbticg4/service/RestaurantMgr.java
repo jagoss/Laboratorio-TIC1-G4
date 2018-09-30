@@ -7,6 +7,8 @@ import uy.edu.um.bbticg4.exceptions.UserAlreadyExists;
 import uy.edu.um.bbticg4.persistence.RestaurantRepository;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 
+import java.util.List;
+
 @Service
 public class RestaurantMgr {
 
@@ -27,15 +29,16 @@ public class RestaurantMgr {
         restaurantRepository.save(new Restaurant(id, name, password, email, cellphone , barrio));
     }
 
-//      public List<Restaurant> filtrarRestosporBarrio(String filtroBarrio){
-//
-//        return restaurantRepository.listaRestoFiltrados(filtroBarrio);
-//    }
-//
-//    public List<Restaurant> filtrarRestosporBarrio(String filtroBarrio, Integer estrellas){
-//
-//        return restaurantRepository.listaRestoFiltrados(filtroBarrio, estrellas);
-//    }
+      public List<Restaurant> filtrarRestosPorBarrio(String filtroBarrio){
+
+        return restaurantRepository.findByBarrio(filtroBarrio);
+    }
+
+    public List<Restaurant> filtrarRestosPorBarrio(String filtroBarrio, Integer estrellas){
+
+        return restaurantRepository.findByBarrioAndRating(filtroBarrio, estrellas);
+    }
+
 
     public Restaurant obtenerResto(Integer id){
 

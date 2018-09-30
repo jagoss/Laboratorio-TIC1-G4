@@ -45,6 +45,16 @@ public class Restaurant{
 
     }
 
+    @Override
+    public String toString(){
+
+        return "Restaurant [Nombre=" + name + ", email=" + email
+                + ", Contacto=" + cellphone + ", barrio=" + barrio + "]";
+    }
+
+
+
+
     public void setId(Integer id){
         this.id = id;
     }

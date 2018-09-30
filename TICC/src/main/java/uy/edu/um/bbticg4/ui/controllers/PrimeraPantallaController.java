@@ -108,11 +108,11 @@ public class PrimeraPantallaController {
             barrio = "MalvinNorte";  //ACORDARSE QUE NO LLEVA ESPACIO
         }
 
-//        if (estrellas.equals(0)) {
-//            restoPorBarrio = restoMgr.filtrarRestosporBarrio(barrio);
-//        } else {
-//            restoPorBarrio = restoMgr.filtrarRestosporBarrio(barrio, estrellas);
-//        }
+        if (estrellas.equals(0)) {
+            restoPorBarrio = restoMgr.filtrarRestosPorBarrio(barrio);
+        } else {
+            restoPorBarrio = restoMgr.filtrarRestosPorBarrio(barrio, estrellas);
+        }
 
         if(tipoDeComida != null){
 

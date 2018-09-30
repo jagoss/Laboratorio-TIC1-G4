@@ -11,6 +11,8 @@ import uy.edu.um.bbticg4.exceptions.UserAlreadyExists;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 
+import java.util.List;
+
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class TestResto {
@@ -18,7 +20,7 @@ public class TestResto {
     @Autowired
     RestaurantMgr restoMgr;
 
-    @Test
+
     public void testBasic(){
         try {
 
@@ -52,7 +54,6 @@ public class TestResto {
         }
     }
 
-
     @Test
     public void testConsulta(){
         try {
@@ -66,9 +67,6 @@ public class TestResto {
             resto1.addCategoriaComida("Pasta");
 
             restoMgr.updateResto(resto1);
-
-
-
             restoMgr.deleteResto(123);
 
         } catch (UserAlreadyExists userAlreadyExists) {
@@ -78,4 +76,27 @@ public class TestResto {
         }
     }
 
+    @Test
+    public void testFiltroBasico(){
+        try {
+
+            restoMgr.addRestaurant(1234,"Barcito","bar1", "bar@bar.com",
+                    "1111","Pocitos");
+
+            restoMgr.addRestaurant(1235,"Barzon","bar1", "bar@bar.com",
+                    "1111","Pocitos");
+
+            List<Restaurant> listita = restoMgr.filtrarRestosPorBarrio("Pocitos");
+
+            System.out.println(listita.toString());
+
+            restoMgr.deleteResto(1234);
+            restoMgr.deleteResto(1235);
+
+        } catch (UserAlreadyExists userAlreadyExists) {
+            userAlreadyExists.printStackTrace();
+        } catch (InvalidUserInformation invalidUserInformation) {
+            invalidUserInformation.printStackTrace();
+        }
+    }
 }
