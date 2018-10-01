@@ -11,8 +11,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import uy.edu.um.bbticg4.exceptions.TipoComidaException;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
+import uy.edu.um.bbticg4.service.entities.TipoComida;
 
 import java.util.List;
 
@@ -41,8 +43,8 @@ public class PrimeraPantallaController {
     @FXML
     private TableColumn ColumnaEmail;
 
+    private List<Integer> listTipoComida;
 
-    private String tipoDeComida = null;
     @FXML
     private CheckBox checkParrilla;
     @FXML
@@ -76,7 +78,7 @@ public class PrimeraPantallaController {
     private Button buttonSearch;
 
     @FXML
-    void filteredByRestaurant(ActionEvent event) {
+    void filteredByRestaurant(ActionEvent event) throws TipoComidaException {
 
         if (check1Star.isSelected()) {
             estrellas = 1;
@@ -90,13 +92,14 @@ public class PrimeraPantallaController {
             estrellas = 5;
         }
 
-
         if (checkParrilla.isSelected()) {
-            tipoDeComida = "Parrilla";
-        } else if (checkPasta.isSelected()) {
-            tipoDeComida = "Pasta";
-        } else if (checkPizza.isSelected()) {
-            tipoDeComida = "Pizza";
+            listTipoComida.add(1);
+        }
+        if (checkPasta.isSelected()) {
+            listTipoComida.add(2);
+        }
+        if (checkPizza.isSelected()) {
+            listTipoComida.add(3);
         }
 
 
@@ -108,46 +111,31 @@ public class PrimeraPantallaController {
             barrio = "MalvinNorte";  //ACORDARSE QUE NO LLEVA ESPACIO
         }
 
-        if (estrellas.equals(0)) {
+        if( (listTipoComida != null || listTipoComida.isEmpty()) && estrellas.equals(0)){
             restoPorBarrio = restoMgr.filtrarRestosPorBarrio(barrio);
-        } else {
-            restoPorBarrio = restoMgr.filtrarRestosPorBarrio(barrio, estrellas);
+        } else if(estrellas.equals(0)){
+            restoPorBarrio = restoMgr.filtrarRestosPorBarrioYTipoComida(listTipoComida, barrio);
+        } else{
+            restoPorBarrio = restoMgr.filtrarRestosPorBarrioYTipoComidaYRating(listTipoComida, estrellas, barrio);
         }
 
-        if(tipoDeComida != null){
+        ObservableList<Restaurant> resultados = FXCollections.observableArrayList();
 
-            for(int i = 0; i<restoPorBarrio.size(); i++){
-                List<String> listaCategoria = restoPorBarrio.get(i).getListaCategoriaComida();
-
-                boolean laComidaBuscadaEsta = false;
-
-                for(int j = 0; j<listaCategoria.size(); j++){
-
-                    if( listaCategoria.get(j) != null && tipoDeComida.equals(listaCategoria.get(j))){
-                        laComidaBuscadaEsta = true;
-                    }
-                }
-
-                if(laComidaBuscadaEsta){
-                  listaFinal.add(restoPorBarrio.get(i));
-                }
-
-            }
-            restoPorBarrio = listaFinal;
-
-            ObservableList<Restaurant> resultados = FXCollections.observableArrayList();
-            for(int i = 0; i<restoPorBarrio.size(); i++){
-                resultados.add(restoPorBarrio.get(i));
-            }
-
-            ColumnaNombres.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("name"));
-            ColumnaBarrio.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("barrio"));
-            ColumnaRating.setCellValueFactory(new PropertyValueFactory<Restaurant,Integer>("rating"));
-            ColumnaTelefono.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("cellphone"));
-            ColumnaEmail.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("email"));
-
-            FilteredRestaurants.setItems(resultados);
+        for(int i = 0; i<restoPorBarrio.size(); i++){
+            resultados.add(restoPorBarrio.get(i));
         }
+
+        ColumnaNombres.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("name"));
+        ColumnaBarrio.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("barrio"));
+        ColumnaRating.setCellValueFactory(new PropertyValueFactory<Restaurant,Integer>("rating"));
+        ColumnaTelefono.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("cellphone"));
+        ColumnaEmail.setCellValueFactory(new PropertyValueFactory<Restaurant,String>("email"));
+
+        FilteredRestaurants.setItems(resultados);
+
+        listTipoComida.clear();
+        estrellas = 0;
+
     }
 
 

@@ -1,9 +1,8 @@
 package uy.edu.um.bbticg4.service.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "restaurant")
@@ -11,7 +10,12 @@ public class Restaurant{
 
     @Id
     private Integer id;
-    private ArrayList<String> listaCategoriaComida = new ArrayList<>(5);
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "restaurant_tipo_comida",
+            joinColumns = { @JoinColumn(name = "tipo_comida_id") })
+    private List<TipoComida> listaCategoriaComida = new ArrayList<>(5);
     private Integer rating;
     private String barrio;
     private String name;
@@ -30,12 +34,6 @@ public class Restaurant{
     }
 
     public Restaurant(){}
-
-    public void addCategoriaComida(String nuevaCategoria){
-
-        listaCategoriaComida.add(nuevaCategoria);
-        System.out.println("Agregacion exitosa!");
-    }
 
     public void deleteCategoriaComida(String categoriaAEliminar){
 
@@ -63,12 +61,8 @@ public class Restaurant{
         return id;
     }
 
-    public ArrayList<String> getListaCategoriaComida() {
+    public List<TipoComida> getListaCategoriaComida() {
         return listaCategoriaComida;
-    }
-
-    public void setListaCategoriaComida(ArrayList<String> listaCategoriaComida) {
-        this.listaCategoriaComida = listaCategoriaComida;
     }
 
     public String getBarrio() {
