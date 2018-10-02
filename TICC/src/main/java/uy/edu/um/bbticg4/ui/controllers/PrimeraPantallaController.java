@@ -16,6 +16,7 @@ import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 import uy.edu.um.bbticg4.service.entities.TipoComida;
 
+import java.util.LinkedList;
 import java.util.List;
 
 @Controller
@@ -25,10 +26,7 @@ public class PrimeraPantallaController {
     @Autowired
     private RestaurantMgr restoMgr;
 
-    List<Restaurant> restoPorBarrio;
-    List<Restaurant> listaFinal;
-
-
+    List<Restaurant> restoPorBarrio = new LinkedList<>();
 
     @FXML
     private TableView FilteredRestaurants;
@@ -43,7 +41,7 @@ public class PrimeraPantallaController {
     @FXML
     private TableColumn ColumnaEmail;
 
-    private List<Integer> listTipoComida;
+    private List<Integer> listTipoComida = new LinkedList<>();
 
     @FXML
     private CheckBox checkParrilla;

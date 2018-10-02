@@ -5,9 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import uy.edu.um.bbticg4.service.RestaurantMgr;
+import uy.edu.um.bbticg4.service.TipoComidaMgr;
 import uy.edu.um.bbticg4.ui.controllers.PrimeraPantallaController;
 
 @SpringBootApplication
@@ -29,6 +32,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
         fxmlLoader.setLocation(PrimeraPantallaController.class.getResource(
                 "PrimeraPantalla.fxml"));
 

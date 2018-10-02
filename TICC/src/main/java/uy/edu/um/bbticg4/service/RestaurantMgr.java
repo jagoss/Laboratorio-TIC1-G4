@@ -76,6 +76,8 @@ public class RestaurantMgr {
     public void addCategoriaComida(Restaurant resto, Integer idTipoComida) throws TipoComidaException,
             CategoriaComidaYaAgregadaException{
 
+        resto = restaurantRepository.findById(resto.getId()).get();
+
         if(!tipoComidaRepository.existsById(idTipoComida)){
             throw new TipoComidaException();
         }
@@ -85,6 +87,7 @@ public class RestaurantMgr {
 
         if (!listaCategoriaComida.contains(tipoComida)) {
             resto.getListaCategoriaComida().add(tipoComida);
+            restaurantRepository.save(resto);
             System.out.println("Agregacion exitosa!");
         }else{
             throw new CategoriaComidaYaAgregadaException();
