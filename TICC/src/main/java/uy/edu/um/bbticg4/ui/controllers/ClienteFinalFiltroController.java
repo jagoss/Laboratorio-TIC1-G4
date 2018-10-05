@@ -17,7 +17,7 @@ import uy.edu.um.bbticg4.service.RestaurantMgr;
 import java.util.List;
 
 @Controller
-public class PrimeraPantallaController {
+public class ClienteFinalFiltroController {
 
 
     @Autowired
