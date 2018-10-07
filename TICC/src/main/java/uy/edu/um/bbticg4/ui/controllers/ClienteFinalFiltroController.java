@@ -20,7 +20,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Controller
-public class PrimeraPantallaController {
+public class ClienteFinalFiltroController {
 
 
     @Autowired
