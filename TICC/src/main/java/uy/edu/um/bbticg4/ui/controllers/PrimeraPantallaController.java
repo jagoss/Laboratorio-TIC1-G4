@@ -100,7 +100,6 @@ public class PrimeraPantallaController {
             listTipoComida.add(3);
         }
 
-
         if (checkPocitos.isSelected()) {
             barrio = "Pocitos";
         } else if (checkBuceo.isSelected()) {
@@ -109,7 +108,7 @@ public class PrimeraPantallaController {
             barrio = "MalvinNorte";  //ACORDARSE QUE NO LLEVA ESPACIO
         }
 
-        if( (listTipoComida != null || listTipoComida.isEmpty()) && estrellas.equals(0)){
+        if( (listTipoComida == null || listTipoComida.isEmpty()) && estrellas.equals(0)){
             restoPorBarrio = restoMgr.filtrarRestosPorBarrio(barrio);
         } else if(estrellas.equals(0)){
             restoPorBarrio = restoMgr.filtrarRestosPorBarrioYTipoComida(listTipoComida, barrio);

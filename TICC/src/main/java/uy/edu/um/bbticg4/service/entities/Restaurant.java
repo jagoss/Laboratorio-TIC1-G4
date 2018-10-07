@@ -15,7 +15,7 @@ public class Restaurant{
             cascade = { CascadeType.ALL })
     @JoinTable(
             name = "restaurant_tipo_comida",
-            joinColumns = { @JoinColumn(name = "tipo_comida_id") })
+            joinColumns = { @JoinColumn(name = "id_resto") })
     private List<TipoComida> listaCategoriaComida = new ArrayList<>(5);
     private Integer rating;
     private String barrio;
