@@ -53,6 +53,11 @@ public class RestaurantMgr {
         return restaurantRepository.existsByEmailAndPassword(email, password);
     }
 
+    public boolean emailOrPasswordWrong(String email, String password){
+        return restaurantRepository.existsByEmailOrPassword(email, password);
+
+    }
+
     public List<Restaurant> filtrarRestosPorBarrio(String filtroBarrio){
 
         return restaurantRepository.findByBarrio(filtroBarrio);

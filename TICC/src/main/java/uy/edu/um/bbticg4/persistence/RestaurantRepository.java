@@ -46,5 +46,7 @@ public interface RestaurantRepository extends CrudRepository<Restaurant, Integer
     List<Restaurant> findByTipoComidaAndRatingAAndBarrio(List<Integer> idListaTiposComida, Integer Rating, String barrio);
 
 
-    boolean existsByEmailAndPassword(String email, String barrio);
+    boolean existsByEmailAndPassword(String email, String password);
+
+    boolean existsByEmailOrPassword(String email, String password);
 }
