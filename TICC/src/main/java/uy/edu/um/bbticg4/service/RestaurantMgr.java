@@ -22,21 +22,38 @@ public class RestaurantMgr {
     @Autowired
     private TipoComidaRepository tipoComidaRepository;
 
-    public void addRestaurant(Integer id, String name, String password, String email, String cellphone ,String barrio)
+    public void addRestaurant(String name, String nombreFantasia,String password,String cuentaBanco , Integer ruc,
+                              String email, String cellphone, String direccion,String barrio)
             throws UserAlreadyExists, InvalidUserInformation {
 
-        if(id == null || name == null || barrio == null || "".equals(name)|| "".equals(id) || "".equals(barrio)){
+        if (name == null        || name.equals("")   ||
+            email== null        || email.equals("")  ||
+            ruc == null         ||
+            cuentaBanco == null || cuentaBanco.equals("")||
+            password == null    || password.equals("")  ||
+            direccion == null   || direccion.equals("")||
+            barrio == null      || barrio.equals("")   ||
+            cellphone == null   || cellphone.equals("")  ){
             throw new InvalidUserInformation();
         }
 
-        if(restaurantRepository.existsById(id)){
+        if(restaurantRepository.existsByRucOrCellphoneOrCuentaBancoOrEmailOrName(ruc, cellphone, cuentaBanco, email, name)){
             throw new UserAlreadyExists();
         }
-
-        restaurantRepository.save(new Restaurant(id, name, password, email, cellphone , barrio));
+        if(nombreFantasia == null || nombreFantasia.equals("")){
+        restaurantRepository.save(new Restaurant(name, password, cuentaBanco , ruc, email, cellphone, direccion, barrio));
+        }else{
+            restaurantRepository.save(new Restaurant(name, nombreFantasia, password, cuentaBanco , ruc, email,
+                    cellphone, direccion, barrio));
+        }
     }
 
-      public List<Restaurant> filtrarRestosPorBarrio(String filtroBarrio){
+    public boolean loginCorrecto(String email, String password){
+
+        return restaurantRepository.existsByEmailAndPassword(email, password);
+    }
+
+    public List<Restaurant> filtrarRestosPorBarrio(String filtroBarrio){
 
         return restaurantRepository.findByBarrio(filtroBarrio);
     }

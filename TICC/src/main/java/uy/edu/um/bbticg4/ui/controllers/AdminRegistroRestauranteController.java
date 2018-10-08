@@ -65,7 +65,6 @@ public class AdminRegistroRestauranteController {
     @FXML
     void agregarRestaurante(ActionEvent event) {
         if (        txtNombre.getText() == null              || txtNombre.getText().equals("")              ||
-                txtNombreFantasia.getText() == null      || txtNombreFantasia.getText().equals("")      ||
                 txtEmail.getText() == null               || txtEmail.getText().equals("")               ||
                 txtConfirmarEmail.getText() == null      || txtConfirmarEmail.getText().equals("")      ||
                     txtRUC.getText() == null                 || txtRUC.getText().equals("")                 ||
@@ -85,15 +84,19 @@ public class AdminRegistroRestauranteController {
             try {
                 int ruc = Integer.parseInt(txtRUC.getText());
                 String name = txtNombre.getText();
+                String nombreFantasia = txtNombreFantasia.getText();
                 String contrasena = txtContrasena.getText(); //NO ES ALFANUMERICA, EDITAR LUEGO
                 String email = txtEmail.getText();           //NO ES ALFANUMERICA, EDITAR LUEGO
                 String telefono = txtTelefono.getText();
                 String barrio = txtBarrio.getText();
-
+                String cuentaBancaria = txtCuentaBancaria.getText();
+                String direccion = txtDireccion.getText();
 
                 try {
 
-                    restaurantMgr.addRestaurant(ruc, name, contrasena, email, telefono, barrio);
+                    restaurantMgr.addRestaurant(name, nombreFantasia,contrasena, cuentaBancaria, ruc, email, telefono,
+                            direccion, barrio);
+
 
                     showAlert("Restaurante agregado", "Se agrego con exito el restaurante!");
 
