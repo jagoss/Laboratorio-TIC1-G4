@@ -16,7 +16,7 @@ public class Restaurant{
     @ManyToMany(fetch = FetchType.EAGER,
             cascade = { CascadeType.ALL })
     @JoinTable(
-            name = "restauranttipo_comida",
+            name = "restaurant_tipo_comida",
             joinColumns = { @JoinColumn(name = "id_resto") })
     private List<TipoComida> listaCategoriaComida = new ArrayList<>(5);
     private Integer rating;
