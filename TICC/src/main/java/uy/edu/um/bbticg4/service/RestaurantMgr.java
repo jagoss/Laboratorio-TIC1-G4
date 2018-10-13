@@ -6,8 +6,10 @@ import uy.edu.um.bbticg4.exceptions.CategoriaComidaYaAgregadaException;
 import uy.edu.um.bbticg4.exceptions.InvalidUserInformation;
 import uy.edu.um.bbticg4.exceptions.TipoComidaException;
 import uy.edu.um.bbticg4.exceptions.UserAlreadyExists;
+import uy.edu.um.bbticg4.persistence.BarrioRepository;
 import uy.edu.um.bbticg4.persistence.RestaurantRepository;
 import uy.edu.um.bbticg4.persistence.TipoComidaRepository;
+import uy.edu.um.bbticg4.service.entities.Barrio;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.service.entities.TipoComida;
 
@@ -22,8 +24,11 @@ public class RestaurantMgr {
     @Autowired
     private TipoComidaRepository tipoComidaRepository;
 
-    public void addRestaurant(String name, String nombreFantasia,String password,String cuentaBanco , Integer ruc,
-                              String email, String cellphone, String direccion,String barrio)
+    @Autowired
+    private BarrioRepository barrioRepo;
+
+    public void addRestaurant(String name, String nombreFantasia, String password, String cuentaBanco , Long ruc,
+                              String email, String cellphone, String direccion, Barrio barrio)
             throws UserAlreadyExists, InvalidUserInformation {
 
         if (name == null        || name.equals("")   ||
@@ -32,7 +37,7 @@ public class RestaurantMgr {
             cuentaBanco == null || cuentaBanco.equals("")||
             password == null    || password.equals("")  ||
             direccion == null   || direccion.equals("")||
-            barrio == null      || barrio.equals("")   ||
+            barrio == null      || !barrioRepo.existsById(barrio.getId()) ||
             cellphone == null   || cellphone.equals("")  ){
             throw new InvalidUserInformation();
         }
@@ -49,17 +54,14 @@ public class RestaurantMgr {
     }
 
     public boolean loginCorrecto(String email, String password){
-
         return restaurantRepository.existsByEmailAndPassword(email, password);
     }
 
     public boolean emailOrPasswordWrong(String email, String password){
         return restaurantRepository.existsByEmailOrPassword(email, password);
-
     }
 
-    public List<Restaurant> filtrarRestosPorBarrio(String filtroBarrio){
-
+    public List<Restaurant> filtrarRestosPorBarrio(List<Barrio> filtroBarrio){
         return restaurantRepository.findByBarrio(filtroBarrio);
     }
 
@@ -68,7 +70,7 @@ public class RestaurantMgr {
         return restaurantRepository.findByBarrioAndRating(filtroBarrio, estrellas);
     }
 
-    public List<Restaurant> filtrarRestosPorBarrioYTipoComida(List<Integer> listaIdTipoComida, String filtroBarrio)
+    public List<Restaurant> filtrarRestosPorBarrioYTipoComida(List<Integer> listaIdTipoComida, List<Barrio> filtroBarrio)
             throws TipoComidaException {
 
         int listaSize =listaIdTipoComida.size();
@@ -82,7 +84,7 @@ public class RestaurantMgr {
     }
 
     public List<Restaurant> filtrarRestosPorBarrioYTipoComidaYRating(List<Integer> listaIdTipoComida, Integer rating,
-                                                                     String filtroBarrio) throws TipoComidaException {
+                                                             List<Barrio>  filtroBarrio) throws TipoComidaException {
 
         int listaSize =listaIdTipoComida.size();
 
@@ -116,17 +118,26 @@ public class RestaurantMgr {
         }
     }
 
-    public Restaurant obtenerResto(Integer id){
+    public Restaurant obtenerResto(Integer id){ return restaurantRepository.findById(id).get(); }
 
-      return restaurantRepository.findById(id).get();
+    public Restaurant findRestoByRuc(Long ruc){ return restaurantRepository.findRestaurantsByRuc(ruc); }
+
+    public boolean deleteRestoByRuc(Long ruc){
+        boolean exit = false;
+
+        restaurantRepository.deleteRestaurantsByRuc(ruc);
+
+        if (!restaurantRepository.existsByRuc(ruc)){ exit = true; }
+
+        return exit;
     }
 
-    public void updateResto(Restaurant resto){
+    public boolean existsByRuc(Long ruc){ return restaurantRepository.existsByRuc(ruc); }
 
-        restaurantRepository.save(resto);
-    }
+    public void updateResto(Restaurant resto){ restaurantRepository.save(resto); }
 
     public void deleteResto(Integer id){
         restaurantRepository.deleteById(id);
     }
+
 }

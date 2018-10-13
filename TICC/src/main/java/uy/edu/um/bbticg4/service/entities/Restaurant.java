@@ -19,19 +19,29 @@ public class Restaurant{
             name = "restaurant_tipo_comida",
             joinColumns = { @JoinColumn(name = "id_resto") })
     private List<TipoComida> listaCategoriaComida = new ArrayList<>(5);
-    private Integer rating;
-    private String barrio;
+    private Integer rating = 3;
+
+    @ManyToOne
+    private Barrio barrio;
+
+    @Column(unique = true)
     private String name;
     private String nombreFantasia;
+    @Column(unique = true)
     private String email;
+    @Column(unique = true)
     private String cellphone;
     private String password;
+    @Column(unique = true)
     private String cuentaBanco;
-    private Integer ruc;
+    @Column(unique = true)
+    private Long ruc;
+    @Column(unique = true)
     private String direccion;
+    private boolean firstReview = false;
 
-    public Restaurant(String name,String password, String cuentaBanco, Integer ruc ,String email, String cellphone ,
-                      String direccion, String barrio){
+    public Restaurant(String name,String password, String cuentaBanco, Long ruc ,String email, String cellphone ,
+                      String direccion, Barrio barrio){
 
         this.direccion = direccion;
         this.ruc = ruc;
@@ -43,8 +53,8 @@ public class Restaurant{
         this.cuentaBanco = cuentaBanco;
     }
 
-    public Restaurant(String name, String nombreFantasia,String password,String cuentaBanco , Integer ruc,
-                      String email, String cellphone, String direccion, String barrio){
+    public Restaurant(String name, String nombreFantasia,String password,String cuentaBanco , Long ruc,
+                      String email, String cellphone, String direccion, Barrio barrio){
 
         this.direccion = direccion;
         this.ruc = ruc;
@@ -95,11 +105,11 @@ public class Restaurant{
         this.cuentaBanco = cuentaBanco;
     }
 
-    public Integer getRuc() {
+    public Long getRuc() {
         return ruc;
     }
 
-    public void setRuc(Integer ruc) {
+    public void setRuc(Long ruc) {
         this.ruc = ruc;
     }
 
@@ -123,11 +133,11 @@ public class Restaurant{
         return listaCategoriaComida;
     }
 
-    public String getBarrio() {
+    public Barrio getBarrio() {
         return barrio;
     }
 
-    public void setBarrio(String barrio) {
+    public void setBarrio(Barrio barrio) {
         this.barrio = barrio;
     }
 
@@ -169,5 +179,13 @@ public class Restaurant{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean getFirstReview() {
+        return firstReview;
+    }
+
+    public void setFirstReview(boolean fr) {
+        this.firstReview = fr;
     }
 }

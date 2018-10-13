@@ -12,21 +12,28 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import uy.edu.um.bbticg4.exceptions.TipoComidaException;
+import uy.edu.um.bbticg4.service.BarrioMgr;
+import uy.edu.um.bbticg4.service.entities.Barrio;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
-import uy.edu.um.bbticg4.service.entities.TipoComida;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 @Controller
 public class ClienteFinalFiltroController {
 
-
     @Autowired
     private RestaurantMgr restoMgr;
 
+    @Autowired
+    private BarrioMgr barrioMgr;
+
     List<Restaurant> restoPorBarrio = new LinkedList<>();
+    List<Barrio> filtroBarrio = new LinkedList<>();
+    private List<Integer> listTipoComida = new ArrayList<Integer>(20);
+    private Integer rating = 0;
 
     @FXML
     private TableView FilteredRestaurants;
@@ -41,8 +48,6 @@ public class ClienteFinalFiltroController {
     @FXML
     private TableColumn ColumnaEmail;
 
-    private List<Integer> listTipoComida = new LinkedList<>();
-
     @FXML
     private CheckBox checkParrilla;
     @FXML
@@ -50,8 +55,6 @@ public class ClienteFinalFiltroController {
     @FXML
     private CheckBox checkPasta;
 
-
-    private Integer estrellas = 0;
     @FXML
     private CheckBox check1Star;
     @FXML
@@ -64,7 +67,6 @@ public class ClienteFinalFiltroController {
     private CheckBox check5Stars;
 
 
-    private String barrio = null;
     @FXML
     private CheckBox checkPocitos;
     @FXML
@@ -79,41 +81,31 @@ public class ClienteFinalFiltroController {
     void filteredByRestaurant(ActionEvent event) throws TipoComidaException {
 
         if (check1Star.isSelected()) {
-            estrellas = 1;
+            rating = 1;
         } else if (check2Stars.isSelected()) {
-            estrellas = 2;
+            rating = 2;
         } else if (check3Stars.isSelected()) {
-            estrellas = 3;
+            rating = 3;
         } else if (check4Stars.isSelected()) {
-            estrellas = 4;
+            rating = 4;
         } else if (check5Stars.isSelected()) {
-            estrellas = 5;
+            rating = 5;
         }
 
-        if (checkParrilla.isSelected()) {
-            listTipoComida.add(1);
-        }
-        if (checkPasta.isSelected()) {
-            listTipoComida.add(2);
-        }
-        if (checkPizza.isSelected()) {
-            listTipoComida.add(3);
-        }
+        if (checkParrilla.isSelected()) { listTipoComida.add(1); }
+        if (checkPasta.isSelected()) { listTipoComida.add(2); }
+        if (checkPizza.isSelected()) { listTipoComida.add(3); }
 
-        if (checkPocitos.isSelected()) {
-            barrio = "Pocitos";
-        } else if (checkBuceo.isSelected()) {
-            barrio = "Buceo";
-        } else if (checkMalvinNorte.isSelected()) {
-            barrio = "MalvinNorte";  //ACORDARSE QUE NO LLEVA ESPACIO
-        }
+        if (checkPocitos.isSelected()) { filtroBarrio.add(barrioMgr.getBarrio("Pocitos"));}
+        if (checkBuceo.isSelected()) { filtroBarrio.add(barrioMgr.getBarrio("Buceo"));}
+        if (checkMalvinNorte.isSelected()) { filtroBarrio.add(barrioMgr.getBarrio("MalvinNorte"));}
 
-        if( (listTipoComida == null || listTipoComida.isEmpty()) && estrellas.equals(0)){
-            restoPorBarrio = restoMgr.filtrarRestosPorBarrio(barrio);
-        } else if(estrellas.equals(0)){
-            restoPorBarrio = restoMgr.filtrarRestosPorBarrioYTipoComida(listTipoComida, barrio);
+        if( (listTipoComida == null || listTipoComida.isEmpty()) && rating.equals(0)){
+            restoPorBarrio = restoMgr.filtrarRestosPorBarrio(filtroBarrio);
+        } else if(rating.equals(0)){
+            restoPorBarrio = restoMgr.filtrarRestosPorBarrioYTipoComida(listTipoComida, filtroBarrio);
         } else{
-            restoPorBarrio = restoMgr.filtrarRestosPorBarrioYTipoComidaYRating(listTipoComida, estrellas, barrio);
+            restoPorBarrio = restoMgr.filtrarRestosPorBarrioYTipoComidaYRating(listTipoComida, rating, filtroBarrio);
         }
 
         ObservableList<Restaurant> resultados = FXCollections.observableArrayList();
@@ -131,9 +123,9 @@ public class ClienteFinalFiltroController {
         FilteredRestaurants.setItems(resultados);
 
         listTipoComida.clear();
-        estrellas = 0;
+        filtroBarrio.clear();
+        rating = 0;
 
     }
-
 
 }

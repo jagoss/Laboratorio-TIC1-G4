@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import uy.edu.um.MainAdmin;
 import uy.edu.um.bbticg4.exceptions.InvalidUserInformation;
 import uy.edu.um.bbticg4.exceptions.UserAlreadyExists;
+import uy.edu.um.bbticg4.service.BarrioMgr;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 
 @Component
@@ -23,6 +24,8 @@ public class AdminRegistroRestauranteController {
     @Autowired
     private RestaurantMgr restaurantMgr;
 
+    @Autowired
+    private BarrioMgr barrioMgr;
     @FXML
     private TextField txtNombre;
 
@@ -82,7 +85,7 @@ public class AdminRegistroRestauranteController {
         } else {
 
             try {
-                int ruc = Integer.parseInt(txtRUC.getText());
+                Long ruc = Long.parseLong(txtRUC.getText());
                 String name = txtNombre.getText();
                 String nombreFantasia = txtNombreFantasia.getText();
                 String contrasena = txtContrasena.getText(); //NO ES ALFANUMERICA, EDITAR LUEGO
@@ -95,7 +98,7 @@ public class AdminRegistroRestauranteController {
                 try {
 
                     restaurantMgr.addRestaurant(name, nombreFantasia,contrasena, cuentaBancaria, ruc, email, telefono,
-                            direccion, barrio);
+                            direccion, barrioMgr.getBarrio(barrio));
 
 
                     showAlert("Restaurante agregado", "Se agrego con exito el restaurante!");
