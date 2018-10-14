@@ -19,12 +19,12 @@ public interface RestaurantRepository extends CrudRepository<Restaurant, Integer
                                                              String email, String name);
 
 
-    @Query("SELECT r FROM Restaurant r INNER JOIN r.listaCategoriaComida tp WHERE tp.idTipoComida IN (?1) " +
+    @Query("SELECT distinct r FROM Restaurant r INNER JOIN r.listaCategoriaComida tp WHERE tp.idTipoComida IN (?1) " +
             "AND r.barrio IN (?2) ORDER BY r.rating desc ")
     List<Restaurant> findByTipoComidaAndBarrio(List<Integer> idListaTiposComidas, List<Barrio> listaBarrio);
 
 
-    @Query("SELECT r FROM Restaurant r INNER JOIN r.listaCategoriaComida tp WHERE tp.id IN (?1) AND r.rating = (?2)" +
+    @Query("SELECT distinct  r FROM Restaurant r INNER JOIN r.listaCategoriaComida tp WHERE tp.id IN (?1) AND r.rating = (?2)" +
             " AND r.barrio IN(?3) ORDER BY r.rating desc ")
     List<Restaurant> findByTipoComidaAndRatingAAndBarrio(List<Integer> idListaTiposComida, Integer Rating,
                                                          List<Barrio> listaBarrio);
