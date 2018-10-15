@@ -5,6 +5,7 @@ import java.rmi.server.*;
 
 public class Chat extends UnicastRemoteObject implements ChatInterface  {
 
+
     public String name;
     public ChatInterface client=null;
 
