@@ -132,6 +132,7 @@ public class RestaurantMgr {
         return exit;
     }
 
+
     public boolean existsByRuc(Long ruc){ return restaurantRepository.existsByRuc(ruc); }
 
     public void updateResto(Restaurant resto){ restaurantRepository.save(resto); }
