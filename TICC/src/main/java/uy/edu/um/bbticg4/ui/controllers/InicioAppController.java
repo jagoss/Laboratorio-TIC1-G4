@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class InicioAppController {
 
     @FXML
@@ -22,7 +24,7 @@ public class InicioAppController {
     }
 
     @FXML
-    void signIn(ActionEvent event) {
+    void signIn(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
        // fxmlLoader.setControllerFactory(NUEVO MAIN?????.getContext()::getBean); NUEVO MAIN????
