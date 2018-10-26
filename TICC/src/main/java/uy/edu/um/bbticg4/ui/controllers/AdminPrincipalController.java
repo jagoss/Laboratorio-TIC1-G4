@@ -1,14 +1,14 @@
 package uy.edu.um.bbticg4.ui.controllers;
 
-        import javafx.event.ActionEvent;
-        import javafx.fxml.FXML;
-        import javafx.fxml.FXMLLoader;
-        import javafx.scene.Parent;
-        import javafx.scene.Scene;
-        import javafx.scene.control.Button;
-        import javafx.stage.Stage;
-        import org.springframework.stereotype.Component;
-        import uy.edu.um.MainAdmin;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+import org.springframework.stereotype.Component;
+import uy.edu.um.MainAdmin;
 
 @Component
 public class AdminPrincipalController {

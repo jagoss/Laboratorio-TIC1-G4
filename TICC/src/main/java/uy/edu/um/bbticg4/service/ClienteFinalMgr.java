@@ -13,17 +13,27 @@ public class ClienteFinalMgr {
     @Autowired
     private ClienteFinalRepository clienteFinalRepository;
 
-    public void addClienteFinal(Integer id, String fName, String lName, String email, String cellphone, String password)
+    public void addClienteFinal(String fName, String lName, String email, String cellphone, String password)
             throws UserAlreadyExists, InvalidUserInformation {
 
-        if(id == null || fName == null || fName == null || "".equals(fName)|| "".equals(id) || "".equals(fName)){
+        if(fName == null    ||  "".equals(fName)
+                || lName == null    ||  "".equals(lName)
+                || cellphone == null    ||  "".equals(cellphone)
+                || password == null     ||  "".equals(password) ){
             throw new InvalidUserInformation();
         }
 
-        if(clienteFinalRepository.existsById(id)){
+        if(clienteFinalRepository.existsByEmailOrCellphone(email, cellphone)){
             throw new UserAlreadyExists();
         }
 
-        clienteFinalRepository.save(new ClienteFinal(id, fName, lName, email, cellphone, password));
+        clienteFinalRepository.save(new ClienteFinal(fName, lName, email, cellphone, password));
     }
+
+    public boolean loginCorrecto(String email, String password){
+        return clienteFinalRepository.existsByEmailAndPassword(email, password);
+    }
+
+    public boolean EmailExists(String email){ return clienteFinalRepository.existsByEmail(email); }
+
 }
