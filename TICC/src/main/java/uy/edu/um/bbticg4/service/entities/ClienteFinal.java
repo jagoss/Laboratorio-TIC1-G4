@@ -1,8 +1,6 @@
 package uy.edu.um.bbticg4.service.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
@@ -10,17 +8,19 @@ import java.util.ArrayList;
 public class ClienteFinal{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator_cf")
+    @SequenceGenerator(name="id_generator_cf", sequenceName = "id_seq_cf", allocationSize=1)
     private Integer id;
     private String firstName;
     private String lastName;
+    @Column(unique = true)
     private String email;
+    @Column(unique = true)
     private String cellphone;
     private String password;
 
-    public ClienteFinal(Integer id, String fName, String lName, String email, String cellphone, String password){
+    public ClienteFinal(String fName, String lName, String email, String cellphone, String password){
 
-
-        this.id = id;
         this.cellphone = cellphone;
         this.email = email;
         this.password = password;

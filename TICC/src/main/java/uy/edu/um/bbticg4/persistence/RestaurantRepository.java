@@ -31,12 +31,13 @@ public interface RestaurantRepository extends CrudRepository<Restaurant, Integer
 
     boolean existsByEmailAndPassword(String email, String password);
 
-    boolean existsByEmailOrPassword(String email, String password);
+    boolean existsByEmail(String email);
 
     Restaurant findRestaurantsByRuc(Long ruc);
 
     @Transactional
     void deleteRestaurantsByRuc(Long ruc);
+
     boolean existsByRuc(Long ruc);
 
     Restaurant findRestaurantsByEmail(String email);

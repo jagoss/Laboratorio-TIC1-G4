@@ -57,16 +57,13 @@ public class RestaurantMgr {
         return restaurantRepository.existsByEmailAndPassword(email, password);
     }
 
-    public boolean emailOrPasswordWrong(String email, String password){
-        return restaurantRepository.existsByEmailOrPassword(email, password);
-    }
+    public boolean emailExists(String email){ return restaurantRepository.existsByEmail(email); }
 
     public List<Restaurant> filtrarRestosPorBarrio(List<Barrio> filtroBarrio){
         return restaurantRepository.findByBarrio(filtroBarrio);
     }
 
-    public List<Restaurant> filtrarRestosPorBarrioYRating(String filtroBarrio, Integer estrellas){
-
+    public List<Restaurant> filtrarRestosPorBarrioYRating(String filtroBarrio, Integer estrellas) {
         return restaurantRepository.findByBarrioAndRating(filtroBarrio, estrellas);
     }
 
@@ -137,8 +134,6 @@ public class RestaurantMgr {
 
     public void updateResto(Restaurant resto){ restaurantRepository.save(resto); }
 
-    public void deleteResto(Integer id){
-        restaurantRepository.deleteById(id);
-    }
+    public void deleteResto(Integer id){ restaurantRepository.deleteById(id); }
 
 }
