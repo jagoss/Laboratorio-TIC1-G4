@@ -2,6 +2,7 @@ package uy.edu.um;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -9,7 +10,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import uy.edu.um.bbticg4.ui.controllers.InicioAppController;
-import static javafx.application.Application.launch;
 
 @SpringBootApplication
 public class Main extends Application{
@@ -33,6 +33,7 @@ public class Main extends Application{
         root = fxmlLoader.load(InicioAppController.class.getResourceAsStream("InicioApp.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
     }
 
     @Override

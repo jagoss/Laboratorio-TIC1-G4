@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import uy.edu.um.MainAdmin;
+import uy.edu.um.Main;
 import uy.edu.um.bbticg4.exceptions.InvalidUserInformation;
 import uy.edu.um.bbticg4.exceptions.UserAlreadyExists;
 import uy.edu.um.bbticg4.service.BarrioMgr;
@@ -19,7 +19,7 @@ import uy.edu.um.bbticg4.service.RestaurantMgr;
 public class AdminRegistroRestauranteController {
 
     @Autowired
-    private MainAdmin main;
+    private Main main;
 
     @Autowired
     private RestaurantMgr restaurantMgr;

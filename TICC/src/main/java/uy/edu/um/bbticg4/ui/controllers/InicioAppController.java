@@ -56,6 +56,10 @@ public class InicioAppController {
         stage.setScene(new Scene(root));
         stage.show();
 
+        Node source = (Node)  event.getSource();
+        stage  = (Stage) source.getScene().getWindow();
+        stage.close();
+
     }
 
 }
