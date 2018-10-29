@@ -2,13 +2,20 @@ package uy.edu.um.bbticg4.ui.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import uy.edu.um.bbticg4.service.ClienteFinalMgr;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
+
+import java.io.IOException;
 
 public class LogInController {
 
@@ -34,13 +41,26 @@ public class LogInController {
     private ChoiceBox<?> opcionLog;
 
     @FXML
-    void confirmation(ActionEvent event) {
+    void confirmation(ActionEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("ClienteFinalFiltro.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+        Node source = (Node)  event.getSource();
+        stage  = (Stage) source.getScene().getWindow();
+        stage.close();
 
     }
 
     @FXML
     void goBack(ActionEvent event) {
 
+        Node source = (Node)  event.getSource();
+        Stage stage  = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
 }
