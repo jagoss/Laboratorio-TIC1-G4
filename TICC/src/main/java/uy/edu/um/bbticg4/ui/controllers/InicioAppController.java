@@ -22,7 +22,13 @@ public class InicioAppController {
     private Button SignUpButton;
 
     @FXML
-    void SignUp(ActionEvent event) {
+    void SignUp(ActionEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("RegistroCliente.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
 
