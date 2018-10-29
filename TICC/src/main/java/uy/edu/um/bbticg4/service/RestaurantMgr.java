@@ -129,6 +129,9 @@ public class RestaurantMgr {
         return exit;
     }
 
+    public void reviewResto(int review){
+
+    }
 
     public boolean existsByRuc(Long ruc){ return restaurantRepository.existsByRuc(ruc); }
 

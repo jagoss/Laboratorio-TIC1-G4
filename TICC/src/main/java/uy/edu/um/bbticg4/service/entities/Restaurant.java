@@ -39,12 +39,8 @@ public class Restaurant{
     @Column(unique = true)
     private String direccion;
     private boolean firstReview = false;
-    @ManyToMany(fetch = FetchType.EAGER,
-            cascade = { CascadeType.ALL })
-    @JoinTable(
-            name = "restaurant_reserva",
-            joinColumns = { @JoinColumn(name = "id_reserva") })
-    private List<Reserva> listaReservas = new ArrayList<>(10);
+
+
 
     public Restaurant(String name,String password, String cuentaBanco, Long ruc ,String email, String cellphone ,
                       String direccion, Barrio barrio){

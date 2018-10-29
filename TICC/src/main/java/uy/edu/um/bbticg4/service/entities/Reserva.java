@@ -4,14 +4,16 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Reserva")
+@Table(name = "reserva")
 public class Reserva {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator_rs")
-    @SequenceGenerator(name="id_generator_rs", sequenceName = "id_seq_rs", allocationSize=1)
     private Integer id;
+
+    @OneToOne(fetch = FetchType.LAZY)
     private ClienteFinal cf;
+    @ManyToOne
+    @JoinColumn(name = "id_resto")
     private Restaurant resto;
     private int cantidad;
     private LocalDate horaReserva;
@@ -21,6 +23,7 @@ public class Reserva {
     public Reserva(ClienteFinal cf, Restaurant resto){
         this.cf = cf;
         this.resto = resto;
+        this.id = cf.hashCode() + resto.hashCode();
     }
 
     public Integer getId() { return id; }

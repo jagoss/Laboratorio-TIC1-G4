@@ -19,10 +19,11 @@ public class ClienteFinal{
     private String cellphone;
     private String password;
     private float review = 3;
+    @OneToOne
+    private Reserva reserva;
+
     @Lob
     private byte[] fotoPerfil;
-    @ManyToOne
-    private Reserva reserva;
 
     public ClienteFinal(String fName, String lName, String email, String cellphone, String password){
 
@@ -78,7 +79,4 @@ public class ClienteFinal{
 
     public void setFotoPerfil(byte[] fotoPerfil) { this.fotoPerfil = fotoPerfil; }
 
-    public Reserva getReserva() { return reserva; }
-
-    public void setReserva(Reserva reserva) { this.reserva = reserva; }
 }
