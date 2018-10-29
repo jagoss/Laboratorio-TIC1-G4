@@ -1,6 +1,7 @@
 package uy.edu.um.bbticg4.service.entities;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Reserva")
@@ -12,6 +13,8 @@ public class Reserva {
     private Integer id;
     private ClienteFinal cf;
     private Restaurant resto;
+    private int cantidad;
+    private LocalDate horaReserva;
 
     public Reserva(){}
 
