@@ -3,13 +3,16 @@ package uy.edu.um.bbticg4.ui.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+@Component
 public class InicioAppController {
 
     @FXML
@@ -19,7 +22,28 @@ public class InicioAppController {
     private Button SignUpButton;
 
     @FXML
-    void SignUp(ActionEvent event) {
+    void SignUp(ActionEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("RegistroCliente.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+    }
+
+    @FXML
+    void goToAdmin(ActionEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("AdminPrincipal.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+        Node source = (Node)  event.getSource();
+        stage  = (Stage) source.getScene().getWindow();
+        stage.close();
 
     }
 
@@ -27,8 +51,6 @@ public class InicioAppController {
     void signIn(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
-       // fxmlLoader.setControllerFactory(NUEVO MAIN?????.getContext()::getBean); NUEVO MAIN????
-
         Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("LogIn.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
