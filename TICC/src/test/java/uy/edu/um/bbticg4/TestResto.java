@@ -1,12 +1,10 @@
 package uy.edu.um.bbticg4;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import uy.edu.um.MainClienteFinalFiltro;
 import uy.edu.um.bbticg4.exceptions.*;
 import uy.edu.um.bbticg4.service.BarrioMgr;
 import uy.edu.um.bbticg4.service.TipoComidaMgr;

@@ -2,28 +2,30 @@ package uy.edu.um.bbticg4.service.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "reserva")
 public class Reserva {
 
-    @Id
+    @Id    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator_res")
+    @SequenceGenerator(name="id_generator_res", sequenceName = "id_seq_res", allocationSize=1)
     private Integer id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "id_cf")
     private ClienteFinal cf;
     @ManyToOne
     @JoinColumn(name = "id_resto")
     private Restaurant resto;
     private int cantidad;
-    private LocalDate horaReserva;
+    private LocalDateTime horaReserva;
 
     public Reserva(){}
 
     public Reserva(ClienteFinal cf, Restaurant resto){
         this.cf = cf;
         this.resto = resto;
-        this.id = cf.hashCode() + resto.hashCode();
     }
 
     public Integer getId() { return id; }

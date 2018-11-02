@@ -19,8 +19,6 @@ public class ClienteFinal{
     private String cellphone;
     private String password;
     private float review = 3;
-    @OneToOne
-    private Reserva reserva;
 
     @Lob
     private byte[] fotoPerfil;

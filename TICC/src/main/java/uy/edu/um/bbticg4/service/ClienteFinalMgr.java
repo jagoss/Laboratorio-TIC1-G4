@@ -31,6 +31,9 @@ public class ClienteFinalMgr {
     }
 
     public boolean loginCorrecto(String email, String password){
+        if(email == null || password == null ){
+            return false;
+        }
         return clienteFinalRepository.existsByEmailAndPassword(email, password);
     }
 

@@ -10,10 +10,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import org.springframework.stereotype.Component;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 
-
-    public class CustomListCell extends ListCell<Restaurant> {
+@Component
+public class CustomListCell extends ListCell<Restaurant> {
         private HBox content;
         private Text nombreFantasia;
         private Text direccion;
