@@ -55,10 +55,10 @@ public class AdminRegistroRestauranteController {
 
     @FXML
     private TextField txtDireccion;
-    //////////////
+
     @FXML
-    private TextField txtBarrio;
-    //////////////
+    private TextField txtBarrio = new TextField("");
+
     @FXML
     private MenuButton barriosDisponibles;
 
@@ -147,16 +147,19 @@ public class AdminRegistroRestauranteController {
     public void selectedPocitos(ActionEvent actionEvent) {
         selectedBarrio(actionEvent);
         barriosDisponibles.setText("Pocitos");
+        txtBarrio.setText("Pocitos");
     }
     @FXML
     public void selectedMalvinNorte(ActionEvent actionEvent) {
         selectedBarrio(actionEvent);
         barriosDisponibles.setText("Malvin Norte");
+        txtBarrio.setText("Malvin Norte");
     }
     @FXML
     public void selectedBuceo(ActionEvent actionEvent) {
         selectedBarrio(actionEvent);
         barriosDisponibles.setText("Buceo");
+        txtBarrio.setText("Buceo");
     }
 
 
