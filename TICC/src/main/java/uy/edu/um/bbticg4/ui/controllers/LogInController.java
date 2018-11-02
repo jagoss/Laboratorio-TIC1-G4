@@ -9,11 +9,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import uy.edu.um.Main;
 import uy.edu.um.bbticg4.service.ClienteFinalMgr;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 
 import java.io.IOException;
 
+@Component
 public class LogInController {
 
     @Autowired
@@ -50,6 +53,7 @@ public class LogInController {
     void confirmation(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("ClienteFinalFiltro.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -65,6 +69,8 @@ public class LogInController {
     void goBack(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
         Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("InicioApp.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));

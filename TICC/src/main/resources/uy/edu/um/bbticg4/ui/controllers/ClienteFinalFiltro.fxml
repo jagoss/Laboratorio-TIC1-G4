@@ -4,9 +4,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -23,7 +22,7 @@
                <bottom>
                   <AnchorPane prefHeight="65.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="buttonSearch" mnemonicParsing="false" onAction="#filteredByRestaurant" text="Buscar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Button fx:id="buttonSearch" mnemonicParsing="false" onAction="#filteredConLista" text="Buscar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
@@ -34,7 +33,7 @@
                      </children>
                   </AnchorPane>
                </bottom>
-               <top>
+               <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="802.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -121,7 +120,7 @@
                         </ScrollPane>
                      </children>
                   </AnchorPane>
-               </top>
+               </center>
             </BorderPane>
          </left>
          <top>
@@ -132,15 +131,7 @@
             </Text>
          </top>
          <center>
-            <TableView fx:id="FilteredRestaurants" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-              <columns>
-                <TableColumn fx:id="ColumnaNombres" prefWidth="282.9999694824219" text="Nombre Restaurante" />
-                  <TableColumn fx:id="ColumnaBarrio" prefWidth="246.0" text="Barrio" />
-                  <TableColumn fx:id="ColumnaRating" prefWidth="170.0" text="Rating" />
-                  <TableColumn fx:id="ColumnaTelefono" prefWidth="146.0" text="Telefono" />
-                  <TableColumn fx:id="ColumnaEmail" prefWidth="251.0" text="Email" />
-              </columns>
-            </TableView>
+            <ListView fx:id="listaRestaurantes" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>

@@ -1,11 +1,10 @@
 package uy.edu.um.bbticg4.ui.controllers;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,6 +13,10 @@ import uy.edu.um.bbticg4.exceptions.InvalidUserInformation;
 import uy.edu.um.bbticg4.exceptions.UserAlreadyExists;
 import uy.edu.um.bbticg4.service.BarrioMgr;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
+import uy.edu.um.bbticg4.service.entities.Barrio;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class AdminRegistroRestauranteController {
@@ -52,9 +55,21 @@ public class AdminRegistroRestauranteController {
 
     @FXML
     private TextField txtDireccion;
-
+    //////////////
     @FXML
     private TextField txtBarrio;
+    //////////////
+    @FXML
+    private MenuButton barriosDisponibles;
+
+    @FXML
+    private RadioMenuItem pocitos;
+
+    @FXML
+    private RadioMenuItem malvinNorte;
+
+    @FXML
+    private RadioMenuItem buceo;
 
     @FXML
     private TextField txtTelefono;
@@ -67,16 +82,16 @@ public class AdminRegistroRestauranteController {
 
     @FXML
     void agregarRestaurante(ActionEvent event) {
-        if (        txtNombre.getText() == null              || txtNombre.getText().equals("")              ||
-                txtEmail.getText() == null               || txtEmail.getText().equals("")               ||
-                txtConfirmarEmail.getText() == null      || txtConfirmarEmail.getText().equals("")      ||
-                    txtRUC.getText() == null                 || txtRUC.getText().equals("")                 ||
-                txtCuentaBancaria.getText() == null      || txtCuentaBancaria.getText().equals("")      ||
-                    txtContrasena.getText() == null          || txtContrasena.getText().equals("")          ||
+        if (txtNombre.getText() == null || txtNombre.getText().equals("") ||
+                txtEmail.getText() == null || txtEmail.getText().equals("") ||
+                txtConfirmarEmail.getText() == null || txtConfirmarEmail.getText().equals("") ||
+                txtRUC.getText() == null || txtRUC.getText().equals("") ||
+                txtCuentaBancaria.getText() == null || txtCuentaBancaria.getText().equals("") ||
+                txtContrasena.getText() == null || txtContrasena.getText().equals("") ||
                 txtVerificarContrasena.getText() == null || txtVerificarContrasena.getText().equals("") ||
-                txtDireccion.getText() == null           || txtDireccion.getText().equals("")           ||
-                    txtBarrio.getText() == null              || txtBarrio.getText().equals("")              ||
-                    txtTelefono.getText() == null            || txtTelefono.getText().equals("")                )    {
+                txtDireccion.getText() == null || txtDireccion.getText().equals("") ||
+                txtBarrio.getText() == null || txtBarrio.getText().equals("") ||
+                txtTelefono.getText() == null || txtTelefono.getText().equals("")) {
 
             showAlert(
                     "Datos faltantes!",
@@ -97,7 +112,7 @@ public class AdminRegistroRestauranteController {
 
                 try {
 
-                    restaurantMgr.addRestaurant(name, nombreFantasia,contrasena, cuentaBancaria, ruc, email, telefono,
+                    restaurantMgr.addRestaurant(name, nombreFantasia, contrasena, cuentaBancaria, ruc, email, telefono,
                             direccion, barrioMgr.getBarrio(barrio));
 
 
@@ -105,11 +120,11 @@ public class AdminRegistroRestauranteController {
 
                     cerrar(event);
 
-                } catch(InvalidUserInformation invalidUserInformation) {
+                } catch (InvalidUserInformation invalidUserInformation) {
                     showAlert(
                             "Informacion invalida !",
                             "Se encontro un error en los datos ingresados.");
-                } catch (UserAlreadyExists userAlreadyExists){
+                } catch (UserAlreadyExists userAlreadyExists) {
                     showAlert(
                             "Restaurante ya registrado !",
                             "El Restaurante indicado ya ha sido registrado en el sistema).");
@@ -117,7 +132,7 @@ public class AdminRegistroRestauranteController {
                 }
 
 
-            }catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
 
                 showAlert(
                         "Datos incorrectos !",
@@ -128,7 +143,30 @@ public class AdminRegistroRestauranteController {
         }
     }
 
+    @FXML
+    public void selectedPocitos(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Pocitos");
+    }
+    @FXML
+    public void selectedMalvinNorte(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Malvin Norte");
+    }
+    @FXML
+    public void selectedBuceo(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Buceo");
+    }
 
+
+    @FXML
+    public void selectedBarrio(ActionEvent actionEvent) {
+        ToggleGroup toggleGroup = new ToggleGroup();
+        pocitos.setToggleGroup(toggleGroup);
+        malvinNorte.setToggleGroup(toggleGroup);
+        buceo.setToggleGroup(toggleGroup);
+    }
 
     @FXML
     void cerrar(ActionEvent event) {

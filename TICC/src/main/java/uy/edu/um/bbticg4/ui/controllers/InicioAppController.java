@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
+import uy.edu.um.Main;
 
 import java.io.IOException;
 
@@ -36,6 +37,8 @@ public class InicioAppController {
     void goToAdmin(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
         Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("AdminPrincipal.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
