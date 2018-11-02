@@ -14,6 +14,7 @@ import uy.edu.um.bbticg4.exceptions.UserAlreadyExists;
 import uy.edu.um.bbticg4.service.BarrioMgr;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 import uy.edu.um.bbticg4.service.entities.Barrio;
+import uy.edu.um.bbticg4.ui.tools.JavaFXTools;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,6 +30,10 @@ public class AdminRegistroRestauranteController {
 
     @Autowired
     private BarrioMgr barrioMgr;
+
+    @Autowired
+    private JavaFXTools tools;
+
     @FXML
     private TextField txtNombre;
 
@@ -93,7 +98,7 @@ public class AdminRegistroRestauranteController {
                 txtBarrio.getText() == null || txtBarrio.getText().equals("") ||
                 txtTelefono.getText() == null || txtTelefono.getText().equals("")) {
 
-            showAlert(
+            tools.showAlert(
                     "Datos faltantes!",
                     "No se ingresaron los datos necesarios para completar el ingreso.");
 
@@ -116,16 +121,16 @@ public class AdminRegistroRestauranteController {
                             direccion, barrioMgr.getBarrio(barrio));
 
 
-                    showAlert("Restaurante agregado", "Se agrego con exito el restaurante!");
+                    tools.showAlert("Restaurante agregado", "Se agrego con exito el restaurante!");
 
                     cerrar(event);
 
                 } catch (InvalidUserInformation invalidUserInformation) {
-                    showAlert(
+                    tools.showAlert(
                             "Informacion invalida !",
                             "Se encontro un error en los datos ingresados.");
                 } catch (UserAlreadyExists userAlreadyExists) {
-                    showAlert(
+                    tools.showAlert(
                             "Restaurante ya registrado !",
                             "El Restaurante indicado ya ha sido registrado en el sistema).");
 
@@ -134,7 +139,7 @@ public class AdminRegistroRestauranteController {
 
             } catch (NumberFormatException e) {
 
-                showAlert(
+                tools.showAlert(
                         "Datos incorrectos !",
                         "El RUC no tiene el formato esperado (numerico).");
 
@@ -176,15 +181,6 @@ public class AdminRegistroRestauranteController {
         Node source = (Node)  event.getSource();
         Stage stage  = (Stage) source.getScene().getWindow();
         stage.close();
-    }
-
-
-    private void showAlert(String title, String contextText) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(contextText);
-        alert.showAndWait();
     }
 }
 

@@ -39,6 +39,7 @@ public class Restaurant{
     @Column(unique = true)
     private String direccion;
     private boolean firstReview = false;
+    private String descripcion;
 
 
 

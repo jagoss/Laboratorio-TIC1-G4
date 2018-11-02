@@ -54,6 +54,9 @@ public class RestaurantMgr {
     }
 
     public boolean loginCorrecto(String email, String password){
+        if(email == null || password == null ){
+            return false;
+        }
         return restaurantRepository.existsByEmailAndPassword(email, password);
     }
 
