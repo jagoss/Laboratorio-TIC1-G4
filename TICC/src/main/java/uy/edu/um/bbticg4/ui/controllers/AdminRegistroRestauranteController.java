@@ -174,7 +174,7 @@ public class AdminRegistroRestauranteController {
     }
 
     @FXML
-    void cerrar(ActionEvent event) {
+    public void cerrar(ActionEvent event) {
         Node source = (Node)  event.getSource();
         Stage stage  = (Stage) source.getScene().getWindow();
         stage.close();

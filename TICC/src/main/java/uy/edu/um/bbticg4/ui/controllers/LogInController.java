@@ -48,10 +48,10 @@ public class LogInController {
     private RadioMenuItem clientOp;
 
     @FXML
-    private RadioMenuItem restOp;
+    private RadioMenuItem RestOp;
 
     @FXML
-    private RadioMenuItem adminOp;
+    private RadioMenuItem AdminOp;
 
     @FXML
     void confirmation(ActionEvent event) throws IOException {
@@ -72,7 +72,7 @@ public class LogInController {
                 } else {
                     tools.showAlert("Datos incorrectos !", "Mail o contraseña incorrecta.");
                 }
-            } else if (restOp.isSelected()) {
+            } else if (RestOp.isSelected()) {
                 if(restoMgr.loginCorrecto(userMail.getText(), userPass.getText())){
 
                     //agregar pantalla principal de restaurant
@@ -80,7 +80,7 @@ public class LogInController {
                 }else {
                     tools.showAlert("Datos incorrectos !", "Mail o contraseña incorrecta.");
                 }
-            }else if (adminOp.isSelected()) {
+            }else if (AdminOp.isSelected()) {
                 if (userMail.getText().equals("admin") && userPass.getText().equals("1234")) {
 
                     Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("AdminPrincipal.fxml"));
