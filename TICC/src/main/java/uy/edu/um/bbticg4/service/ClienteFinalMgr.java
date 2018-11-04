@@ -23,7 +23,7 @@ public class ClienteFinalMgr {
                 || password == null     ||  "".equals(password)
                 || confEmail == null     ||  "".equals(confEmail)
                 || confPass == null     ||  "".equals(confPass)
-                || !email.equals(confEmail) || !password.equals(confEmail)){
+                || !email.equals(confEmail) || !password.equals(confPass)){
             throw new InvalidUserInformation();
         }
 

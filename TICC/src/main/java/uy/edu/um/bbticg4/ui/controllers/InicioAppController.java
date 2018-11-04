@@ -26,6 +26,7 @@ public class InicioAppController {
     void SignUp(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("RegistroCliente.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -54,6 +55,7 @@ public class InicioAppController {
     void signIn(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("LogIn.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));

@@ -91,11 +91,6 @@ public class LogInController {
                     tools.showAlert("Datos incorrectos !", "Mail o contraseña incorrecta.");
                 }
             }
-
-            Node source = (Node) event.getSource();
-            stage = (Stage) source.getScene().getWindow();
-            stage.close();
-
         } else{
             tools.showAlert("Campos vacios!", "Ingrese los datos por favor.");
         }
@@ -105,6 +100,7 @@ public class LogInController {
     public void goBack(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("InicioApp.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
