@@ -1,8 +1,20 @@
-import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
+package uy.edu.um.bbticg4.ui.controllers;
 
-@COMPONENT
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.util.Callback;
+import org.springframework.stereotype.Component;
+import uy.edu.um.bbticg4.service.entities.Reserva;
+import uy.edu.um.bbticg4.service.entities.Restaurant;
+import uy.edu.um.bbticg4.ui.controllers.CustomListCell;
+
+@Component
 public class ReservasEntrantesController {
+
+    private Restaurant resto;
 
     @FXML
     private ListView<Reserva> listaReservasEntrantes;
@@ -20,5 +32,7 @@ public class ReservasEntrantesController {
         public ListCell<Restaurant> call(ListView<Restaurant> listView) {
             return new CustomListCell();
         }
-    });
+    }
+     public void setResto(Restaurant resto){this.resto = resto; }
+     public Restaurant getResto(){return resto;}
 }

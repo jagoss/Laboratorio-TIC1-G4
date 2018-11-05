@@ -47,6 +47,7 @@ public class Restaurant{
     private String opcionesDePago;
     private String horario;
     private String costoPersona;
+    private boolean firstLogin = true;
 
 
     public Restaurant(String name,String password, String cuentaBanco, Long ruc ,String email, String cellphone ,
@@ -241,4 +242,8 @@ public class Restaurant{
     public void setHorario(String horario) {
         this.horario = horario;
     }
+
+    public void setFirstLogin(boolean estado){firstLogin = estado;}
+
+    public boolean getFistLogin() {return firstLogin;}
 }

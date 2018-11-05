@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import uy.edu.um.bbticg4.service.RestaurantMgr;
 import uy.edu.um.bbticg4.service.TipoComidaMgr;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.ui.tools.JavaFXTools;
@@ -24,9 +25,13 @@ public class RestoInfoEditController {
     @Autowired
     private JavaFXTools tools;
 
+    @Autowired
+    private RestaurantMgr restoMgr;
+
     private TipoComidaMgr foodtype;
 
     private Restaurant resto;
+
     @FXML
     private TextArea descField;
 
@@ -117,10 +122,9 @@ public class RestoInfoEditController {
                 paymentOptions.getText() == null || paymentOptions.getText().equals("") ||
                 personCost.getText() == null || personCost.getText().equals(""))
                 {
-
-                        tools.showAlert(
-                                "Datos faltantes!",
-                                "No se ingresaron los datos necesarios para completar el ingreso.");
+                    tools.showAlert(
+                            "Datos faltantes!",
+                            "No se ingresaron los datos necesarios para completar el ingreso.");
 
         } else {
 
@@ -170,9 +174,18 @@ public class RestoInfoEditController {
             resto.setHorario(horario);
             resto.setDescripcion(descripcion);
             resto.setCostoPersona(costoPersona);
+
+            restoMgr.updateResto(resto);
+
+            tools.showAlert(
+                    "Datos actualizados!",
+                    "Los datos se han modificado correctamente.");
         }
     }
 
     //falta incluir excepciones.
 
+    public Restaurant getResto(){return resto;}
+
+    public void setResto(Restaurant resto){resto = this.resto;}
 }
