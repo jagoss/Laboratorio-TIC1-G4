@@ -2,14 +2,26 @@ package uy.edu.um.bbticg4.ui.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import uy.edu.um.bbticg4.service.entities.Restaurant;
+import uy.edu.um.bbticg4.ui.tools.JavaFXTools;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class RestoInfoEditController {
 
+    @Autowired
+    private JavaFXTools tools;
+
+    private Restaurant resto;
     @FXML
     private TextArea descField;
 
@@ -50,7 +62,7 @@ public class RestoInfoEditController {
                 ScheduleField.getText() == null || ScheduleField.getText().equals("") ||
                 foodOptions.getText() == null || foodOptions.getText().equals("") ||
                 paymentOptions.getText() == null || paymentOptions.getText().equals("") ||
-                personCost.getText() == null || personCost.getText().equals("") ||
+                personCost.getText() == null || personCost.getText().equals(""))
                 {
 
                         tools.showAlert(
@@ -58,7 +70,6 @@ public class RestoInfoEditController {
                                 "No se ingresaron los datos necesarios para completar el ingreso.");
 
         } else {
-
 
             String costoPersona = personCost.getText();
             String opcionesPago = paymentOptions.getText();
@@ -69,14 +80,14 @@ public class RestoInfoEditController {
 
 
             //falta guardar el restaurante logeado en una variable "Restaurant" para operar con el
-            Restaurant.setListaCategoriaComida(listaCategoriaComida);
-            Restaurant.setOpcionesDePago(opcionesPago);
-            Restaurant.setHorario(horario);
-            Restaurant.setDescripcion(descripcion);
-            Restaurant.setCostoPersona(costoPersona);
+            resto.setListaCategoriaComida(listaCategoriaComida);
+            resto.setOpcionesDePago(opcionesPago);
+            resto.setHorario(horario);
+            resto.setDescripcion(descripcion);
+            resto.setCostoPersona(costoPersona);
         }
     }
 
-    /falta incluir excepciones.
+    //falta incluir excepciones.
 
 }

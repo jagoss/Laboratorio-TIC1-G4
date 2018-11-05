@@ -43,4 +43,8 @@ public class ClienteFinalMgr {
 
     public boolean EmailExists(String email){ return clienteFinalRepository.existsByEmail(email); }
 
+    public ClienteFinal getCliente(String email){
+        return clienteFinalRepository.findClienteFinalByEmail(email);
+    }
+
 }

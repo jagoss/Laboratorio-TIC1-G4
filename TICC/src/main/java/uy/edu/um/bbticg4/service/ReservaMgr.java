@@ -1,4 +1,4 @@
-package uy.edu.um.bbticg4.service.entities;
+package uy.edu.um.bbticg4.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,6 +7,9 @@ import uy.edu.um.bbticg4.persistence.ClienteFinalRepository;
 import uy.edu.um.bbticg4.persistence.MesaRepository;
 import uy.edu.um.bbticg4.persistence.ReservaRepository;
 import uy.edu.um.bbticg4.persistence.RestaurantRepository;
+import uy.edu.um.bbticg4.service.entities.ClienteFinal;
+import uy.edu.um.bbticg4.service.entities.Mesa;
+import uy.edu.um.bbticg4.service.entities.Reserva;
 
 import java.time.LocalDateTime;
 import java.util.List;

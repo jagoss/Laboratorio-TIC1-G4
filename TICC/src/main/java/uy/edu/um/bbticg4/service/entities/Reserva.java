@@ -27,6 +27,7 @@ public class Reserva {
 
     private Integer cantidad;
     private LocalDateTime horaReserva;
+    private boolean confirmada;
 
     public Reserva(){}
 
@@ -63,5 +64,21 @@ public class Reserva {
 
     public void setHoraReserva(LocalDateTime horaReserva) {
         this.horaReserva = horaReserva;
+    }
+
+    public List<Mesa> getListaMesa() {
+        return listaMesa;
+    }
+
+    public void setListaMesa(List<Mesa> listaMesa) {
+        this.listaMesa = listaMesa;
+    }
+
+    public boolean isConfirmada() {
+        return confirmada;
+    }
+
+    public void setConfirmada(boolean confirmada) {
+        this.confirmada = confirmada;
     }
 }
