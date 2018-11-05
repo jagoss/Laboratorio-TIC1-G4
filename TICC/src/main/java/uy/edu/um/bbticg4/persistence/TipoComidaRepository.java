@@ -10,4 +10,7 @@ public interface TipoComidaRepository extends CrudRepository<TipoComida, Integer
 
     @Query("SELECT tc FROM TipoComida as tc")
     List<TipoComida> findAllByNombre();
+
+    @Query("SELECT DISTINCT tc FROM TipoComida tc WHERE tc IN (?1)")
+    List<TipoComida> findAllByIdTipoComida(List<Integer> listaId);
 }

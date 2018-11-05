@@ -1,6 +1,5 @@
 package uy.edu.um.bbticg4.ui.controllers;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -13,11 +12,7 @@ import uy.edu.um.bbticg4.exceptions.InvalidUserInformation;
 import uy.edu.um.bbticg4.exceptions.UserAlreadyExists;
 import uy.edu.um.bbticg4.service.BarrioMgr;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
-import uy.edu.um.bbticg4.service.entities.Barrio;
 import uy.edu.um.bbticg4.ui.tools.JavaFXTools;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class AdminRegistroRestauranteController {

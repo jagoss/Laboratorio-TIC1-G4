@@ -46,7 +46,6 @@ public class Restaurant{
     private String descripcion;
     private String opcionesDePago;
     private String horario;
-    private String descripcion;
     private String costoPersona;
 
 

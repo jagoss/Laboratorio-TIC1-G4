@@ -2,14 +2,10 @@ package uy.edu.um.bbticg4.ui.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
-import uy.edu.um.Main;
 
 @Component
 public class ReservasController {
@@ -70,14 +66,14 @@ public class ReservasController {
 
     @FXML
     void selectPrimero(ActionEvent event) {
-        selectedPiso(action);
-        piso.setText("1ro")
+        selectedPiso(event);
+        piso.setText("1ro");
     }
 
     @FXML
     void selectSegundo(ActionEvent event) {
-        selectedPiso(action);
-        piso.setText("2do")
+        selectedPiso(event);
+        piso.setText("2do");
     }
 
 
