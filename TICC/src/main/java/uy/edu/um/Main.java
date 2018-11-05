@@ -33,6 +33,7 @@ public class Main extends Application{
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
         root = fxmlLoader.load(InicioAppController.class.getResourceAsStream("InicioApp.fxml"));
+        primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 

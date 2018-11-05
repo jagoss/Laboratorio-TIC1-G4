@@ -56,9 +56,9 @@
                   <PasswordField fx:id="userPass" promptText="pass1234" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <MenuButton fx:id="UserType" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" text="Seleccione Usuario" GridPane.columnSpan="2" GridPane.rowIndex="4">
                     <items>
-                        <RadioMenuItem fx:id="clientOp" mnemonicParsing="false" text="Cliente" />
-                        <RadioMenuItem fx:id="RestOp" mnemonicParsing="false" text="Restaurante" />
-                        <RadioMenuItem fx:id="AdminOp" mnemonicParsing="false" text="Administrador" />
+                        <RadioMenuItem fx:id="clientOp" mnemonicParsing="false" onAction="#selectedClient" text="Cliente" />
+                        <RadioMenuItem fx:id="restOp" mnemonicParsing="false" onAction="#selectedResto" text="Restaurante" />
+                        <RadioMenuItem fx:id="adminOp" mnemonicParsing="false" onAction="#selectedAdmin" text="Administrador" />
                     </items>
                   </MenuButton>
                </children>

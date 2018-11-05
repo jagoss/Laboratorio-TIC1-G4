@@ -23,6 +23,9 @@ public class AdminPrincipalController {
     private Button backButton;
 
     @FXML
+    private Button backdoorButton;
+
+    @FXML
     void goBack(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -31,6 +34,7 @@ public class AdminPrincipalController {
         Parent root = fxmlLoader.load(AdminRegistroRestauranteController.class.getResourceAsStream("InicioApp.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
+        stage.setResizable(false);
         stage.show();
 
         Node source = (Node)  event.getSource();
@@ -47,8 +51,22 @@ public class AdminPrincipalController {
         Parent root = fxmlLoader.load(AdminRegistroRestauranteController.class.getResourceAsStream("AdminRegistroRestaurante.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
+        stage.setResizable(false);
         stage.show();
 
+    }
+
+    @FXML
+    void goToFilter(ActionEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(AdminRegistroRestauranteController.class.getResourceAsStream("ClienteFinalFiltro.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
     }
 
 }

@@ -177,6 +177,7 @@ public class AdminRegistroRestauranteController {
     public void cerrar(ActionEvent event) {
         Node source = (Node)  event.getSource();
         Stage stage  = (Stage) source.getScene().getWindow();
+        stage.setResizable(false);
         stage.close();
     }
 }

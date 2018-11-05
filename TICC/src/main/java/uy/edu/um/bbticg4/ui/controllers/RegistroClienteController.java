@@ -56,6 +56,7 @@ public class RegistroClienteController {
 
         Node source = (Node)  event.getSource();
         Stage stage  = (Stage) source.getScene().getWindow();
+        stage.setResizable(false);
         stage.close();
 
     }
@@ -110,6 +111,7 @@ public class RegistroClienteController {
     public void cerrar(ActionEvent event) {
         Node source = (Node)  event.getSource();
         Stage stage  = (Stage) source.getScene().getWindow();
+        stage.setResizable(false);
         stage.close();
     }
 }
