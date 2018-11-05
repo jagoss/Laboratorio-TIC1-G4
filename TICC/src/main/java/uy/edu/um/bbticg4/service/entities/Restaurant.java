@@ -24,6 +24,10 @@ public class Restaurant{
     @ManyToOne
     private Barrio barrio;
 
+    @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true)
+    @JoinColumn(name = "resto_id")
+    private List<Mesa> listaMesa = new ArrayList<>(20);
+
     @Column(unique = true)
     private String name;
     private String nombreFantasia;
@@ -40,7 +44,9 @@ public class Restaurant{
     private String direccion;
     private boolean firstReview = false;
     private String descripcion;
-
+    private String opcionesDePago;
+    private String horario;
+    private String costoPersona;
 
 
     public Restaurant(String name,String password, String cuentaBanco, Long ruc ,String email, String cellphone ,
@@ -190,5 +196,49 @@ public class Restaurant{
 
     public void setFirstReview(boolean fr) {
         this.firstReview = fr;
+    }
+
+    public List<Mesa> getListaMesa() {
+        return listaMesa;
+    }
+
+    public void setListaMesa(List<Mesa> listaMesa) {
+        this.listaMesa = listaMesa;
+    }
+
+    public boolean isFirstReview() {
+        return firstReview;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getCostoPersona() {
+        return costoPersona;
+    }
+
+    public void setCostoPersona(String costoPersona) {
+        this.costoPersona = costoPersona;
+    }
+
+    public String getOpcionesDePago() {
+        return opcionesDePago;
+    }
+
+    public void setOpcionesDePago(String opcionesDePago) {
+        this.opcionesDePago = opcionesDePago;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
     }
 }

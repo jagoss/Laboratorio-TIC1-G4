@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import uy.edu.um.bbticg4.exceptions.TipoComidaException;
 import uy.edu.um.bbticg4.service.BarrioMgr;
 import uy.edu.um.bbticg4.service.entities.Barrio;
+import uy.edu.um.bbticg4.service.entities.ClienteFinal;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 
@@ -27,6 +28,8 @@ public class ClienteFinalFiltroController {
 
     @Autowired
     private BarrioMgr barrioMgr;
+
+    private ClienteFinal cf;
 
     List<Restaurant> restoPorBarrio = new LinkedList<>();
     List<Barrio> filtroBarrio = new LinkedList<>();
@@ -200,8 +203,14 @@ public class ClienteFinalFiltroController {
 
         }
 
-
+    public ClienteFinal getCf() {
+        return cf;
     }
+
+    public void setCf(ClienteFinal cf) {
+        this.cf = cf;
+    }
+}
 
 
 

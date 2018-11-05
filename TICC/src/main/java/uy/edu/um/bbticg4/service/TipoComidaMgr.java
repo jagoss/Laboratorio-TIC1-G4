@@ -35,4 +35,8 @@ public class TipoComidaMgr {
     public TipoComida obtenerTipoComida(Integer id){
         return tcr.findById(id).get();
     }
+
+    public List<TipoComida> getListaPorId(List<Integer> listaId){
+        return tcr.findAllByIdTipoComida(listaId);
+    }
 }

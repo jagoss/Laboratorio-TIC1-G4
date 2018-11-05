@@ -9,7 +9,9 @@ import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import uy.edu.um.bbticg4.ui.controllers.InicioAppController;
+import uy.edu.um.bbticg4.ui.controllers.LogInController;
 
 @SpringBootApplication
 public class Main extends Application{
@@ -31,6 +33,7 @@ public class Main extends Application{
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
         root = fxmlLoader.load(InicioAppController.class.getResourceAsStream("InicioApp.fxml"));
+        primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 

@@ -13,6 +13,8 @@ import org.springframework.stereotype.Component;
 import uy.edu.um.bbticg4.service.ClienteFinalMgr;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 import uy.edu.um.Main;
+import uy.edu.um.bbticg4.service.entities.ClienteFinal;
+import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.ui.tools.JavaFXTools;
 
 import java.io.IOException;
@@ -53,6 +55,9 @@ public class LogInController {
     @FXML
     private RadioMenuItem adminOp;
 
+    private Restaurant resto;
+    private ClienteFinal cf;
+
     @FXML
     void confirmation(ActionEvent event) throws IOException {
 
@@ -65,6 +70,9 @@ public class LogInController {
             if (clientOp.isSelected()) {
                 if (cfMgr.loginCorrecto(userMail.getText(), userPass.getText())) {
 
+                    fxmlLoader.setLocation(ClienteFinalFiltroController.class.getResource("ClienteFinalFiltro.fxml"));
+                    ClienteFinalFiltroController controller = Main.getContext().getBean(ClienteFinalFiltroController.class);
+                    controller.setCf(cfMgr.getCliente(userMail.getText()));
                     Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("ClienteFinalFiltro.fxml"));
                     stage.setScene(new Scene(root));
                     stage.show();
@@ -74,6 +82,7 @@ public class LogInController {
                 }
             } else if (restOp.isSelected()) {
                 if(restoMgr.loginCorrecto(userMail.getText(), userPass.getText())){
+
 
                     //agregar pantalla principal de restaurant
 
@@ -91,11 +100,6 @@ public class LogInController {
                     tools.showAlert("Datos incorrectos !", "Mail o contraseña incorrecta.");
                 }
             }
-
-            Node source = (Node) event.getSource();
-            stage = (Stage) source.getScene().getWindow();
-            stage.close();
-
         } else{
             tools.showAlert("Campos vacios!", "Ingrese los datos por favor.");
         }
@@ -105,6 +109,7 @@ public class LogInController {
     public void goBack(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("InicioApp.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -113,6 +118,22 @@ public class LogInController {
         Node source = (Node)  event.getSource();
         stage  = (Stage) source.getScene().getWindow();
         stage.close();
+    }
+
+
+    @FXML
+    void selectedAdmin(ActionEvent event) {
+
+    }
+
+    @FXML
+    void selectedClient(ActionEvent event) {
+
+    }
+
+    @FXML
+    void selectedResto(ActionEvent event) {
+
     }
 
 }
