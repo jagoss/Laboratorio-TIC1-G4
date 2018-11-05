@@ -142,4 +142,6 @@ public class RestaurantMgr {
 
     public void deleteResto(Integer id){ restaurantRepository.deleteById(id); }
 
+    public Restaurant getRestaurant(String email){ return restaurantRepository.findRestaurantsByEmail(email);}
+
 }

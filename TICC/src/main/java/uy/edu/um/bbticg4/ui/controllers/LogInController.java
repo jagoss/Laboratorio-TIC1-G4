@@ -83,8 +83,33 @@ public class LogInController {
             } else if (restOp.isSelected()) {
                 if(restoMgr.loginCorrecto(userMail.getText(), userPass.getText())){
 
+                    if(resto.getFistLogin()) {
+                        fxmlLoader.setLocation(RestoInfoEditController.class.getResource("RestoInfoEdit.fxml"));
+                        RestoInfoEditController controller = Main.getContext().getBean(RestoInfoEditController.class);
+                        controller.setResto(restoMgr.getRestaurant(userMail.getText()));
+                        Parent root = fxmlLoader.load(
+                                MenuInicioRestoController.class.getResourceAsStream("RestoInfoEdit.fxml"));
 
-                    //agregar pantalla principal de restaurant
+                        resto.setFirstLogin(false);
+                        restoMgr.updateResto(resto);
+
+                        stage.setScene(new Scene(root));
+                        stage.setResizable(false);
+                        stage.show();
+                    }else{
+                        fxmlLoader.setLocation(MenuInicioRestoController.class.
+                                getResource("MenuInicialResto.fxml"));
+
+                        MenuInicioRestoController controller = Main.getContext().
+                                getBean(MenuInicioRestoController.class);
+
+                        controller.setResto(restoMgr.getRestaurant(userMail.getText()));
+                        Parent root = fxmlLoader.load(LogInController.class.
+                                getResourceAsStream("MenuInicialResto.fxml"));
+
+                        stage.setScene(new Scene(root));
+                        stage.show();
+                    }
 
                 }else {
                     tools.showAlert("Datos incorrectos !", "Mail o contraseña incorrecta.");
