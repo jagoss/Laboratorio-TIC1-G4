@@ -71,12 +71,12 @@ public class RestoInfoEditController {
 
         } else {
 
-            String costoPersona = personCost.getText();
-            String opcionesPago = paymentOptions.getText();
-            String menu = menuField.getText();
-            String descripcion = descField.getText();
-            String horario = ScheduleField.getText();
-            List<String> listaCategoriaComida = new ArrayList(String.split(",")); //buscar forma de convertir en lista de tipos de comida
+             String costoPersona = personCost.getText();
+             String opcionesPago = paymentOptions.getText();
+             String menu = menuField.getText();
+             String descripcion = descField.getText();
+             String horario = ScheduleField.getText();
+             List<String> listaCategoriaComida = new ArrayList(String.split(",")); //buscar forma de convertir en lista de tipos de comida
 
 
             //falta guardar el restaurante logeado en una variable "Restaurant" para operar con el

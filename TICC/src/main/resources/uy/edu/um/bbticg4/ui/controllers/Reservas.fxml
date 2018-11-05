@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="162.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane prefHeight="191.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane layoutX="14.0" layoutY="41.0" prefHeight="118.0" prefWidth="314.0">
          <columnConstraints>
@@ -28,9 +29,20 @@
             <Label text="Cantidad de personas" />
             <Label text="Piso" GridPane.rowIndex="1" />
             <Label text="Hora" GridPane.rowIndex="2" />
-            <ChoiceBox prefHeight="25.0" prefWidth="198.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ChoiceBox prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" />
             <TextField prefHeight="25.0" prefWidth="99.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1">
+              <items>
+                <MenuItem fx:id="unoADos" mnemonicParsing="false" onAction="#selectUnoADos" text="1 a 2" />
+                <MenuItem fx:id="dosACuatro" mnemonicParsing="false" text="2 a 4" />
+                  <MenuItem fx:id="masDeCuatro" mnemonicParsing="false" text="mas de 4" />
+              </items>
+            </MenuButton>
+            <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <items>
+                <MenuItem fx:id="primero" mnemonicParsing="false" onAction="#selectPrimero" text="1ro" />
+                <MenuItem fx:id="segundo" mnemonicParsing="false" onAction="#selectSegundo" text="2do" />
+              </items>
+            </MenuButton>
          </children>
       </GridPane>
       <Label layoutY="6.0" text="Nombre de restaurante">
@@ -43,6 +55,7 @@
             <Image url="@../../../../../../../../../../../../Downloads/Placeholder.png" />
          </image>
       </ImageView>
-      <Button layoutX="346.0" layoutY="48.0" mnemonicParsing="false" prefHeight="105.0" prefWidth="105.0" style="-fx-background-color: transparent;" text="Reservar" />
+      <Button layoutX="346.0" layoutY="48.0" mnemonicParsing="false" onAction="#Reservar" prefHeight="105.0" prefWidth="105.0" style="-fx-background-color: transparent;" text="Reservar" />
+      <Button layoutX="346.0" layoutY="159.0" mnemonicParsing="false" onAction="#Cancelar" prefHeight="25.0" prefWidth="105.0" text="Cancelar" />
    </children>
 </Pane>
