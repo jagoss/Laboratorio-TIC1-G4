@@ -17,22 +17,22 @@ public class ReservasController {
     private MenuButton cantidadDePersonas;
 
     @FXML
-    private MenuItem unoADos;
+    private RadioMenuItem unoADos;
 
     @FXML
-    private MenuItem dosACuatro;
+    private RadioMenuItem dosACuatro;
 
     @FXML
-    private MenuItem masDeCuatro;
+    private RadioMenuItem masDeCuatro;
 
     @FXML
     private MenuButton piso;
 
     @FXML
-    private MenuItem primero;
+    private RadioMenuItem primero;
 
     @FXML
-    private MenuItem segundo;
+    private RadioMenuItem segundo;
 
     @FXML
     void Cancelar(ActionEvent event) {

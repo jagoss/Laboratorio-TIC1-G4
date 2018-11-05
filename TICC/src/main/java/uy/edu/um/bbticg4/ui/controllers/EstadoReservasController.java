@@ -1,10 +1,18 @@
+package uy.edu.um.bbticg4.ui.controllers;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import org.springframework.stereotype.Component;
+import uy.edu.um.bbticg4.service.entities.Reserva;
+import uy.edu.um.bbticg4.service.entities.Restaurant;
 
 @Component
 public class EstadoReservasController {
 
-    @FXML
+  /*  @FXML
     private Button refresh;
 
     @FXML
@@ -29,6 +37,6 @@ public class EstadoReservasController {
     @FXML
     void refresh(ActionEvent event) {
 
-    }
+    }*/
 
 }

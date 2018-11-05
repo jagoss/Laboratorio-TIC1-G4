@@ -90,7 +90,9 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
         super.updateItem(item, empty);
 
         if (item != null && !empty) { // <== test for null item and empty parameter
-
+                    GET DE LA HORA
+                    GET DE LA MESA
+                    GET DEL CLIENTE
 
             setGraphic(content);
 
