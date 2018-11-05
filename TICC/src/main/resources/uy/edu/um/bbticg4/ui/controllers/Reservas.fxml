@@ -7,55 +7,61 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="191.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="207.0" prefWidth="474.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <GridPane layoutX="14.0" layoutY="41.0" prefHeight="118.0" prefWidth="314.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="195.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="271.0" minWidth="10.0" prefWidth="205.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
+      <Pane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="Cantidad de personas" />
-            <Label text="Piso" GridPane.rowIndex="1" />
-            <Label text="Hora" GridPane.rowIndex="2" />
-            <TextField prefHeight="25.0" prefWidth="99.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1">
-              <items>
-                <MenuItem fx:id="unoADos" mnemonicParsing="false" onAction="#selectUnoADos" text="1 a 2" />
-                <MenuItem fx:id="dosACuatro" mnemonicParsing="false" text="2 a 4" />
-                  <MenuItem fx:id="masDeCuatro" mnemonicParsing="false" text="mas de 4" />
-              </items>
-            </MenuButton>
-            <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-              <items>
-                <MenuItem fx:id="primero" mnemonicParsing="false" onAction="#selectPrimero" text="1ro" />
-                <MenuItem fx:id="segundo" mnemonicParsing="false" onAction="#selectSegundo" text="2do" />
-              </items>
-            </MenuButton>
+            <GridPane layoutX="14.0" layoutY="41.0" prefHeight="118.0" prefWidth="314.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="195.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="271.0" minWidth="10.0" prefWidth="205.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Cantidad de personas" />
+                  <Label text="Piso" GridPane.rowIndex="1" />
+                  <Label text="Hora" GridPane.rowIndex="2" />
+                  <TextField fx:id="hora" prefHeight="25.0" prefWidth="99.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <MenuButton fx:id="cantidadDePersonas" mnemonicParsing="false" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1">
+                     <items>
+                        <MenuItem fx:id="unoADos" mnemonicParsing="false" onAction="#selectUnoADos" text="1 a 2" />
+                        <MenuItem fx:id="dosACuatro" mnemonicParsing="false" onAction="#selectDosACuatro" text="2 a 4" />
+                        <MenuItem fx:id="masDeCuatro" mnemonicParsing="false" onAction="#selectMasDeCuatro" text="mas de 4" />
+                     </items>
+                  </MenuButton>
+                  <MenuButton fx:id="piso" mnemonicParsing="false" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <items>
+                        <MenuItem fx:id="primero" mnemonicParsing="false" onAction="#selectPrimero" text="1ro" />
+                        <MenuItem fx:id="segundo" mnemonicParsing="false" onAction="#selectSegundo" text="2do" />
+                     </items>
+                  </MenuButton>
+               </children>
+            </GridPane>
+            <Label layoutY="6.0" text="Nombre de restaurante">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="105.0" fitWidth="122.0" layoutX="346.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../../Downloads/Placeholder.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="346.0" layoutY="48.0" mnemonicParsing="false" onAction="#Reservar" prefHeight="105.0" prefWidth="105.0" style="-fx-background-color: transparent;" text="Reservar" />
+            <Button layoutX="346.0" layoutY="159.0" mnemonicParsing="false" onAction="#Cancelar" prefHeight="25.0" prefWidth="105.0" text="Cancelar" />
          </children>
-      </GridPane>
-      <Label layoutY="6.0" text="Nombre de restaurante">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="105.0" fitWidth="122.0" layoutX="346.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../../../../../../Downloads/Placeholder.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="346.0" layoutY="48.0" mnemonicParsing="false" onAction="#Reservar" prefHeight="105.0" prefWidth="105.0" style="-fx-background-color: transparent;" text="Reservar" />
-      <Button layoutX="346.0" layoutY="159.0" mnemonicParsing="false" onAction="#Cancelar" prefHeight="25.0" prefWidth="105.0" text="Cancelar" />
+      </Pane>
    </children>
-</Pane>
+</AnchorPane>

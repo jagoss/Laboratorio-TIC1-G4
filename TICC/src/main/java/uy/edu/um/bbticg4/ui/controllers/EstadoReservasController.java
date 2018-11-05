@@ -2,7 +2,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
 @Component
-public class ReservasEntrantesController {
+public class EstadoReservasController {
+
+    @FXML
+    private Button refresh;
 
     @FXML
     private ListView<Reserva> listaReservasEntrantes;
@@ -21,4 +24,11 @@ public class ReservasEntrantesController {
             return new CustomListCell();
         }
     });
+
+
+    @FXML
+    void refresh(ActionEvent event) {
+
+    }
+
 }
