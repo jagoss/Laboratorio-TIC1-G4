@@ -24,6 +24,10 @@ public class Restaurant{
     @ManyToOne
     private Barrio barrio;
 
+    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
+    @JoinColumn(name = "resto_id")
+    private List<Mesa> listaMesa = new ArrayList<>(20);
+
     @Column(unique = true)
     private String name;
     private String nombreFantasia;

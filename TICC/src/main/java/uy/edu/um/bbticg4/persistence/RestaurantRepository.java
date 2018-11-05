@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 import uy.edu.um.bbticg4.service.entities.Barrio;
+import uy.edu.um.bbticg4.service.entities.Mesa;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 
 import java.util.List;
@@ -41,4 +42,5 @@ public interface RestaurantRepository extends CrudRepository<Restaurant, Integer
     boolean existsByRuc(Long ruc);
 
     Restaurant findRestaurantsByEmail(String email);
+
 }
