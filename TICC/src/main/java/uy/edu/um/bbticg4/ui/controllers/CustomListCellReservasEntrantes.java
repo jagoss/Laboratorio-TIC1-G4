@@ -49,6 +49,8 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
     private Button negar;
 
 
+
+
     public CustomListCellReservasEntrantes() {
         super();
 
@@ -61,6 +63,41 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
         negar = new Button();
         negar.setText("Rechazar"); //Poner cruz y color rojo
 
+        HBox headline = new HBox(new Label("Reserva de"),mesa, new Label("mesa por:"), client);
+
+        headline.setSpacing(5.0);
+
+        GridPane grid = new GridPane();
+        grid.setVgap(10);
+        grid.setHgap(10);
+        grid.setPadding(new Insets(10,10,10,10));
+        grid.setAlignment(Pos.CENTER);
+
+        grid.add(headline,0,0,3,1);
+        grid.add(hora,0,1,1,1);
+        grid.add(confirmar,1,1,1,1);
+        grid.add(negar,2,1,1,1);
+
+
+        content = new HBox(grid);
+        content.setSpacing(40);
+        content.setPadding(new Insets(8,8,8,8));
 
     }
+
+    @Override
+    protected void updateItem(Reserva item, boolean empty) {
+        super.updateItem(item, empty);
+
+        if (item != null && !empty) { // <== test for null item and empty parameter
+
+
+            setGraphic(content);
+
+        } else {
+            setGraphic(null);
+        }
+    }
+
+
 }

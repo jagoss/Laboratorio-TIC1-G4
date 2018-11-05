@@ -147,16 +147,19 @@ public class AdminRegistroRestauranteController {
     public void selectedPocitos(ActionEvent actionEvent) {
         selectedBarrio(actionEvent);
         barriosDisponibles.setText("Pocitos");
+        txtBarrio.setText("Pocitos");
     }
     @FXML
     public void selectedMalvinNorte(ActionEvent actionEvent) {
         selectedBarrio(actionEvent);
         barriosDisponibles.setText("Malvin Norte");
+        txtBarrio.setText("MalvinNorte");
     }
     @FXML
     public void selectedBuceo(ActionEvent actionEvent) {
         selectedBarrio(actionEvent);
         barriosDisponibles.setText("Buceo");
+        txtBarrio.setText("Buceo");
     }
 
 
