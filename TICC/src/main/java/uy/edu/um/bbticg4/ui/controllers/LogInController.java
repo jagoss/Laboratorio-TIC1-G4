@@ -65,9 +65,11 @@ public class LogInController {
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Stage stage = new Stage();
 
-        if (userMail != null || userPass != null) {
+        if (userMail != null || userMail.getText().equals("")||
+                userPass != null || userPass.getText().equals("")) {
 
             if (clientOp.isSelected()) {
+
                 if (cfMgr.loginCorrecto(userMail.getText(), userPass.getText())) {
 
                     fxmlLoader.setLocation(ClienteFinalFiltroController.class.getResource("ClienteFinalFiltro.fxml"));

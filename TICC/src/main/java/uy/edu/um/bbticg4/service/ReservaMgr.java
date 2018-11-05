@@ -10,6 +10,7 @@ import uy.edu.um.bbticg4.persistence.RestaurantRepository;
 import uy.edu.um.bbticg4.service.entities.ClienteFinal;
 import uy.edu.um.bbticg4.service.entities.Mesa;
 import uy.edu.um.bbticg4.service.entities.Reserva;
+import uy.edu.um.bbticg4.service.entities.Restaurant;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -46,4 +47,7 @@ public class ReservaMgr {
         rr.delete(reserva);
     }
 
+    public List<Reserva> getReservas(Restaurant resto){
+        return rr.obtenerReservasdeResto(resto.getListaMesa());
+    }
 }

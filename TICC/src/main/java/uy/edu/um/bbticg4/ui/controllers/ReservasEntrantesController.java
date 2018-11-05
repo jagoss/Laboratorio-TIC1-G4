@@ -2,37 +2,55 @@ package uy.edu.um.bbticg4.ui.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import uy.edu.um.bbticg4.exceptions.TipoComidaException;
+import uy.edu.um.bbticg4.service.ReservaMgr;
 import uy.edu.um.bbticg4.service.entities.Reserva;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
-import uy.edu.um.bbticg4.ui.controllers.CustomListCell;
+
+import java.util.LinkedList;
+import java.util.List;
 
 @Component
 public class ReservasEntrantesController {
 
-    private Restaurant resto;
+    @Autowired
+    private ReservaMgr reservaMgr;
 
+    private List<Reserva> listaReservas = new LinkedList<>();
+    ;
     @FXML
     private ListView<Reserva> listaReservasEntrantes;
 
+    private Restaurant resto;
 
-    ObservableList<Restaurant> resultados = FXCollections.observableArrayList();
 
-            for (int i = 0; i < restoPorBarrio.size(); i++) {
-        resultados.add(restoPorBarrio.get(i));
-    }
-            listaRestaurantes.setItems(resultados);
+    @FXML
+    void displayReservas(ActionEvent event) {
 
-            listaRestaurantes.setCellFactory(new Callback<ListView<Restaurant>, ListCell<Restaurant>>() {
-        @Override
-        public ListCell<Restaurant> call(ListView<Restaurant> listView) {
-            return new CustomListCell();
+        listaReservas = reservaMgr.getReservas(resto);
+
+        ObservableList<Reserva> reservas = FXCollections.observableArrayList();
+
+        for (int i = 0; i < listaReservas.size(); i++) {
+            reservas.add(listaReservas.get(i));
         }
+        listaReservasEntrantes.setItems(reservas);
+        listaReservasEntrantes.setCellFactory(new Callback<ListView<Reserva>, ListCell<Reserva>>() {
+            @Override
+            public ListCell<Reserva> call(ListView<Reserva> listView) {
+                return new CustomListCellReservasEntrantes();
+            }
+        });
     }
-     public void setResto(Restaurant resto){this.resto = resto; }
-     public Restaurant getResto(){return resto;}
+
+    public void setResto(Restaurant resto){this.resto = resto;}
+
+    public  Restaurant getResto(){return resto;}
 }

@@ -80,69 +80,6 @@ public class ClienteFinalFiltroController {
     @FXML
     private Button buttonSearch;
 
-//    @FXML
-//    void filteredByRestaurant(ActionEvent event) throws TipoComidaException {
-//
-//        if (check1Star.isSelected()) {
-//            rating = 1;
-//        } else if (check2Stars.isSelected()) {
-//            rating = 2;
-//        } else if (check3Stars.isSelected()) {
-//            rating = 3;
-//        } else if (check4Stars.isSelected()) {
-//            rating = 4;
-//        } else if (check5Stars.isSelected()) {
-//            rating = 5;
-//        }
-//
-//        if (checkParrilla.isSelected()) {
-//            listTipoComida.add(1);
-//        }
-//        if (checkPasta.isSelected()) {
-//            listTipoComida.add(2);
-//        }
-//        if (checkPizza.isSelected()) {
-//            listTipoComida.add(3);
-//        }
-//
-//        if (checkPocitos.isSelected()) {
-//            filtroBarrio.add(barrioMgr.getBarrio("Pocitos"));
-//        }
-//        if (checkBuceo.isSelected()) {
-//            filtroBarrio.add(barrioMgr.getBarrio("Buceo"));
-//        }
-//        if (checkMalvinNorte.isSelected()) {
-//            filtroBarrio.add(barrioMgr.getBarrio("MalvinNorte"));
-//        }
-//
-//        if ((listTipoComida == null || listTipoComida.isEmpty()) && rating.equals(0)) {
-//            restoPorBarrio = restoMgr.filtrarRestosPorBarrio(filtroBarrio);
-//        } else if (rating.equals(0)) {
-//            restoPorBarrio = restoMgr.filtrarRestosPorBarrioYTipoComida(listTipoComida, filtroBarrio);
-//        } else {
-//            restoPorBarrio = restoMgr.filtrarRestosPorBarrioYTipoComidaYRating(listTipoComida, rating, filtroBarrio);
-//        }
-//
-//        ObservableList<Restaurant> resultados = FXCollections.observableArrayList();
-//
-//        for (int i = 0; i < restoPorBarrio.size(); i++) {
-//            resultados.add(restoPorBarrio.get(i));
-//        }
-//
-//        ColumnaNombres.setCellValueFactory(new PropertyValueFactory<Restaurant, String>("name"));
-//        ColumnaBarrio.setCellValueFactory(new PropertyValueFactory<Restaurant, String>("barrio"));
-//        ColumnaRating.setCellValueFactory(new PropertyValueFactory<Restaurant, Integer>("rating"));
-//        ColumnaTelefono.setCellValueFactory(new PropertyValueFactory<Restaurant, String>("cellphone"));
-//        ColumnaEmail.setCellValueFactory(new PropertyValueFactory<Restaurant, String>("email"));
-//
-//        FilteredRestaurants.setItems(resultados);
-//
-//        listTipoComida.clear();
-//        filtroBarrio.clear();
-//        rating = 0;
-//    }
-
-
 
         @FXML
         void filteredConLista (ActionEvent event) throws TipoComidaException {
