@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import uy.edu.um.Main;
 
 @Component
-public class RservasController {
+public class ReservasController {
 
     @FXML
     private TextField hora;
