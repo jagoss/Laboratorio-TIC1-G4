@@ -57,7 +57,7 @@ public class AdminRegistroRestauranteController {
     private TextField txtDireccion;
 
     @FXML
-    private TextField txtBarrio;
+    private final TextField txtBarrio = new TextField("");
 
     @FXML
     private MenuButton barriosDisponibles;

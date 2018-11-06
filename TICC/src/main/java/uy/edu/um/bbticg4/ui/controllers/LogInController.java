@@ -84,7 +84,7 @@ public class LogInController {
                 }
             } else if (restOp.isSelected()) {
                 if(restoMgr.loginCorrecto(userMail.getText(), userPass.getText())){
-
+                    resto = restoMgr.getRestaurant(userMail.getText());
                     if(resto.getFistLogin()) {
                         fxmlLoader.setLocation(RestoInfoEditController.class.getResource("RestoInfoEdit.fxml"));
                         RestoInfoEditController controller = Main.getContext().getBean(RestoInfoEditController.class);
