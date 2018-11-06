@@ -24,7 +24,7 @@ public class ReservasEntrantesController {
     private ReservaMgr reservaMgr;
 
     private List<Reserva> listaReservas = new LinkedList<>();
-    ;
+
     @FXML
     private ListView<Reserva> listaReservasEntrantes;
 

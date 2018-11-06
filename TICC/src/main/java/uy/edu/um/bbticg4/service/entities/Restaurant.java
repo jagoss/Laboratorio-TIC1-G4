@@ -24,7 +24,7 @@ public class Restaurant{
     @ManyToOne
     private Barrio barrio;
 
-    @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "resto_id")
     private List<Mesa> listaMesa = new ArrayList<>(20);
 
