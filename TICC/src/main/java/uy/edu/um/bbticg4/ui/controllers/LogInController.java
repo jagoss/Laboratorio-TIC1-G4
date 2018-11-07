@@ -85,15 +85,13 @@ public class LogInController {
             } else if (restOp.isSelected()) {
                 if(restoMgr.loginCorrecto(userMail.getText(), userPass.getText())){
                     resto = restoMgr.getRestaurant(userMail.getText());
+
                     if(resto.getFistLogin()) {
                         fxmlLoader.setLocation(RestoInfoEditController.class.getResource("RestoInfoEdit.fxml"));
                         RestoInfoEditController controller = Main.getContext().getBean(RestoInfoEditController.class);
                         controller.setResto(restoMgr.getRestaurant(userMail.getText()));
                         Parent root = fxmlLoader.load(
-                                MenuInicioRestoController.class.getResourceAsStream("RestoInfoEdit.fxml"));
-
-                        resto.setFirstLogin(false);
-                        restoMgr.updateResto(resto);
+                                LogInController.class.getResourceAsStream("RestoInfoEdit.fxml"));
 
                         stage.setScene(new Scene(root));
                         stage.setResizable(false);
@@ -106,8 +104,8 @@ public class LogInController {
                                 getBean(MenuInicioRestoController.class);
 
                         controller.setResto(restoMgr.getRestaurant(userMail.getText()));
-                        Parent root = fxmlLoader.load(LogInController.class.
-                                getResourceAsStream("MenuInicialResto.fxml"));
+                        Parent root = fxmlLoader.load(
+                                LogInController.class.getResourceAsStream("MenuInicialResto.fxml"));
 
                         stage.setScene(new Scene(root));
                         stage.show();
@@ -119,13 +117,16 @@ public class LogInController {
             }else if (adminOp.isSelected()) {
                 if (userMail.getText().equals("admin") && userPass.getText().equals("1234")) {
 
-                    Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("AdminPrincipal.fxml"));
+                    Parent root = fxmlLoader.load(
+                            LogInController.class.getResourceAsStream("AdminPrincipal.fxml"));
                     stage.setScene(new Scene(root));
                     stage.show();
 
                 } else {
                     tools.showAlert("Datos incorrectos !", "Mail o contraseña incorrecta.");
                 }
+            }else{
+                tools.showAlert("Falta el tipo de usuario!", "Seleccione el tipo de usuario.");
             }
         } else{
             tools.showAlert("Campos vacios!", "Ingrese los datos por favor.");

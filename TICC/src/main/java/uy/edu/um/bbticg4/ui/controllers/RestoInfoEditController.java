@@ -2,7 +2,10 @@ package uy.edu.um.bbticg4.ui.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
@@ -10,11 +13,13 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import uy.edu.um.Main;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 import uy.edu.um.bbticg4.service.TipoComidaMgr;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.ui.tools.JavaFXTools;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -28,6 +33,7 @@ public class RestoInfoEditController {
     @Autowired
     private RestaurantMgr restoMgr;
 
+    @Autowired
     private TipoComidaMgr foodtype;
 
     private Restaurant resto;
@@ -105,11 +111,30 @@ public class RestoInfoEditController {
     private RadioButton another;
 
     @FXML
-    void cancelation(ActionEvent event) {
+    void cancelation(ActionEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        fxmlLoader.setLocation(MenuInicioRestoController.class.
+                getResource("MenuInicialResto.fxml"));
+
+        MenuInicioRestoController controller = Main.getContext().
+                getBean(MenuInicioRestoController.class);
+
+        controller.setResto(resto);
+
+        Parent root = fxmlLoader.load(
+                RestoInfoEditController.class.getResourceAsStream("MenuInicialResto.fxml"));
 
         Node source = (Node)  event.getSource();
         Stage stage  = (Stage) source.getScene().getWindow();
         stage.close();
+
+        Stage stage2 = new Stage();
+        stage2.setScene(new Scene(root));
+        stage2.setResizable(false);
+        stage2.show();
 
     }
 
@@ -118,7 +143,6 @@ public class RestoInfoEditController {
 
         if (descField.getText() == null || descField.getText().equals("") ||
                 ScheduleField.getText() == null || ScheduleField.getText().equals("") ||
-                foodOptions.getText() == null || foodOptions.getText().equals("") ||
                 paymentOptions.getText() == null || paymentOptions.getText().equals("") ||
                 personCost.getText() == null || personCost.getText().equals(""))
                 {
@@ -175,6 +199,8 @@ public class RestoInfoEditController {
             resto.setDescripcion(descripcion);
             resto.setCostoPersona(costoPersona);
 
+            resto.setFirstLogin(false);
+
             restoMgr.updateResto(resto);
 
             tools.showAlert(
@@ -187,5 +213,5 @@ public class RestoInfoEditController {
 
     public Restaurant getResto(){return resto;}
 
-    public void setResto(Restaurant resto){resto = this.resto;}
+    public void setResto(Restaurant resto){this.resto = resto;}
 }
