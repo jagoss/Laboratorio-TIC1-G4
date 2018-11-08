@@ -10,9 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="uy.edu.um.bbticg4.ui.controllers.MenuInicioRestoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.bbticg4.ui.controllers.MenuInicioRestoController">
    <children>
       <BorderPane layoutX="7.0" prefHeight="400.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -74,13 +72,16 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="Return" mnemonicParsing="false" onAction="#Return" prefHeight="25.0" prefWidth="58.0" text="Return" />
+                  <Button fx:id="Return" mnemonicParsing="false" onAction="#Return" prefHeight="25.0" prefWidth="58.0" text="Salir" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menu Inicial Restaurante" GridPane.columnSpan="2" GridPane.halignment="CENTER">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
                </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </GridPane>
          </top>
       </BorderPane>

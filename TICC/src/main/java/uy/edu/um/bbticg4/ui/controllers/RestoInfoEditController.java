@@ -139,7 +139,7 @@ public class RestoInfoEditController {
     }
 
     @FXML
-    void confimation(ActionEvent event) {
+    void confimation(ActionEvent event) throws IOException {
 
         if (descField.getText() == null || descField.getText().equals("") ||
                 ScheduleField.getText() == null || ScheduleField.getText().equals("") ||
@@ -206,6 +206,31 @@ public class RestoInfoEditController {
             tools.showAlert(
                     "Datos actualizados!",
                     "Los datos se han modificado correctamente.");
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+            fxmlLoader.setLocation(MenuInicioRestoController.class.
+                    getResource("MenuInicialResto.fxml"));
+
+            MenuInicioRestoController controller = Main.getContext().
+                    getBean(MenuInicioRestoController.class);
+
+            controller.setResto(resto);
+
+            Parent root = fxmlLoader.load(
+                    RestoInfoEditController.class.getResourceAsStream("MenuInicialResto.fxml"));
+
+            Node source = (Node)  event.getSource();
+            Stage stage  = (Stage) source.getScene().getWindow();
+            stage.close();
+
+            Stage stage2 = new Stage();
+            stage2.setScene(new Scene(root));
+            stage2.setResizable(false);
+            stage2.show();
+
+
         }
     }
 

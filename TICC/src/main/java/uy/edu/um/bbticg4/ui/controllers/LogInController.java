@@ -79,6 +79,10 @@ public class LogInController {
                     stage.setScene(new Scene(root));
                     stage.show();
 
+                    Node source = (Node)  event.getSource();
+                    stage  = (Stage) source.getScene().getWindow();
+                    stage.close();
+
                 } else {
                     tools.showAlert("Datos incorrectos !", "Mail o contraseña incorrecta.");
                 }
@@ -96,6 +100,10 @@ public class LogInController {
                         stage.setScene(new Scene(root));
                         stage.setResizable(false);
                         stage.show();
+
+                        Node source = (Node)  event.getSource();
+                        stage  = (Stage) source.getScene().getWindow();
+                        stage.close();
                     }else{
                         fxmlLoader.setLocation(MenuInicioRestoController.class.
                                 getResource("MenuInicialResto.fxml"));
@@ -109,6 +117,10 @@ public class LogInController {
 
                         stage.setScene(new Scene(root));
                         stage.show();
+
+                        Node source = (Node)  event.getSource();
+                        stage  = (Stage) source.getScene().getWindow();
+                        stage.close();
                     }
 
                 }else {
@@ -121,6 +133,10 @@ public class LogInController {
                             LogInController.class.getResourceAsStream("AdminPrincipal.fxml"));
                     stage.setScene(new Scene(root));
                     stage.show();
+
+                    Node source = (Node)  event.getSource();
+                    stage  = (Stage) source.getScene().getWindow();
+                    stage.close();
 
                 } else {
                     tools.showAlert("Datos incorrectos !", "Mail o contraseña incorrecta.");
@@ -151,17 +167,31 @@ public class LogInController {
 
     @FXML
     void selectedAdmin(ActionEvent event) {
+        selectedUser(event);
+        UserType.setText("Administrador");
 
     }
 
     @FXML
     void selectedClient(ActionEvent event) {
+        selectedUser(event);
+        UserType.setText("Cliente");
 
     }
 
     @FXML
     void selectedResto(ActionEvent event) {
+        selectedUser(event);
+        UserType.setText("Restaurante");
 
+    }
+
+    @FXML
+    public void selectedUser(ActionEvent actionEvent) {
+        ToggleGroup toggleGroup = new ToggleGroup();
+        clientOp.setToggleGroup(toggleGroup);
+        restOp.setToggleGroup(toggleGroup);
+        adminOp.setToggleGroup(toggleGroup);
     }
 
 }

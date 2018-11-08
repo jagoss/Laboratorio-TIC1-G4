@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.bbticg4.ui.controllers.LogInController">
+<AnchorPane prefHeight="276.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.bbticg4.ui.controllers.LogInController">
    <children>
       <BorderPane layoutX="100.0" layoutY="143.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -32,11 +32,10 @@
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="262.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="169.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="125.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="169.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="125.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="Iniciar Sesion" GridPane.halignment="CENTER">
@@ -46,7 +45,7 @@
                   </Label>
                   <Label text="Correo Electronico" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                   <Label text="Contraseña" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                  <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                     <buttons>
                       <Button fx:id="InicioButton" mnemonicParsing="false" onAction="#confirmation" text="Iniciar Sesion" />
                         <Button fx:id="goBackButton" mnemonicParsing="false" onAction="#goBack" text="Cancelar" />
@@ -54,7 +53,7 @@
                   </ButtonBar>
                   <TextField fx:id="userMail" promptText="correo123@mail.com" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <PasswordField fx:id="userPass" promptText="pass1234" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <MenuButton fx:id="UserType" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" text="Seleccione Usuario" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                  <MenuButton fx:id="UserType" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" text="Seleccione Usuario" GridPane.columnSpan="2" GridPane.rowIndex="3">
                     <items>
                         <RadioMenuItem fx:id="clientOp" mnemonicParsing="false" onAction="#selectedClient" text="Cliente" />
                         <RadioMenuItem fx:id="restOp" mnemonicParsing="false" onAction="#selectedResto" text="Restaurante" />

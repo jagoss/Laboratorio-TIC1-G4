@@ -4,11 +4,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import uy.edu.um.Main;
 import uy.edu.um.bbticg4.exceptions.TipoComidaException;
 import uy.edu.um.bbticg4.service.BarrioMgr;
 import uy.edu.um.bbticg4.service.entities.Barrio;
@@ -16,6 +22,7 @@ import uy.edu.um.bbticg4.service.entities.ClienteFinal;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -139,6 +146,24 @@ public class ClienteFinalFiltroController {
             });
 
         }
+
+    @FXML
+    void goBack(ActionEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(ClienteFinalFiltroController.class.getResourceAsStream("InicioApp.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+
+        Node source = (Node)  event.getSource();
+        stage  = (Stage) source.getScene().getWindow();
+        stage.close();
+
+    }
 
     public ClienteFinal getCf() {
         return cf;

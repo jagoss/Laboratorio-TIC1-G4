@@ -36,6 +36,8 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
 
@@ -47,6 +49,7 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
 
     private Button confirmar;
     private Button negar;
+
 
 
 
@@ -63,7 +66,7 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
         negar = new Button();
         negar.setText("Rechazar"); //Poner cruz y color rojo
 
-        HBox headline = new HBox(new Label("Reserva de"),mesa, new Label("mesa por:"), client);
+        headline = new HBox(new Label("Reserva de"),mesa, new Label("mesa por:"), client);
 
         headline.setSpacing(5.0);
 
@@ -89,10 +92,10 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
     protected void updateItem(Reserva item, boolean empty) {
         super.updateItem(item, empty);
 
-        if (item != null && !empty) { /* <== test for null item and empty parameter
-                    GET DE LA HORA
-                    GET DE LA MESA
-                    GET DEL CLIENTE*/
+        if (item != null && !empty) { // <== test for null item and empty parameter
+
+            //hora.setText();
+            client.setText(item.getCf().getFirstName() +" " + item.getCf().getLastName());
 
             setGraphic(content);
 

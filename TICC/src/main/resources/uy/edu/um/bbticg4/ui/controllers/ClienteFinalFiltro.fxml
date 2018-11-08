@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.bbticg4.ui.controllers.ClienteFinalFiltroController">
    <children>
@@ -22,7 +21,7 @@
                <bottom>
                   <AnchorPane prefHeight="65.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="buttonSearch" mnemonicParsing="false" onAction="#filteredConLista" text="Buscar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Button fx:id="buttonSearch" mnemonicParsing="false" onAction="#filteredConLista" prefHeight="62.0" prefWidth="200.0" text="Buscar" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
@@ -36,7 +35,7 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ScrollPane hbarPolicy="NEVER" prefHeight="802.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="811.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
                               <GridPane hgap="5.0" prefHeight="606.0" prefWidth="200.0" vgap="3.0">
                                 <columnConstraints>
@@ -123,16 +122,31 @@
                </center>
             </BorderPane>
          </left>
-         <top>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Restaurantes disponibles" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-            </Text>
-         </top>
          <center>
             <ListView fx:id="listaRestaurantes" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </center>
+         <top>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="86.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="820.0" minWidth="10.0" prefWidth="814.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#goBack" text="Salir" GridPane.halignment="CENTER" />
+                  <Label text="Busqueda de Restaurantes" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </GridPane>
+         </top>
       </BorderPane>
    </children>
 </AnchorPane>

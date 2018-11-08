@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
@@ -26,14 +27,13 @@ import uy.edu.um.bbticg4.service.entities.Restaurant;
 
 @Component
 public class CustomListCell extends ListCell<Restaurant> {
-        private HBox content;
+        private BorderPane content;
         private Text nombreFantasia;
         private Text direccion;
         private Text rating;
         private Text precioPromedio;
         private Text tipoComida;
-        private Text horaApertura;
-        private Text horaCerrado;
+        private Text horario;
         private Text descripcion;
         private Button reservar;
 
@@ -50,8 +50,7 @@ public class CustomListCell extends ListCell<Restaurant> {
             precioPromedio = new Text();
             tipoComida = new Text();
 
-            horaApertura = new Text();
-            horaCerrado = new Text();
+            horario = new Text();
 
             descripcion = new Text();
 
@@ -59,7 +58,7 @@ public class CustomListCell extends ListCell<Restaurant> {
             reservar.setText("Reservar");
 
 
-            HBox hBoxBOT = new HBox(horaApertura,new Label("-"), horaCerrado);
+            HBox hBoxBOT = new HBox(horario);
 
             hBoxBOT.setSpacing(5.0);
 
@@ -69,7 +68,7 @@ public class CustomListCell extends ListCell<Restaurant> {
             grid.setPadding(new Insets(10,10,10,10));
 
             grid.add(nombreFantasia, 0 ,0, 1,1);
-            grid.add(rating, 1, 0, 1,1);
+            grid.add(rating, 2, 0, 1,1);
             grid.add(direccion, 0,1,1,1);
             grid.add(tipoComida,1,1,1,1);
             grid.add(precioPromedio,2,1,1,1);
@@ -78,8 +77,10 @@ public class CustomListCell extends ListCell<Restaurant> {
             grid.setAlignment(Pos.CENTER);
 
 
-            content = new HBox(new Label("[Graphic]"), grid, reservar);
-            content.setSpacing(40);
+            content = new BorderPane();
+            content.setLeft(new Label("[Graphic]"));
+            content.setCenter(grid);
+            content.setRight(reservar);
             content.setPadding(new Insets(8,8,8,8));
 
         }
@@ -90,14 +91,21 @@ public class CustomListCell extends ListCell<Restaurant> {
             if (item != null && !empty) { // <== test for null item and empty parameter
                 nombreFantasia.setText(item.getNombreFantasia());
                 direccion.setText(item.getDireccion());
-                rating.setText("5 estrellas");
+                rating.setText(Integer.toString(item.getRating()) + " Estrellas");
 
-                precioPromedio.setText("$$$$$");
-                tipoComida.setText("Torta Fritas");
-                horaApertura.setText("3:00");
-                horaCerrado.setText("7:00");
-                descripcion.setText("Ameo, si kere esa torta frita ya sabe, si no, balazo. Compras o te quemo el rancho.");
+                precioPromedio.setText(item.getCostoPersona());
+
+                horario.setText(item.getHorario());
+                descripcion.setText(item.getDescripcion());
+                /*String comidas = item.getListaCategoriaComida().get(1).getNombre();
+                for (int x = 1; x < item.getListaCategoriaComida().size(); x++){
+
+                    comidas = comidas + ", " + item.getListaCategoriaComida().get(0).getNombre();
+                }*/
+
+                //tipoComida.setText(item.getListaCategoriaComida().get(0).getNombre());
                 setGraphic(content);
+
 
             } else {
                 setGraphic(null);
