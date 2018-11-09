@@ -97,13 +97,13 @@ public class CustomListCell extends ListCell<Restaurant> {
 
                 horario.setText(item.getHorario());
                 descripcion.setText(item.getDescripcion());
-                /*String comidas = item.getListaCategoriaComida().get(1).getNombre();
+                String comidas = item.getListaCategoriaComida().get(0).getNombre();
                 for (int x = 1; x < item.getListaCategoriaComida().size(); x++){
 
-                    comidas = comidas + ", " + item.getListaCategoriaComida().get(0).getNombre();
-                }*/
+                    comidas = comidas + ", " + item.getListaCategoriaComida().get(x).getNombre();
+                }
 
-                //tipoComida.setText(item.getListaCategoriaComida().get(0).getNombre());
+                tipoComida.setText(comidas);
                 setGraphic(content);
 
 
