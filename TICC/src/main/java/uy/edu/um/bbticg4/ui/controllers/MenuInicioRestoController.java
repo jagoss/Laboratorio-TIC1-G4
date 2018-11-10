@@ -33,9 +33,32 @@ public class MenuInicioRestoController {
     private Button editarDatos;
 
     @FXML
+    private Button historialReservas;
+
+    @FXML
     private Button Return;
 
     private Restaurant resto;
+
+
+    @FXML
+    void HistorialReservas(ActionEvent event) {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        fxmlLoader.setLocation(ReservasEntrantesController.class.getResource("HistorialReservas.fxml"));
+        ReservasEntrantesController controller = Main.getContext().getBean(ReservasEntrantesController.class);
+        controller.setResto(resto);
+
+        Parent root = fxmlLoader.load(
+                MenuInicioRestoController.class.getResourceAsStream("HistorialReservas.fxml"));
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+    }
+
 
     @FXML
     void Return(ActionEvent event) throws IOException {
@@ -75,6 +98,21 @@ public class MenuInicioRestoController {
 
     @FXML
     void estadoReservas(ActionEvent event) {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        fxmlLoader.setLocation(RestoInfoEditController.class.getResource("EstadoReservas.fxml"));
+        RestoInfoEditController controller = Main.getContext().getBean(RestoInfoEditController.class);
+        controller.setResto(resto);
+        Parent root = fxmlLoader.load(
+                MenuInicioRestoController.class.getResourceAsStream("EstadoReservas.fxml"));
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+
 
     }
 

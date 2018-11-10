@@ -28,6 +28,8 @@ public class Reserva {
     private Integer cantidad;
     private LocalDateTime horaReserva;
     private boolean confirmada;
+    private boolean finalizada;
+    private boolean asistio;
 
     public Reserva(){}
 
@@ -80,5 +82,21 @@ public class Reserva {
 
     public void setConfirmada(boolean confirmada) {
         this.confirmada = confirmada;
+    }
+
+    public boolean isFinalizada() {
+        return finalizada;
+    }
+
+    public void setFinalizada(boolean finalizada) {
+        this.finalizada = finalizada;
+    }
+
+    public boolean isAsistio() {
+        return asistio;
+    }
+
+    public void setAsistio(boolean asistio) {
+        this.asistio = asistio;
     }
 }
