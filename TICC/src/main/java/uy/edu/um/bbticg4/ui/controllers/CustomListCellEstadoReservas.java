@@ -47,8 +47,6 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
     private Text hora;
     private Text client;
 
-    private Button confirmar;
-    private Button negar;
 
 
 

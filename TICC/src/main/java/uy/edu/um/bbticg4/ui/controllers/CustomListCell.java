@@ -40,11 +40,10 @@ public class CustomListCell extends ListCell<Restaurant> {
         private Text descripcion;
         private Button reservar;
 
+        private VBox datosReserva;
         private TextField hora;
-        private MenuButton cantidadDePersonas;
-        private RadioMenuItem unoADos;
-        private RadioMenuItem dosACuatro;
-        private RadioMenuItem masDeCuatro;
+        private Label pregunta;
+        private Spinner<Integer> ocupantes;
 
 
         public CustomListCell() {
@@ -65,15 +64,13 @@ public class CustomListCell extends ListCell<Restaurant> {
 
             reservar = new Button();
             reservar.setText("Reservar");
+            Label pregunta = new Label("Cuantos van a ir?");
+            TextField hora = new TextField();
+            hora.setPromptText("Hora a reservar");
+            Spinner<Integer> ocupantes = new Spinner<Integer>(1,10,1,1);
 
-            reservar.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
+            VBox datosReserva = new VBox(hora, pregunta, ocupantes, reservar);
 
-
-
-                }
-            });
 
 
             HBox hBoxBOT = new HBox(horario);
@@ -93,6 +90,15 @@ public class CustomListCell extends ListCell<Restaurant> {
             grid.add(hBoxBOT,0,3,3,1);
             grid.add(descripcion,0,2,3,1);
             grid.setAlignment(Pos.CENTER);
+
+            reservar.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+
+
+
+                }
+            });
 
 
             content = new BorderPane();
