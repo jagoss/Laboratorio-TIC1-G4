@@ -23,7 +23,7 @@ public class Reserva {
     @JoinTable(
             name = "reserva_mesa",
             joinColumns = { @JoinColumn(name = "id_reserva") })
-    private List<Mesa> listaMesa;
+    private int mesasNecesarias;
 
     private Integer cantidad;
     private LocalDateTime horaReserva;
@@ -33,9 +33,8 @@ public class Reserva {
 
     public Reserva(){}
 
-    public Reserva(ClienteFinal cf, List<Mesa> listaMesa, Integer cantidad, LocalDateTime horaReserva){
+    public Reserva(ClienteFinal cf, Integer cantidad, LocalDateTime horaReserva){
         this.cf = cf;
-        this.listaMesa = listaMesa;
         this.cantidad = cantidad;
         this.horaReserva = horaReserva;
     }
@@ -47,10 +46,6 @@ public class Reserva {
     public ClienteFinal getCf() { return cf; }
 
     public void setCf(ClienteFinal cf) { this.cf = cf; }
-
-    public List<Mesa> getMesa() { return listaMesa; }
-
-    public void setMesa(List<Mesa> listaMesa) { this.listaMesa = listaMesa; }
 
     public Integer getCantidad() {
         return cantidad;
@@ -68,12 +63,12 @@ public class Reserva {
         this.horaReserva = horaReserva;
     }
 
-    public List<Mesa> getListaMesa() {
-        return listaMesa;
+    public Integer getMesasNecesarias() {
+        return mesasNecesarias;
     }
 
-    public void setListaMesa(List<Mesa> listaMesa) {
-        this.listaMesa = listaMesa;
+    public void setMesasNecesarias(Integer mesasNecesarias) {
+        this.mesasNecesarias = mesasNecesarias;
     }
 
     public boolean isConfirmada() {

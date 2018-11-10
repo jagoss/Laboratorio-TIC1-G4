@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -40,6 +37,9 @@ public class RestoInfoEditController {
 
     @FXML
     private TextArea descField;
+
+    @FXML
+    private Spinner<Integer> maxTables;
 
     @FXML
     private Button gobackButton;
@@ -144,11 +144,11 @@ public class RestoInfoEditController {
         if (descField.getText() == null || descField.getText().equals("") ||
                 ScheduleField.getText() == null || ScheduleField.getText().equals("") ||
                 paymentOptions.getText() == null || paymentOptions.getText().equals("") ||
-                personCost.getText() == null || personCost.getText().equals(""))
-                {
-                    tools.showAlert(
-                            "Datos faltantes!",
-                            "No se ingresaron los datos necesarios para completar el ingreso.");
+                personCost.getText() == null || personCost.getText().equals("") ||
+                maxTables.getValue() == null) {
+            tools.showAlert(
+                    "Datos faltantes!",
+                    "No se ingresaron los datos necesarios para completar el ingreso.");
 
         } else {
 
@@ -158,6 +158,7 @@ public class RestoInfoEditController {
             String descripcion = descField.getText();
             String horario = ScheduleField.getText();
             List<Integer> listaCategoriaComida = new ArrayList<>();
+            int mesasMaximas = maxTables.getValue();
 
             if(cafe.isSelected())
                 listaCategoriaComida.add(9);
@@ -198,6 +199,7 @@ public class RestoInfoEditController {
             resto.setHorario(horario);
             resto.setDescripcion(descripcion);
             resto.setCostoPersona(costoPersona);
+            resto.setMaxMesas(mesasMaximas);
 
             resto.setFirstLogin(false);
 

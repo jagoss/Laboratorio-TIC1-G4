@@ -28,19 +28,14 @@ public class ReservaMgr {
     @Autowired
     private MesaRepository mesaRepo;
 
-    public void generarReserva(ClienteFinal cf, List<Mesa> listaMesa, Integer cantidad, LocalDateTime hora)
+    public void generarReserva(ClienteFinal cf, Integer cantidad, LocalDateTime hora)
             throws InvalidInformation {
-        if(listaMesa == null || cf == null || cantidad == null || hora == null ||
+        if(cf == null || cantidad == null || hora == null ||
                 !cfr.existsById(cf.getId()) ||
                 cantidad.equals(0) || hora.isBefore(LocalDateTime.now())){
             throw new InvalidInformation();
         }
-        for(int i= 0; i<listaMesa.size(); i++){
-            if (!mesaRepo.existsById( listaMesa.get(i).getId() )){
-                throw new InvalidInformation();
-            }
-        }
-        rr.save(new Reserva(cf, listaMesa, cantidad, hora));
+        rr.save(new Reserva(cf, cantidad, hora));
     }
 
     public void deleteReserva(Reserva reserva){

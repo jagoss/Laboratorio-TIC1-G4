@@ -48,7 +48,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefWidth="139.0" text="Lavado de activos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <Button fx:id="historialReservas" mnemonicParsing="false" onAction="#HistorialReservas" prefWidth="139.0" text="Historial" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>

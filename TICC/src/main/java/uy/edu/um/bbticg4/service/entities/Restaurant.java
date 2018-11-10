@@ -26,7 +26,9 @@ public class Restaurant{
 
     @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "resto_id")
-    private List<Mesa> listaMesa = new ArrayList<>(20);
+
+    private int maxMesas;
+    private int mesasDisponibles;
 
     @Column(unique = true)
     private String name;
@@ -199,12 +201,20 @@ public class Restaurant{
         this.firstReview = fr;
     }
 
-    public List<Mesa> getListaMesa() {
-        return listaMesa;
+    public int getMaxMesas() {
+        return maxMesas;
     }
 
-    public void setListaMesa(List<Mesa> listaMesa) {
-        this.listaMesa = listaMesa;
+    public void setMaxMesas(int maxMesas) {
+        this.maxMesas = maxMesas;
+    }
+
+    public int getMesasDisponibles() {
+        return mesasDisponibles;
+    }
+
+    public void setMesasDisponibles(int mesasDisponibles) {
+        this.mesasDisponibles = mesasDisponibles;
     }
 
     public boolean isFirstReview() {

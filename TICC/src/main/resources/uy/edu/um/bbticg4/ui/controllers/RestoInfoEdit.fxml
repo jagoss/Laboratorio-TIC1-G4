@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -22,14 +23,15 @@
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="71.0" minHeight="2.0" prefHeight="2.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="71.0" minHeight="2.0" prefHeight="33.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="79.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="124.0" minHeight="10.0" prefHeight="124.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="59.0" minHeight="2.0" prefHeight="9.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="59.0" minHeight="2.0" prefHeight="28.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Complete los Campos:" GridPane.columnSpan="2" GridPane.halignment="CENTER">
@@ -47,8 +49,8 @@
             <Label text="Formas de pago aceptadas:" GridPane.rowIndex="4" />
             <Label text="Horarios:" GridPane.rowIndex="5" />
             <Label text="Tipos de comida, separados por comas:" GridPane.rowIndex="6" />
-            <Label text="Menu: (Opcional?)" GridPane.rowIndex="7" />
-            <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <Label text="Menu: (Opcional)" GridPane.rowIndex="7" />
+            <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
               <buttons>
                 <Button fx:id="gobackButton" mnemonicParsing="false" onAction="#cancelation" text="Cancelar" />
                   <Button fx:id="ConfirmButton" mnemonicParsing="false" onAction="#confimation" text="Confirmar" />
@@ -90,6 +92,8 @@
                   <RadioButton fx:id="another" mnemonicParsing="false" text="Otros" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                </children>
             </GridPane>
+            <Spinner fx:id="maxTables" prefHeight="25.0" prefWidth="82.0" GridPane.columnIndex="1" GridPane.rowIndex="8" min="1" initialValue="1" amountToStepBy="1"/>
+            <Label text="Mesas Disponibles:" GridPane.rowIndex="8" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

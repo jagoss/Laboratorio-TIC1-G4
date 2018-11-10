@@ -42,7 +42,7 @@ public class MenuInicioRestoController {
 
 
     @FXML
-    void HistorialReservas(ActionEvent event) {
+    void HistorialReservas(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
@@ -97,7 +97,7 @@ public class MenuInicioRestoController {
     }
 
     @FXML
-    void estadoReservas(ActionEvent event) {
+    void estadoReservas(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);

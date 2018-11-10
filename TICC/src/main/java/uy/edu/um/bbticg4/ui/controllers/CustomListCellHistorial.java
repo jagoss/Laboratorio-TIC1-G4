@@ -49,9 +49,6 @@ public class CustomListCellHistorial extends ListCell<Reserva>{
     private Text asistio;
 
 
-
-
-
     public CustomListCellHistorial() {
         super();
 
@@ -72,9 +69,6 @@ public class CustomListCellHistorial extends ListCell<Reserva>{
 
         grid.add(headline,0,0,3,1);
         grid.add(hora,0,1,1,1);
-        grid.add(confirmar,1,1,1,1);
-        grid.add(negar,2,1,1,1);
-
 
         content = new HBox(grid);
         content.setSpacing(40);

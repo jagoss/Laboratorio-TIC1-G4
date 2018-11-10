@@ -1,16 +1,17 @@
 package uy.edu.um.bbticg4.ui.controllers;
 
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
+import javafx.scene.control.*;
 
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -25,6 +26,8 @@ import org.springframework.stereotype.Component;
 import uy.edu.um.Main;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 
+import java.io.IOException;
+
 @Component
 public class CustomListCell extends ListCell<Restaurant> {
         private BorderPane content;
@@ -36,6 +39,12 @@ public class CustomListCell extends ListCell<Restaurant> {
         private Text horario;
         private Text descripcion;
         private Button reservar;
+
+        private TextField hora;
+        private MenuButton cantidadDePersonas;
+        private RadioMenuItem unoADos;
+        private RadioMenuItem dosACuatro;
+        private RadioMenuItem masDeCuatro;
 
 
         public CustomListCell() {
@@ -56,6 +65,15 @@ public class CustomListCell extends ListCell<Restaurant> {
 
             reservar = new Button();
             reservar.setText("Reservar");
+
+            reservar.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+
+
+
+                }
+            });
 
 
             HBox hBoxBOT = new HBox(horario);
