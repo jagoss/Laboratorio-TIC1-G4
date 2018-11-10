@@ -39,7 +39,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 
 @Component
-public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
+public class CustomListCellEstadoReservas extends ListCell<Reserva>{
 
     private HBox content;
     private HBox headline;
@@ -54,7 +54,7 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
 
 
 
-    public CustomListCellReservasEntrantes() {
+    public CustomListCellEstadoReservas() {
         super();
 
         mesa = new Text();
