@@ -24,9 +24,6 @@ public class Restaurant{
     @ManyToOne
     private Barrio barrio;
 
-    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
-    @JoinColumn(name = "resto_id")
-
     private int maxMesas;
     private int mesasDisponibles;
 

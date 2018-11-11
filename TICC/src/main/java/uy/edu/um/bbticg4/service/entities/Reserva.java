@@ -15,12 +15,12 @@ public class Reserva {
 
     @ManyToOne(fetch = FetchType.EAGER,
             cascade = { CascadeType.ALL })
-    @JoinColumn(name = "id_reserva")
+    @JoinColumn(name = "id_cf")
     private ClienteFinal cf;
 
     @ManyToOne(fetch = FetchType.EAGER,
             cascade = { CascadeType.ALL })
-    @JoinColumn(name = "id_reserva")
+    @JoinColumn(name = "id_resto")
     private Restaurant resto;
 
     private Integer mesasNecesarias;
