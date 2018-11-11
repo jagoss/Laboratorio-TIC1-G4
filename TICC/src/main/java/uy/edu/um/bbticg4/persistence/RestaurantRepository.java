@@ -13,7 +13,7 @@ public interface RestaurantRepository extends CrudRepository<Restaurant, Integer
 
     List<Restaurant> findByBarrioAndRating(String filtroBarrio, Integer filtroRating);
 
-    @Query("SELECT r FROM Restaurant r WHERE r.barrio IN (?1) ORDER BY r.rating desc ")
+    @Query("SELECT r FROM Restaurant r WHERE r.barrio IN (?1) AND r.firstLogin = FALSE ORDER BY r.rating desc ")
     List<Restaurant> findByBarrio(List<Barrio> listaBarrio);
 
     boolean existsByRucOrCellphoneOrCuentaBancoOrEmailOrName(Long ruc, String cellphone, String cuentaBanco,
@@ -21,7 +21,7 @@ public interface RestaurantRepository extends CrudRepository<Restaurant, Integer
 
 
     @Query("SELECT distinct r FROM Restaurant r INNER JOIN r.listaCategoriaComida tp WHERE tp.idTipoComida IN (?1) " +
-            "AND r.barrio IN (?2) ORDER BY r.rating desc ")
+            "AND r.barrio IN (?2) AND r.firstLogin = FALSE ORDER BY r.rating desc ")
     List<Restaurant> findByTipoComidaAndBarrio(List<Integer> idListaTiposComidas, List<Barrio> listaBarrio);
 
 

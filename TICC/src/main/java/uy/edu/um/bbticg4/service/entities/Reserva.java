@@ -18,23 +18,23 @@ public class Reserva {
     @JoinColumn(name = "id_reserva")
     private ClienteFinal cf;
 
-    @ManyToMany(fetch = FetchType.EAGER,
+    @ManyToOne(fetch = FetchType.EAGER,
             cascade = { CascadeType.ALL })
-    @JoinTable(
-            name = "reserva_mesa",
-            joinColumns = { @JoinColumn(name = "id_reserva") })
-    private int mesasNecesarias;
+    @JoinColumn(name = "id_reserva")
+    private Restaurant resto;
 
+    private Integer mesasNecesarias;
     private Integer cantidad;
     private LocalDateTime horaReserva;
     private boolean confirmada;
-    private boolean finalizada;
     private boolean asistio;
+    private boolean finalizada;
 
     public Reserva(){}
 
-    public Reserva(ClienteFinal cf, Integer cantidad, LocalDateTime horaReserva){
+    public Reserva(ClienteFinal cf, Restaurant resto,Integer cantidad, LocalDateTime horaReserva){
         this.cf = cf;
+        this.resto = resto;
         this.cantidad = cantidad;
         this.horaReserva = horaReserva;
     }

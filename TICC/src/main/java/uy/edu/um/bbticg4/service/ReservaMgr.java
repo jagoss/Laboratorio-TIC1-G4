@@ -28,14 +28,14 @@ public class ReservaMgr {
     @Autowired
     private MesaRepository mesaRepo;
 
-    public void generarReserva(ClienteFinal cf, Integer cantidad, LocalDateTime hora)
+    public void generarReserva(ClienteFinal cf, Restaurant resto, Integer cantidad, LocalDateTime hora)
             throws InvalidInformation {
-        if(cf == null || cantidad == null || hora == null ||
-                !cfr.existsById(cf.getId()) ||
+        if(cf == null || resto == null || cantidad == null || hora == null ||
+                !cfr.existsById(cf.getId()) || !restoRepo.existsById(resto.getId()) ||
                 cantidad.equals(0) || hora.isBefore(LocalDateTime.now())){
             throw new InvalidInformation();
         }
-        rr.save(new Reserva(cf, cantidad, hora));
+        rr.save(new Reserva(cf, resto, cantidad, hora));
     }
 
     public void deleteReserva(Reserva reserva){
@@ -43,6 +43,6 @@ public class ReservaMgr {
     }
 
     public List<Reserva> getReservas(Restaurant resto){
-        return rr.obtenerReservasdeResto(resto.getListaMesa());
+        return rr.obtenerReservasdeResto(resto.getId());
     }
 }

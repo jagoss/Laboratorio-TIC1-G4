@@ -65,7 +65,7 @@ public class HistorialReservasController {
         ObservableList<Reserva> reservas = FXCollections.observableArrayList();
 
         for (int i = 0; i < listaReservas.size(); i++) {
-            if (listaReservas.get(i).isFinalizada == true) {
+            if (listaReservas.get(i).isFinalizada() == true) {
                 reservas.add(listaReservas.get(i));
             }
         }
@@ -83,4 +83,4 @@ public class HistorialReservasController {
     public  Restaurant getResto(){return resto;}
 }
 
-}
+
