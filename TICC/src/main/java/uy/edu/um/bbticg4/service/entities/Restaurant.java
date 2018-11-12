@@ -24,6 +24,7 @@ public class Restaurant{
     @ManyToOne
     private Barrio barrio;
 
+    @OneToMany
     List<Mesa> mesasTotales;
 
     @Column(unique = true)
