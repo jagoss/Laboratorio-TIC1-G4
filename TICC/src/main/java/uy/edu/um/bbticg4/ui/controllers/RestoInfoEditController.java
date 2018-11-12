@@ -111,6 +111,27 @@ public class RestoInfoEditController {
     private RadioButton another;
 
     @FXML
+    private Spinner<Integer> mesa2Spinner;
+    @FXML
+    private Spinner<Integer> mesa4Spinner;
+    @FXML
+    private Spinner<Integer> mesa6Spinner;
+    @FXML
+    private Spinner<Integer> mesa8Spinner;
+
+    @FXML
+    public void initialize(){
+        SpinnerValueFactory mesas2SVF = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,30,10);
+        SpinnerValueFactory mesas4SVF = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,30,10);
+        SpinnerValueFactory mesas6SVF = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,30,10);
+        SpinnerValueFactory mesas8SVF = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,30,10);
+        this.mesa2Spinner.setValueFactory(mesas2SVF);
+        this.mesa4Spinner.setValueFactory(mesas4SVF);
+        this.mesa6Spinner.setValueFactory(mesas6SVF);
+        this.mesa8Spinner.setValueFactory(mesas8SVF);
+    }
+
+    @FXML
     void cancelation(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();

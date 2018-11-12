@@ -29,8 +29,8 @@
             <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="79.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="124.0" minHeight="10.0" prefHeight="124.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="78.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="59.0" minHeight="2.0" prefHeight="28.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
@@ -57,7 +57,7 @@
               </buttons>
             </ButtonBar>
             <TextArea fx:id="ScheduleField" prefHeight="200.0" prefWidth="200.0" promptText="Lunes: 07:00 - 23:00 etc." GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextArea fx:id="menuField" prefHeight="200.0" prefWidth="200.0" promptText="Menu" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextArea fx:id="menuField" prefHeight="69.0" prefWidth="442.0" promptText="Menu" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <TextField fx:id="paymentOptions" promptText="Ej: Visa credito, Master debito, etc." GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField fx:id="personCost" promptText="Ej: $400" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="6">
@@ -92,8 +92,47 @@
                   <RadioButton fx:id="another" mnemonicParsing="false" text="Otros" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                </children>
             </GridPane>
-            <Spinner fx:id="maxTables" prefHeight="25.0" prefWidth="82.0" GridPane.columnIndex="1" GridPane.rowIndex="8" min="1" initialValue="1" amountToStepBy="1"/>
             <Label text="Mesas Disponibles:" GridPane.rowIndex="8" />
+            <Spinner fx:id="mesa2Spinner" prefHeight="4.0" prefWidth="81.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <GridPane.margin>
+                  <Insets left="20.0" top="20.0" />
+               </GridPane.margin>
+            </Spinner>
+            <Spinner fx:id="mesa4Spinner" editable="true" prefHeight="31.0" prefWidth="78.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <GridPane.margin>
+                  <Insets left="130.0" top="20.0" />
+               </GridPane.margin>
+            </Spinner>
+            <Spinner fx:id="mesa6Spinner" prefHeight="31.0" prefWidth="77.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <GridPane.margin>
+                  <Insets left="240.0" top="20.0" />
+               </GridPane.margin>
+            </Spinner>
+            <Spinner fx:id="mesa8Spinner" editable="true" prefHeight="31.0" prefWidth="79.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <GridPane.margin>
+                  <Insets left="340.0" top="20.0" />
+               </GridPane.margin>
+            </Spinner>
+            <Label text="Mesa de 2" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="25.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Mesa de 4" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="135.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Mesa de 6" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="245.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Mesa de 8" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <GridPane.margin>
+                  <Insets bottom="40.0" left="345.0" />
+               </GridPane.margin>
+            </Label>
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
