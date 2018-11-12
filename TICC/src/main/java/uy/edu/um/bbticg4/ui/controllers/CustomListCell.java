@@ -12,17 +12,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.*;
 
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
+import sun.plugin.javascript.navig.Anchor;
 import uy.edu.um.Main;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 
@@ -39,6 +37,7 @@ public class CustomListCell extends ListCell<Restaurant> {
         private Text horario;
         private Text descripcion;
         private Button reservar;
+        private AnchorPane ancla;
 
         private VBox datosReserva;
         private TextField hora;
@@ -67,9 +66,11 @@ public class CustomListCell extends ListCell<Restaurant> {
             Label pregunta = new Label("Cuantos van a ir?");
             TextField hora = new TextField();
             hora.setPromptText("Hora a reservar");
-            Spinner<Integer> ocupantes = new Spinner<Integer>(1,10,1,1);
+            Spinner<Integer> ocupantes = new Spinner<Integer>(1,15,1,1);
 
             VBox datosReserva = new VBox(hora, pregunta, ocupantes, reservar);
+            datosReserva.setSpacing(10);
+            datosReserva.setVgrow(hora, Priority.ALWAYS);
 
 
 
@@ -89,7 +90,13 @@ public class CustomListCell extends ListCell<Restaurant> {
             grid.add(precioPromedio,2,1,1,1);
             grid.add(hBoxBOT,0,3,3,1);
             grid.add(descripcion,0,2,3,1);
-            grid.setAlignment(Pos.CENTER);
+            grid.setAlignment(Pos.CENTER_LEFT);
+
+            AnchorPane ancla = new AnchorPane(grid);
+            ancla.setTopAnchor(grid,5.0);
+            ancla.setRightAnchor(grid,5.0);
+            ancla.setLeftAnchor(grid,5.0);
+            ancla.setBottomAnchor(grid,5.0);
 
             reservar.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
@@ -103,8 +110,8 @@ public class CustomListCell extends ListCell<Restaurant> {
 
             content = new BorderPane();
             content.setLeft(new Label("[Graphic]"));
-            content.setCenter(grid);
-            content.setRight(reservar);
+            content.setCenter(ancla);
+            content.setRight(datosReserva);
             content.setPadding(new Insets(8,8,8,8));
 
         }
