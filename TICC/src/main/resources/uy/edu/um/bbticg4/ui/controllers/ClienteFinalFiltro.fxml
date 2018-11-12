@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.bbticg4.ui.controllers.ClienteFinalFiltroController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="914.0" prefWidth="943.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.bbticg4.ui.controllers.ClienteFinalFiltroController">
    <children>
-      <BorderPane prefHeight="600.0" prefWidth="399.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane prefHeight="914.0" prefWidth="943.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
             <BorderPane maxHeight="1.7976931348623157E308" BorderPane.alignment="CENTER">
                <bottom>
@@ -35,7 +35,7 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ScrollPane hbarPolicy="NEVER" prefHeight="811.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="813.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
                               <GridPane hgap="5.0" prefHeight="606.0" prefWidth="200.0" vgap="3.0">
                                 <columnConstraints>
@@ -123,7 +123,7 @@
             </BorderPane>
          </left>
          <center>
-            <ListView fx:id="listaRestaurantes" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <ListView fx:id="listaRestaurantes" prefHeight="879.0" prefWidth="739.0" BorderPane.alignment="CENTER" />
          </center>
          <top>
             <GridPane BorderPane.alignment="CENTER">
