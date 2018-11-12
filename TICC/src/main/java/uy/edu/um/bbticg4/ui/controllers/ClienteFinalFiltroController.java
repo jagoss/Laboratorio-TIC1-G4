@@ -141,7 +141,7 @@ public class ClienteFinalFiltroController {
             listaRestaurantes.setCellFactory(new Callback<ListView<Restaurant>, ListCell<Restaurant>>() {
                 @Override
                 public ListCell<Restaurant> call(ListView<Restaurant> listView) {
-                    return new CustomListCell();
+                    return new CustomListCell(cf);
                 }
             });
 

@@ -1,9 +1,11 @@
 package uy.edu.um.bbticg4.ui.controllers;
 
+import javafx.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
@@ -30,10 +32,17 @@ public class ReservasEntrantesController {
 
     private Restaurant resto;
 
+    @FXML
+    private Button refresh;
 
     @FXML
-    void displayReservas(ActionEvent event) {
+    public void initialize() {
+        refresh.fire();
+    }
 
+    @FXML
+    void displayReservas (ActionEvent event) {
+//limpiar
         listaReservas = reservaMgr.getReservas(resto);
 
         ObservableList<Reserva> reservas = FXCollections.observableArrayList();

@@ -49,9 +49,6 @@ public class RestoInfoEditController {
     private TextArea ScheduleField;
 
     @FXML
-    private TextArea foodOptions;
-
-    @FXML
     private TextArea menuField;
 
     @FXML
