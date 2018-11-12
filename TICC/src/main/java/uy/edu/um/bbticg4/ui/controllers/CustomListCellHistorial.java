@@ -57,6 +57,12 @@ public class CustomListCellHistorial extends ListCell<Reserva>{
         hora = new Text();
         asistio = new Text(); //falta setear esto dependiendo del estado del boolean, y agregar color como dice el trello
 
+        /*if(reserva.isAsistio == true){
+            asistio.setText("Asistio");
+        } else {
+            asistio.setText("No asistio");
+        }*/
+
         headline = new HBox(new Label("Reserva de"),mesa, new Label("mesa por:"), client);
 
         headline.setSpacing(5.0);

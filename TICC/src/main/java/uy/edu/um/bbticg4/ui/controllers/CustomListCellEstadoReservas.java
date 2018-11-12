@@ -46,7 +46,8 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
     private Text mesa;
     private Text hora;
     private Text client;
-
+    private Button asistio;
+    private Button noAsistio;
 
 
 
@@ -58,7 +59,7 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
         mesa = new Text();
         client = new Text();
         hora = new Text();
-/*
+
         asistio = new Button();
         asistio.setText("Asistio");
         noAsistio = new Button();
@@ -75,14 +76,14 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
 
         grid.add(headline,0,0,3,1);
         grid.add(hora,0,1,1,1);
-        grid.add(confirmar,1,1,1,1);
-        grid.add(negar,2,1,1,1);
+        grid.add(asistio,1,1,1,1);
+        grid.add(noAsistio,2,1,1,1);
 
 
         content = new HBox(grid);
         content.setSpacing(40);
         content.setPadding(new Insets(8,8,8,8));
-*/
+
     }
 
     @Override
