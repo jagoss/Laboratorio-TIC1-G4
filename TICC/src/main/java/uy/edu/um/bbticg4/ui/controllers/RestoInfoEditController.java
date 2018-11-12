@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import uy.edu.um.Main;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 import uy.edu.um.bbticg4.service.TipoComidaMgr;
+import uy.edu.um.bbticg4.service.entities.Mesa;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.ui.tools.JavaFXTools;
 
@@ -37,9 +38,6 @@ public class RestoInfoEditController {
 
     @FXML
     private TextArea descField;
-
-    @FXML
-    private Spinner<Integer> maxTables;
 
     @FXML
     private Button gobackButton;
@@ -165,8 +163,7 @@ public class RestoInfoEditController {
         if (descField.getText() == null || descField.getText().equals("") ||
                 ScheduleField.getText() == null || ScheduleField.getText().equals("") ||
                 paymentOptions.getText() == null || paymentOptions.getText().equals("") ||
-                personCost.getText() == null || personCost.getText().equals("") ||
-                maxTables.getValue() == null) {
+                personCost.getText() == null || personCost.getText().equals("")) {
             tools.showAlert(
                     "Datos faltantes!",
                     "No se ingresaron los datos necesarios para completar el ingreso.");
@@ -179,7 +176,11 @@ public class RestoInfoEditController {
             String descripcion = descField.getText();
             String horario = ScheduleField.getText();
             List<Integer> listaCategoriaComida = new ArrayList<>();
-            int mesasMaximas = maxTables.getValue();
+            int mesas2 = mesa2Spinner.getValue();
+            int mesas4 = mesa4Spinner.getValue();
+            int mesas6 = mesa6Spinner.getValue();
+            int mesas8 = mesa8Spinner.getValue();
+            List<Mesa> mesasResto = new ArrayList<>();
 
             if(cafe.isSelected())
                 listaCategoriaComida.add(9);
@@ -220,7 +221,26 @@ public class RestoInfoEditController {
             resto.setHorario(horario);
             resto.setDescripcion(descripcion);
             resto.setCostoPersona(costoPersona);
-            resto.setMaxMesas(mesasMaximas);
+
+            if(resto.getFistLogin()) {
+                for (int x = 1; x < mesas2; x++) {
+                    mesasResto.add(new Mesa(2));
+                }
+                for (int x = 1; x < mesas4; x++) {
+                    mesasResto.add(new Mesa(4));
+                }
+                for (int x = 1; x < mesas6; x++) {
+                    mesasResto.add(new Mesa(6));
+                }
+                for (int x = 1; x < mesas8; x++) {
+                    mesasResto.add(new Mesa(8));
+                }
+            } else {
+
+                //ACA TIENE QUE VERIFICAR SI HAY MESAS OCUPADAS
+            }
+
+            resto.setMesasTotales(mesasResto);
 
             resto.setFirstLogin(false);
 

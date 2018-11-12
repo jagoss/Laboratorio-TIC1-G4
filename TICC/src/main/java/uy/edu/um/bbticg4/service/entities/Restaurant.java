@@ -24,8 +24,7 @@ public class Restaurant{
     @ManyToOne
     private Barrio barrio;
 
-    private int maxMesas;
-    private int mesasDisponibles;
+    List<Mesa> mesasTotales;
 
     @Column(unique = true)
     private String name;
@@ -198,22 +197,6 @@ public class Restaurant{
         this.firstReview = fr;
     }
 
-    public int getMaxMesas() {
-        return maxMesas;
-    }
-
-    public void setMaxMesas(int maxMesas) {
-        this.maxMesas = maxMesas;
-    }
-
-    public int getMesasDisponibles() {
-        return mesasDisponibles;
-    }
-
-    public void setMesasDisponibles(int mesasDisponibles) {
-        this.mesasDisponibles = mesasDisponibles;
-    }
-
     public boolean isFirstReview() {
         return firstReview;
     }
@@ -253,4 +236,8 @@ public class Restaurant{
     public void setFirstLogin(boolean estado){firstLogin = estado;}
 
     public boolean getFistLogin() {return firstLogin;}
+
+    public List<Mesa> getMesasTotales() { return mesasTotales; }
+
+    public void setMesasTotales(List<Mesa> mesasTotales) { this.mesasTotales = mesasTotales; }
 }

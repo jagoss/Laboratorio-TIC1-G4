@@ -23,7 +23,6 @@ public class Reserva {
     @JoinColumn(name = "id_resto")
     private Restaurant resto;
 
-    private Integer mesasNecesarias;
     private Integer cantidad;
     private LocalDateTime horaReserva;
     private boolean confirmada;
@@ -61,14 +60,6 @@ public class Reserva {
 
     public void setHoraReserva(LocalDateTime horaReserva) {
         this.horaReserva = horaReserva;
-    }
-
-    public Integer getMesasNecesarias() {
-        return mesasNecesarias;
-    }
-
-    public void setMesasNecesarias(Integer mesasNecesarias) {
-        this.mesasNecesarias = mesasNecesarias;
     }
 
     public boolean isConfirmada() {

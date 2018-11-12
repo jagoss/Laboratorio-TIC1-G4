@@ -11,6 +11,9 @@ public class Mesa {
     @SequenceGenerator(name="id_generator_mesa", sequenceName = "id_seq_mesa", allocationSize=1)
     private Integer id;
     private Integer nroPersonas;
+    private boolean libre;
+
+    private boolean ocupada;
 
     public Mesa(){}
 
@@ -33,4 +36,12 @@ public class Mesa {
     public void setNroPersonas(Integer nroPersonas) {
         this.nroPersonas = nroPersonas;
     }
+
+    public boolean isLibre() { return libre; }
+
+    public void setLibre(boolean libre) { this.libre = libre; }
+
+    public boolean isOcupada() { return ocupada; }
+
+    public void setOcupada(boolean ocupada) { this.ocupada = ocupada; }
 }
