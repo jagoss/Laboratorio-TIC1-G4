@@ -13,13 +13,11 @@ import org.springframework.stereotype.Component;
 import uy.edu.um.Main;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 import uy.edu.um.bbticg4.service.TipoComidaMgr;
-import uy.edu.um.bbticg4.service.entities.Mesa;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.ui.tools.JavaFXTools;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 @Component
@@ -173,11 +171,6 @@ public class RestoInfoEditController {
             String descripcion = descField.getText();
             String horario = ScheduleField.getText();
             List<Integer> listaCategoriaComida = new ArrayList<>();
-            int mesas2 = mesa2Spinner.getValue();
-            int mesas4 = mesa4Spinner.getValue();
-            int mesas6 = mesa6Spinner.getValue();
-            int mesas8 = mesa8Spinner.getValue();
-            List<Mesa> mesasResto = new ArrayList<>();
 
             if(cafe.isSelected())
                 listaCategoriaComida.add(9);
@@ -218,26 +211,6 @@ public class RestoInfoEditController {
             resto.setHorario(horario);
             resto.setDescripcion(descripcion);
             resto.setCostoPersona(costoPersona);
-
-            if(resto.getFistLogin()) {
-                for (int x = 1; x < mesas2; x++) {
-                    mesasResto.add(new Mesa(2));
-                }
-                for (int x = 1; x < mesas4; x++) {
-                    mesasResto.add(new Mesa(4));
-                }
-                for (int x = 1; x < mesas6; x++) {
-                    mesasResto.add(new Mesa(6));
-                }
-                for (int x = 1; x < mesas8; x++) {
-                    mesasResto.add(new Mesa(8));
-                }
-            } else {
-
-                //ACA TIENE QUE VERIFICAR SI HAY MESAS OCUPADAS
-            }
-
-            resto.setMesasTotales(mesasResto);
 
             resto.setFirstLogin(false);
 

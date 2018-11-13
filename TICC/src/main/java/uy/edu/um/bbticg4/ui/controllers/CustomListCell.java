@@ -36,7 +36,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-@Component
+
 public class CustomListCell extends ListCell<Restaurant> {
     private BorderPane content;
     private Text nombreFantasia;
@@ -118,11 +118,10 @@ public class CustomListCell extends ListCell<Restaurant> {
             }
         });
 
-
         content = new BorderPane();
         content.setLeft(new Label("[Graphic]"));
         content.setCenter(grid);
-        content.setRight(reservar);
+        content.setRight(datosReserva);
         content.setPadding(new Insets(8,8,8,8));
 
     }

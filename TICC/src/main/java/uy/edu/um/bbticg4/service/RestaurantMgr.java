@@ -46,7 +46,8 @@ public class RestaurantMgr {
             throw new UserAlreadyExists();
         }
         if(nombreFantasia == null || nombreFantasia.equals("")){
-        restaurantRepository.save(new Restaurant(name, password, cuentaBanco , ruc, email, cellphone, direccion, barrio));
+            restaurantRepository.save(new Restaurant(name, password, cuentaBanco , ruc, email, cellphone,
+                    direccion, barrio));
         }else{
             restaurantRepository.save(new Restaurant(name, nombreFantasia, password, cuentaBanco , ruc, email,
                     cellphone, direccion, barrio));

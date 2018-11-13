@@ -21,10 +21,12 @@ public class Restaurant{
     private List<TipoComida> listaCategoriaComida = new ArrayList<>(5);
     private Integer rating = 3;
 
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="id_barrio")
     private Barrio barrio;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name ="id_resto")
     List<Mesa> mesasTotales;
 
     @Column(unique = true)
