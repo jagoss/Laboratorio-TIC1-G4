@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -36,10 +37,22 @@ public class MenuInicioRestoController {
     private Button historialReservas;
 
     @FXML
+    private Button deudaPend;
+
+    @FXML
     private Button Return;
+
+    @FXML
+    private Text tituloResto;
 
     private Restaurant resto;
 
+    @FXML
+    public void initialize(){
+
+        tituloResto.setText(resto.getNombreFantasia());
+
+    }
 
     @FXML
     void HistorialReservas(ActionEvent event) throws IOException {
@@ -141,6 +154,25 @@ public class MenuInicioRestoController {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pantallaPrincipalResto.css");
         stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+
+    }
+
+    @FXML
+    void deudaPend(ActionEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        fxmlLoader.setLocation(DeudaVentanaController.class.getResource("DeudaVentana.fxml"));
+        DeudaVentanaController controller = Main.getContext().getBean(DeudaVentanaController.class);
+        controller.setResto(resto);
+
+        Parent root = fxmlLoader.load(
+                MenuInicioRestoController.class.getResourceAsStream("DeudaVentana.fxml"));
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
 

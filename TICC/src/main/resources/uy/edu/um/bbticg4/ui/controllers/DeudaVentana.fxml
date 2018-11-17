@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="356.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.bbticg4.ui.controllers.DeudaVentanaController">
+   <children>
+      <BorderPane layoutX="89.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text fill="#ff9900" strokeType="OUTSIDE" strokeWidth="0.0" text="Deuda Restaurante" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </GridPane>
+         </top>
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="287.0" minHeight="10.0" prefHeight="257.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="101.0" minHeight="0.0" prefHeight="69.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="1">
+                    <buttons>
+                        <Button mnemonicParsing="false" onAction="#update" prefHeight="32.0" prefWidth="129.0" text="Actulizar" />
+                      <Button mnemonicParsing="false" onAction="#payDebt" prefHeight="32.0" prefWidth="129.0" text="Pagar Deuda" />
+                        <Button mnemonicParsing="false" onAction="#cancel" prefHeight="32.0" prefWidth="129.0" text="Volver" />
+                    </buttons>
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </ButtonBar>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="La deuda del local es actualmente de:" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets top="40.0" />
+                           </BorderPane.margin>
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                     </top>
+                     <center>
+                        <Text fx:id="smallLoan" strokeType="OUTSIDE" strokeWidth="0.0" text="Bottom Text" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="41.0" />
+                           </font>
+                        </Text>
+                     </center>
+                  </BorderPane>
+               </children>
+            </GridPane>
+         </center></BorderPane>
+   </children>
+</AnchorPane>

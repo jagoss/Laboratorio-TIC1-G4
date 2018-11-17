@@ -1,6 +1,7 @@
 package uy.edu.um.bbticg4.service.entities;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +47,9 @@ public class Restaurant{
     private boolean firstReview = false;
     private String descripcion;
     private String opcionesDePago;
+
+    private BigDecimal deuda;
+
     private String horario;
     private String costoPersona;
     private String menu;
@@ -63,6 +67,7 @@ public class Restaurant{
         this.barrio = barrio;
         this.name = name;
         this.cuentaBanco = cuentaBanco;
+        deuda = BigDecimal.valueOf(0);
     }
 
     public Restaurant(String name, String nombreFantasia,String password,String cuentaBanco , Long ruc,
@@ -77,9 +82,10 @@ public class Restaurant{
         this.name = name;
         this.nombreFantasia = nombreFantasia;
         this.cuentaBanco = cuentaBanco;
+        deuda = BigDecimal.valueOf(0);
     }
 
-    public Restaurant(){}
+    public Restaurant(){ deuda = BigDecimal.valueOf(0); }
 
     public void deleteCategoriaComida(String categoriaAEliminar){
 
@@ -244,6 +250,10 @@ public class Restaurant{
     public List<Mesa> getMesasTotales() { return mesasTotales; }
 
     public void setMesasTotales(List<Mesa> mesasTotales) { this.mesasTotales = mesasTotales; }
+
+    public BigDecimal getDeuda() { return deuda; }
+
+    public void setDeuda(BigDecimal deuda) { this.deuda = deuda; }
 
     public void setMenu(String menu){this.menu = menu;}
 

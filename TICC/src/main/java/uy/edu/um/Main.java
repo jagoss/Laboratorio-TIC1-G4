@@ -27,7 +27,7 @@ public class Main extends Application{
 
     @Override
     public void init() throws Exception {
-        Main.context = SpringApplication.run(Main.class);
+         Main.context = SpringApplication.run(Main.class);
     }
 
     @Override

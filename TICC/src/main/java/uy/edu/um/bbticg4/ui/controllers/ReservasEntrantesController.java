@@ -1,6 +1,5 @@
 package uy.edu.um.bbticg4.ui.controllers;
 
-import javafx.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

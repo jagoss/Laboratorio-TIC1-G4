@@ -2,8 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -12,51 +10,61 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.bbticg4.ui.controllers.MenuInicioRestoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="356.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.bbticg4.ui.controllers.MenuInicioRestoController">
    <children>
       <BorderPane layoutX="7.0" prefHeight="400.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <GridPane prefHeight="172.0" prefWidth="392.0" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="reservasEntrantes" mnemonicParsing="false" onAction="#reservasEntrantes" text="Reservas entrantes" GridPane.halignment="CENTER">
+                  <Button fx:id="reservasEntrantes" mnemonicParsing="false" onAction="#reservasEntrantes" prefHeight="111.0" prefWidth="361.0" text="Reservas entrantes" GridPane.halignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
-                     <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </padding>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
                   </Button>
-                  <Button fx:id="estadoReservas" mnemonicParsing="false" onAction="#estadoReservas" text="Estado de reservas" GridPane.columnIndex="1" GridPane.halignment="CENTER">
-                     <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </padding>
+                  <Button fx:id="estadoReservas" mnemonicParsing="false" onAction="#estadoReservas" prefHeight="57.0" prefWidth="452.0" text="Estado de reservas" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
                   </Button>
-                  <Button fx:id="editarDatos" mnemonicParsing="false" onAction="#editarDatos" prefHeight="57.0" prefWidth="139.0" text="Editar datos" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                     <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </padding>
+                  <Button fx:id="editarDatos" mnemonicParsing="false" onAction="#editarDatos" prefHeight="86.0" prefWidth="361.0" text="Editar datos" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
                   </Button>
-                  <Button fx:id="historialReservas" mnemonicParsing="false" onAction="#HistorialReservas" prefWidth="139.0" text="Historial" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <Button fx:id="historialReservas" mnemonicParsing="false" onAction="#HistorialReservas" prefHeight="57.0" prefWidth="414.0" text="Historial" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
-                     <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </padding>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="deudaPend" mnemonicParsing="false" onAction="#deudaPend" prefHeight="57.0" prefWidth="422.0" text="Deuda Pendiente" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
                   </Button>
                </children>
                <BorderPane.margin>
@@ -75,7 +83,7 @@
               </rowConstraints>
                <children>
                   <Button fx:id="Return" mnemonicParsing="false" onAction="#Return" prefHeight="25.0" prefWidth="58.0" text="Salir" />
-                  <Text fill="#ff9900" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu Inicial Restaurante" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+                  <Text fx:id="tituloResto" fill="#ff9900" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu Inicial Restaurante" GridPane.columnSpan="2" GridPane.halignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
