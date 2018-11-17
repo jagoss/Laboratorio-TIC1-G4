@@ -54,7 +54,10 @@ public class MenuInicioRestoController {
                 MenuInicioRestoController.class.getResourceAsStream("HistorialReservas.fxml"));
 
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pantallaPrincipalResto.css");
+        stage.setScene(scene);
+        stage.show();
         stage.setResizable(false);
         stage.show();
     }
@@ -67,7 +70,9 @@ public class MenuInicioRestoController {
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(MenuInicioRestoController.class.getResourceAsStream("InicioApp.fxml"));
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pagPrincipal.css");
+        stage.setScene(scene);
         stage.show();
 
         Node source = (Node)  event.getSource();
@@ -89,7 +94,9 @@ public class MenuInicioRestoController {
                 MenuInicioRestoController.class.getResourceAsStream("RestoInfoEdit.fxml"));
 
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pantallaPrincipalResto.css");
+        stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
 
@@ -109,7 +116,9 @@ public class MenuInicioRestoController {
                 MenuInicioRestoController.class.getResourceAsStream("EstadoReservas.fxml"));
 
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pantallaPrincipalResto.css");
+        stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
 
@@ -129,7 +138,9 @@ public class MenuInicioRestoController {
                 MenuInicioRestoController.class.getResourceAsStream("ReservasEntrantes.fxml"));
 
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pantallaPrincipalResto.css");
+        stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
 

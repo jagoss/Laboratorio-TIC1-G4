@@ -155,7 +155,9 @@ public class ClienteFinalFiltroController {
 
         Parent root = fxmlLoader.load(ClienteFinalFiltroController.class.getResourceAsStream("InicioApp.fxml"));
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pagPrincipal.css");
+        stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
 

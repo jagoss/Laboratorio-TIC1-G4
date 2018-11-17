@@ -76,7 +76,10 @@ public class LogInController {
                     ClienteFinalFiltroController controller = Main.getContext().getBean(ClienteFinalFiltroController.class);
                     controller.setCf(cfMgr.getCliente(userMail.getText()));
                     Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("ClienteFinalFiltro.fxml"));
-                    stage.setScene(new Scene(root));
+
+                    Scene sceneFiltroFinal = new Scene(root);
+                    sceneFiltroFinal.getStylesheets().add("uy/edu/um/bbticg4/ui/images/busquedaResto.css");
+                    stage.setScene(sceneFiltroFinal);
                     stage.show();
 
                     Node source = (Node)  event.getSource();
@@ -96,8 +99,9 @@ public class LogInController {
                         controller.setResto(restoMgr.getRestaurant(userMail.getText()));
                         Parent root = fxmlLoader.load(
                                 LogInController.class.getResourceAsStream("RestoInfoEdit.fxml"));
-
-                        stage.setScene(new Scene(root));
+                        Scene sceneRestoMain = new Scene(root);
+                        sceneRestoMain.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pantallaPrincipalResto.css");
+                        stage.setScene(sceneRestoMain);
                         stage.setResizable(false);
                         stage.show();
 
@@ -115,7 +119,9 @@ public class LogInController {
                         Parent root = fxmlLoader.load(
                                 LogInController.class.getResourceAsStream("MenuInicialResto.fxml"));
 
-                        stage.setScene(new Scene(root));
+                        Scene sceneRestoMain = new Scene(root);
+                        sceneRestoMain.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pantallaPrincipalResto.css");
+                        stage.setScene(sceneRestoMain);
                         stage.show();
 
                         Node source = (Node)  event.getSource();
@@ -131,7 +137,10 @@ public class LogInController {
 
                     Parent root = fxmlLoader.load(
                             LogInController.class.getResourceAsStream("AdminPrincipal.fxml"));
-                    stage.setScene(new Scene(root));
+
+                    Scene sceneAdmin = new Scene(root);
+                    sceneAdmin.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pagPrincipal.css");
+                    stage.setScene(sceneAdmin);
                     stage.show();
 
                     Node source = (Node)  event.getSource();
@@ -156,7 +165,10 @@ public class LogInController {
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("InicioApp.fxml"));
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+
+        Scene sceneLogIn = new Scene(root);
+        sceneLogIn.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pagPrincipal.css");
+        stage.setScene(sceneLogIn);
         stage.show();
 
         Node source = (Node)  event.getSource();

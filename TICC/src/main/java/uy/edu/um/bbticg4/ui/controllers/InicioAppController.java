@@ -29,7 +29,9 @@ public class InicioAppController {
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("RegistroCliente.fxml"));
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        Scene sceneLogIn = new Scene(root);
+        sceneLogIn.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pagPrincipal.css");
+        stage.setScene(sceneLogIn);
         stage.setResizable(false);
         stage.show();
 
@@ -42,7 +44,9 @@ public class InicioAppController {
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         Parent root = fxmlLoader.load(LogInController.class.getResourceAsStream("LogIn.fxml"));
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        Scene sceneLogIn = new Scene(root);
+        sceneLogIn.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pagPrincipal.css");
+        stage.setScene(sceneLogIn);
         stage.setResizable(false);
         stage.show();
 

@@ -131,51 +131,85 @@ public class RestoInfoEditController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
-        fxmlLoader.setLocation(MenuInicioRestoController.class.
-                getResource("MenuInicialResto.fxml"));
+        if(resto.getFistLogin()) {
 
-        MenuInicioRestoController controller = Main.getContext().
-                getBean(MenuInicioRestoController.class);
+            fxmlLoader.setLocation(LogInController.class.
+                    getResource("LogIn.fxml"));
 
-        controller.setResto(resto);
+            Parent root = fxmlLoader.load(
+                    RestoInfoEditController.class.getResourceAsStream("LogIn.fxml"));
 
-        Parent root = fxmlLoader.load(
-                RestoInfoEditController.class.getResourceAsStream("MenuInicialResto.fxml"));
+            Node source = (Node) event.getSource();
+            Stage stage = (Stage) source.getScene().getWindow();
+            stage.close();
 
-        Node source = (Node)  event.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
-        stage.close();
+            Stage stage2 = new Stage();
+            Scene sceneLogIn = new Scene(root);
+            sceneLogIn.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pagPrincipal.css");
+            stage2.setScene(sceneLogIn);
+            stage2.setResizable(false);
+            stage2.show();
 
-        Stage stage2 = new Stage();
-        stage2.setScene(new Scene(root));
-        stage2.setResizable(false);
-        stage2.show();
+        }else{
+            fxmlLoader.setLocation(MenuInicioRestoController.class.
+                    getResource("MenuInicialResto.fxml"));
+
+            MenuInicioRestoController controller = Main.getContext().
+                    getBean(MenuInicioRestoController.class);
+
+            controller.setResto(resto);
+
+            Parent root = fxmlLoader.load(
+                    RestoInfoEditController.class.getResourceAsStream("MenuInicialResto.fxml"));
+
+            Node source = (Node) event.getSource();
+            Stage stage = (Stage) source.getScene().getWindow();
+            stage.close();
+
+            Stage stage2 = new Stage();
+            Scene sceneMenuInicial = new Scene(root);
+            sceneMenuInicial.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pantallaPrincipalResto.css");
+            stage2.setScene(sceneMenuInicial);
+            stage2.setResizable(false);
+            stage2.show();
+        }
+
+
 
     }
 
     @FXML
     void confimation(ActionEvent event) throws IOException {
 
-        if (descField.getText() == null || descField.getText().equals("") ||
+        if ((descField.getText() == null || descField.getText().equals("") ||
                 ScheduleField.getText() == null || ScheduleField.getText().equals("") ||
                 paymentOptions.getText() == null || paymentOptions.getText().equals("") ||
-                personCost.getText() == null || personCost.getText().equals("")) {
+                personCost.getText() == null || personCost.getText().equals("")) && resto.getFistLogin()) {
             tools.showAlert(
                     "Datos faltantes!",
                     "No se ingresaron los datos necesarios para completar el ingreso.");
 
         } else {
+            if(personCost != null && !personCost.getText().equals("")) {
+                resto.setCostoPersona(personCost.getText()); }
 
-            String costoPersona = personCost.getText();
-            String opcionesPago = paymentOptions.getText();
-            String menu = menuField.getText();
-            String descripcion = descField.getText();
-            String horario = ScheduleField.getText();
+            if(paymentOptions != null&& !paymentOptions.getText().equals("")){
+                resto.setOpcionesDePago(paymentOptions.getText());}
+
+            if(menuField != null && !menuField.getText().equals("")){
+                resto.setMenu(menuField.getText());}
+
+            if(descField != null && !descField.getText().equals("")){
+                resto.setDescripcion(descField.getText());}
+
+            if(ScheduleField != null && !ScheduleField.getText().equals("")){
+                resto.setHorario(ScheduleField.getText());}
+
             List<Integer> listaCategoriaComida = new ArrayList<>();
-            int mesas2 = mesa2Spinner.getValue();
-            int mesas4 = mesa4Spinner.getValue();
-            int mesas6 = mesa6Spinner.getValue();
-            int mesas8 = mesa8Spinner.getValue();
+            Integer mesas2 = mesa2Spinner.getValue();
+            Integer mesas4 = mesa4Spinner.getValue();
+            Integer mesas6 = mesa6Spinner.getValue();
+            Integer mesas8 = mesa8Spinner.getValue();
             List<Mesa> mesasResto = new ArrayList<>();
 
             if(cafe.isSelected())
@@ -211,12 +245,7 @@ public class RestoInfoEditController {
             if(another.isSelected())
                 listaCategoriaComida.add(16);
 
-            resto.setListaCategoriaComida(foodtype.getListaPorId(listaCategoriaComida));
-
-            resto.setOpcionesDePago(opcionesPago);
-            resto.setHorario(horario);
-            resto.setDescripcion(descripcion);
-            resto.setCostoPersona(costoPersona);
+            if(listaCategoriaComida.size()>0){resto.setListaCategoriaComida(foodtype.getListaPorId(listaCategoriaComida));}
 
             if(resto.getFistLogin()) {
                 for (int x = 1; x < mesas2; x++) {
@@ -265,11 +294,12 @@ public class RestoInfoEditController {
             stage.close();
 
             Stage stage2 = new Stage();
-            stage2.setScene(new Scene(root));
+            Scene sceneMenuInicial = new Scene(root);
+            sceneMenuInicial.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pantallaPrincipalResto.css");
+            stage2.setScene(sceneMenuInicial);
+
             stage2.setResizable(false);
             stage2.show();
-
-
         }
     }
 

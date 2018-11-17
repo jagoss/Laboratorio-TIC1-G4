@@ -48,6 +48,7 @@ public class Restaurant{
     private String opcionesDePago;
     private String horario;
     private String costoPersona;
+    private String menu;
     private boolean firstLogin = true;
 
 
@@ -243,4 +244,8 @@ public class Restaurant{
     public List<Mesa> getMesasTotales() { return mesasTotales; }
 
     public void setMesasTotales(List<Mesa> mesasTotales) { this.mesasTotales = mesasTotales; }
+
+    public void setMenu(String menu){this.menu = menu;}
+
+    public String getMenu(){return menu;}
 }

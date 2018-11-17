@@ -33,7 +33,9 @@ public class AdminPrincipalController {
 
         Parent root = fxmlLoader.load(AdminRegistroRestauranteController.class.getResourceAsStream("InicioApp.fxml"));
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pagPrincipal.css");
+        stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
 
@@ -50,7 +52,9 @@ public class AdminPrincipalController {
 
         Parent root = fxmlLoader.load(AdminRegistroRestauranteController.class.getResourceAsStream("AdminRegistroRestaurante.fxml"));
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pagPrincipal.css");
+        stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
 
@@ -64,7 +68,9 @@ public class AdminPrincipalController {
 
         Parent root = fxmlLoader.load(AdminRegistroRestauranteController.class.getResourceAsStream("ClienteFinalFiltro.fxml"));
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pagPrincipal.css");
+        stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
     }
