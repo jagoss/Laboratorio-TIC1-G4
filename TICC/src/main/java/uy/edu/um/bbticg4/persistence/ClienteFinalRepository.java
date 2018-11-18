@@ -14,4 +14,6 @@ public interface ClienteFinalRepository extends CrudRepository<ClienteFinal, Int
     boolean existsByEmail(String email);
 
     ClienteFinal findClienteFinalByEmail(String email);
+
+    ClienteFinal findClienteFinalById(Integer id);
 }

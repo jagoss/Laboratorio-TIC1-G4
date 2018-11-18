@@ -11,6 +11,7 @@ import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uy.edu.um.bbticg4.exceptions.TipoComidaException;
+import uy.edu.um.bbticg4.service.ClienteFinalMgr;
 import uy.edu.um.bbticg4.service.ReservaMgr;
 import uy.edu.um.bbticg4.service.entities.Reserva;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
@@ -23,6 +24,9 @@ public class ReservasEntrantesController {
 
     @Autowired
     private ReservaMgr reservaMgr;
+
+    @Autowired
+    private ClienteFinalMgr cfmgr;
 
     private List<Reserva> listaReservas = new LinkedList<>();
 
@@ -43,7 +47,7 @@ public class ReservasEntrantesController {
 
     @FXML
     void displayReservas(ActionEvent event) {
-//limpiar
+
         listaReservas = reservaMgr.getReservas(resto);
 
         ObservableList<Reserva> reservas = FXCollections.observableArrayList();
@@ -56,7 +60,7 @@ public class ReservasEntrantesController {
         listaReservasEntrantes.setCellFactory(new Callback<ListView<Reserva>, ListCell<Reserva>>() {
             @Override
             public ListCell<Reserva> call(ListView<Reserva> listView) {
-                return new CustomListCellReservasEntrantes();
+                return new CustomListCellReservasEntrantes(cfmgr);
             }
         });
     }

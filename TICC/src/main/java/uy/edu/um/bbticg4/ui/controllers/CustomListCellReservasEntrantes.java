@@ -22,6 +22,8 @@ import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uy.edu.um.Main;
+import uy.edu.um.bbticg4.service.ClienteFinalMgr;
+import uy.edu.um.bbticg4.service.entities.ClienteFinal;
 import uy.edu.um.bbticg4.service.entities.Reserva;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 
@@ -38,10 +40,77 @@ import javafx.scene.text.Text;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Component
 public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
-    private BorderPane borderContent;
+
+
+        private HBox content;
+
+        private Text cantidadClientes;
+        private Text hora;
+        private Text client;
+
+        private Button confirmar;
+        private Button negar;
+        @Autowired
+        private ClienteFinalMgr cfmgr;
+
+
+
+    public CustomListCellReservasEntrantes(ClienteFinalMgr cfmgr) {
+            super();
+
+            this.cfmgr = cfmgr;
+            cantidadClientes = new Text();
+            hora = new Text();
+            client = new Text();
+            client.setFont(Font.font("System", FontWeight.BOLD, 20.0));
+
+            confirmar = new Button();
+            confirmar.setText("Confirmar"); //Poner visto de wsp y color verde
+            negar = new Button();
+            negar.setText("Rechazar"); //Poner cruz y color rojo
+
+
+
+
+            VBox vBoxMID = new VBox(client, hora, cantidadClientes);
+            VBox vBoxBotones = new VBox(confirmar, negar);
+
+            content = new HBox(new Label("[ImageUser]"), vBoxMID, vBoxBotones);
+            content.setSpacing(15);
+            content.setPadding(new Insets(8,8,8,8));
+
+        }
+
+        @Override
+        protected void updateItem(Reserva item, boolean empty) {
+            super.updateItem(item, empty);
+            if (item != null && !empty) { // <== test for null item and empty parameter
+
+/*
+                mesa.setText("LA MESA");
+                hora.setText("LA HORA");
+                client.setText("EL CLIENT");
+                setGraphic(content);
+*/
+                ClienteFinal clienteDeRes = item.getCf();
+
+                cantidadClientes.setText("Cantidad de personas: " + item.getCantidad().toString());
+                hora.setText("Hora de Reserva: " + item.getHoraReserva().toString());
+                client.setText("Cliente: " + clienteDeRes.getFirstName() + " " + clienteDeRes.getLastName());
+                setGraphic(content);
+
+
+            } else {
+                setGraphic(null);
+            }
+        }
+    }
+
+   /* private BorderPane borderContent;
     private HBox content;
     private HBox headline;
     private Text mesa;
@@ -68,17 +137,18 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
         negar = new Button();
         negar.setText("Rechazar"); //Poner cruz y color rojo
 
-
-/*        confirmar.setOnAction(new EventHandler<ActionEvent>() {
+        Label mesaPor = new Label("mesa por:");
+        Label reservaDe = new Label("Reserva de");
+*//*        confirmar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
 
             cre.displayReservas(event);
 
             }
-        });*/
+        });*//*
 
-        headline = new HBox(new Label("Reserva de"),mesa, new Label("mesa por:"), client);
+        headline = new HBox(reservaDe,mesa, mesaPor, client);
 
 
         VBox confirmacionReserva = new VBox(confirmar,negar);
@@ -99,9 +169,6 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
         grid.add(negar,2,1,1,1);
 
 
-        content = new HBox(grid);
-        content.setSpacing(40);
-        content.setPadding(new Insets(8,8,8,8));
 
         borderContent = new BorderPane();
         borderContent.setLeft(new Label("[Foto_Perfil]"));
@@ -119,6 +186,12 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
             //hora.setText();
             client.setText(item.getCf().getFirstName() +" " + item.getCf().getLastName());
 
+            mesa.setText(*//*item.getResto().getMesasTotales()*//* "MESA");
+            hora.setText(*//*item.getResto().getMesasTotales()*//* "HORA");
+            client.setText(*//*item.getResto().getMesasTotales()*//* "CLIENT");
+
+
+
             setGraphic(content);
 
         } else {
@@ -128,3 +201,4 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
 
 
 }
+*/

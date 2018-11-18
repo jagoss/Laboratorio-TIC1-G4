@@ -34,7 +34,7 @@ public class Reserva {
 
     public Reserva(){}
 
-    public Reserva(ClienteFinal cf, Restaurant resto,Double cantidad, LocalDateTime horaReserva){
+    public Reserva(ClienteFinal cf, Restaurant resto, Double cantidad, LocalDateTime horaReserva){
         this.cf = cf;
         this.resto = resto;
         this.cantidad = cantidad;
@@ -88,5 +88,6 @@ public class Reserva {
     public void setAsistio(boolean asistio) {
         this.asistio = asistio;
     }
+
     public Restaurant getResto(){return resto;}
 }

@@ -47,4 +47,6 @@ public class ClienteFinalMgr {
         return clienteFinalRepository.findClienteFinalByEmail(email);
     }
 
+    public ClienteFinal getClienteById(Integer id) { return  clienteFinalRepository.findClienteFinalById(id);}
+
 }
