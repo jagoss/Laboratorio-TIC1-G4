@@ -18,11 +18,11 @@ public class Reserva {
     @SequenceGenerator(name="id_generator_res", sequenceName = "id_seq_res", allocationSize=1)
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cf")
     private ClienteFinal cf;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_resto")
     private Restaurant resto;
 
