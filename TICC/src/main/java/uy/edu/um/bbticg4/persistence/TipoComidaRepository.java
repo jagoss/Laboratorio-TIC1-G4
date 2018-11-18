@@ -2,10 +2,12 @@ package uy.edu.um.bbticg4.persistence;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 import uy.edu.um.bbticg4.service.entities.TipoComida;
 
 import java.util.List;
 
+@Repository
 public interface TipoComidaRepository extends CrudRepository<TipoComida, Integer> {
 
     @Query("SELECT tc FROM TipoComida as tc")

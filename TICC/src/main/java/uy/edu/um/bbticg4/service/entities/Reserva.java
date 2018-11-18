@@ -1,11 +1,14 @@
 package uy.edu.um.bbticg4.service.entities;
 
+import org.springframework.data.jpa.repository.EntityGraph;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
+@NamedEntityGraph(name = "reserva.detail", attributeNodes = {@NamedAttributeNode("cf"), @NamedAttributeNode("resto")} )
 @Table(name = "reserva")
 public class Reserva {
 
@@ -13,13 +16,11 @@ public class Reserva {
     @SequenceGenerator(name="id_generator_res", sequenceName = "id_seq_res", allocationSize=1)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.EAGER,
-            cascade = { CascadeType.ALL })
+    @ManyToOne(cascade = { CascadeType.ALL })
     @JoinColumn(name = "id_cf")
     private ClienteFinal cf;
 
-    @ManyToOne(fetch = FetchType.EAGER,
-            cascade = { CascadeType.ALL })
+    @ManyToOne(cascade = { CascadeType.ALL })
     @JoinColumn(name = "id_resto")
     private Restaurant resto;
 
