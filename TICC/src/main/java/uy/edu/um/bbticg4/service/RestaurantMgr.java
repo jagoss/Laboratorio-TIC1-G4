@@ -12,6 +12,7 @@ import uy.edu.um.bbticg4.persistence.TipoComidaRepository;
 import uy.edu.um.bbticg4.service.entities.Barrio;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.service.entities.TipoComida;
+import java.math.BigDecimal;
 
 import java.util.List;
 
@@ -66,6 +67,11 @@ public class RestaurantMgr {
     public List<Restaurant> filtrarRestosPorBarrio(List<Barrio> filtroBarrio){
         return restaurantRepository.findByBarrio(filtroBarrio);
     }
+
+    /*publicList<Restaurant> filtrarRestosPorDeuda(BigDecimal deuda){
+        return restaurantRepository.findByDeuda(deuda);
+    }
+    */
 
     public List<Restaurant> filtrarRestosPorBarrioYRating(String filtroBarrio, Integer estrellas) {
         return restaurantRepository.findByBarrioAndRating(filtroBarrio, estrellas);

@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import uy.edu.um.bbticg4.service.entities.Barrio;
 import uy.edu.um.bbticg4.service.entities.Mesa;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
+import java.math.BigDecimal;
 
 import java.util.List;
 
@@ -16,6 +17,11 @@ public interface RestaurantRepository extends CrudRepository<Restaurant, Integer
 
     @EntityGraph(value = "barrio", type = EntityGraph.EntityGraphType.LOAD)
     List<Restaurant> findByBarrioAndRating(String filtroBarrio, Integer filtroRating);
+
+    /*@EntityGraph(value = "deuda", type = EntityGraph.EntityGraphType.LOAD)
+    @Query("SELECT r FROM Restaurant r WHERE r.deuda > (?1) AND r.firstLogin = FALSE ORDER BY r.deuda desc ")
+    List<Restaurant> findByDeuda(BigDecimal deuda);
+    */
 
     @EntityGraph(value = "barrio", type = EntityGraph.EntityGraphType.LOAD)
     @Query("SELECT r FROM Restaurant r WHERE r.barrio IN (?1) AND r.firstLogin = FALSE ORDER BY r.rating desc ")
