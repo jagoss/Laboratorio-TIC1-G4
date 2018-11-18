@@ -34,13 +34,15 @@ public class ReservasEntrantesController {
     @FXML
     private Button refresh;
 
-    @FXML
+
+/*    @FXML
     public void initialize() {
         refresh.fire();
-    }
+    }*/
+
 
     @FXML
-    void displayReservas (ActionEvent event) {
+    void displayReservas(ActionEvent event) {
 //limpiar
         listaReservas = reservaMgr.getReservas(resto);
 
@@ -50,6 +52,7 @@ public class ReservasEntrantesController {
             reservas.add(listaReservas.get(i));
         }
         listaReservasEntrantes.setItems(reservas);
+
         listaReservasEntrantes.setCellFactory(new Callback<ListView<Reserva>, ListCell<Reserva>>() {
             @Override
             public ListCell<Reserva> call(ListView<Reserva> listView) {
@@ -58,7 +61,11 @@ public class ReservasEntrantesController {
         });
     }
 
-    public void setResto(Restaurant resto){this.resto = resto;}
+    public void setResto(Restaurant resto) {
+        this.resto = resto;
+    }
 
-    public  Restaurant getResto(){return resto;}
+    public Restaurant getResto() {
+        return resto;
+    }
 }

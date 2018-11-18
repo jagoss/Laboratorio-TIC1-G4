@@ -140,12 +140,11 @@ public class CustomListCell extends ListCell<Restaurant> {
             public void handle(ActionEvent event) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT,FormatStyle.SHORT);
                 Integer datoAno = LocalDateTime.now().getYear();
-
-         Double datoMes = mesSpinner.getValue();
-        Double datoDia = diaSpinner.getValue();
-        Double datoHora = horaSpinner.getValue();
-        Double datoMinutos = minutosSpinner.getValue();
-        Double datoOcupantes = ocupantesSpinner.getValue();
+                Double datoMes = mesSpinner.getValue();
+                Double datoDia = diaSpinner.getValue();
+                Double datoHora = horaSpinner.getValue();
+                Double datoMinutos = minutosSpinner.getValue();
+                Double datoOcupantes = ocupantesSpinner.getValue();
 
                 LocalDateTime date = LocalDateTime.of(datoAno.intValue(), datoMes.intValue(), datoDia.intValue(), datoHora.intValue(), datoMinutos.intValue());
                 date.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT));

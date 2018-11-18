@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @NamedEntityGraph(name = "resto.detail", attributeNodes = {@NamedAttributeNode("listaCategoriaComida"),
-        @NamedAttributeNode("barrio")} )
+        @NamedAttributeNode("barrio"), @NamedAttributeNode("mesasTotales")} )
 @Table(name = "restaurant")
 public class Restaurant{
 
@@ -16,7 +16,7 @@ public class Restaurant{
     @SequenceGenerator(name="id_generator", sequenceName = "id_seq", allocationSize=1)
     private Integer id;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany
     @JoinTable(
             name = "restaurant_tipo_comida",
             joinColumns = { @JoinColumn(name = "id_resto") })
@@ -27,7 +27,7 @@ public class Restaurant{
     @JoinColumn(name="id_barrio")
     private Barrio barrio;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany
     @JoinColumn(name ="id_resto")
     List<Mesa> mesasTotales;
 

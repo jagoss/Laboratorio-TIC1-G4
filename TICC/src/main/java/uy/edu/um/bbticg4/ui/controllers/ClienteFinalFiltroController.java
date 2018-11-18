@@ -92,64 +92,64 @@ public class ClienteFinalFiltroController {
     private Button buttonSearch;
 
 
-        @FXML
-        void filteredConLista (ActionEvent event) throws TipoComidaException {
+    @FXML
+    void filteredConLista(ActionEvent event) throws TipoComidaException {
 
-            if (check1Star.isSelected()) {
-                rating = 1;
-            } else if (check2Stars.isSelected()) {
-                rating = 2;
-            } else if (check3Stars.isSelected()) {
-                rating = 3;
-            } else if (check4Stars.isSelected()) {
-                rating = 4;
-            } else if (check5Stars.isSelected()) {
-                rating = 5;
-            }
-
-            if (checkParrilla.isSelected()) {
-                listTipoComida.add(1);
-            }
-            if (checkPasta.isSelected()) {
-                listTipoComida.add(2);
-            }
-            if (checkPizza.isSelected()) {
-                listTipoComida.add(3);
-            }
-
-            if (checkPocitos.isSelected()) {
-                filtroBarrio.add(barrioMgr.getBarrio("Pocitos"));
-            }
-            if (checkBuceo.isSelected()) {
-                filtroBarrio.add(barrioMgr.getBarrio("Buceo"));
-            }
-            if (checkMalvinNorte.isSelected()) {
-                filtroBarrio.add(barrioMgr.getBarrio("MalvinNorte"));
-            }
-
-            if ((listTipoComida == null || listTipoComida.isEmpty()) && rating.equals(0)) {
-                restoPorBarrio = restoMgr.filtrarRestosPorBarrio(filtroBarrio);
-            } else if (rating.equals(0)) {
-                restoPorBarrio = restoMgr.filtrarRestosPorBarrioYTipoComida(listTipoComida, filtroBarrio);
-            } else {
-                restoPorBarrio = restoMgr.filtrarRestosPorBarrioYTipoComidaYRating(listTipoComida, rating, filtroBarrio);
-            }
-
-            ObservableList<Restaurant> resultados = FXCollections.observableArrayList();
-
-            for (int i = 0; i < restoPorBarrio.size(); i++) {
-                resultados.add(restoPorBarrio.get(i));
-            }
-            listaRestaurantes.setItems(resultados);
-
-            listaRestaurantes.setCellFactory(new Callback<ListView<Restaurant>, ListCell<Restaurant>>() {
-                @Override
-                public ListCell<Restaurant> call(ListView<Restaurant> listView) {
-                    return new CustomListCell(cf, restoMgr, resMgr);
-                }
-            });
-
+        if (check1Star.isSelected()) {
+            rating = 1;
+        } else if (check2Stars.isSelected()) {
+            rating = 2;
+        } else if (check3Stars.isSelected()) {
+            rating = 3;
+        } else if (check4Stars.isSelected()) {
+            rating = 4;
+        } else if (check5Stars.isSelected()) {
+            rating = 5;
         }
+
+        if (checkParrilla.isSelected()) {
+            listTipoComida.add(1);
+        }
+        if (checkPasta.isSelected()) {
+            listTipoComida.add(2);
+        }
+        if (checkPizza.isSelected()) {
+            listTipoComida.add(3);
+        }
+
+        if (checkPocitos.isSelected()) {
+            filtroBarrio.add(barrioMgr.getBarrio("Pocitos"));
+        }
+        if (checkBuceo.isSelected()) {
+            filtroBarrio.add(barrioMgr.getBarrio("Buceo"));
+        }
+        if (checkMalvinNorte.isSelected()) {
+            filtroBarrio.add(barrioMgr.getBarrio("MalvinNorte"));
+        }
+
+        if ((listTipoComida == null || listTipoComida.isEmpty()) && rating.equals(0)) {
+            restoPorBarrio = restoMgr.filtrarRestosPorBarrio(filtroBarrio);
+        } else if (rating.equals(0)) {
+            restoPorBarrio = restoMgr.filtrarRestosPorBarrioYTipoComida(listTipoComida, filtroBarrio);
+        } else {
+            restoPorBarrio = restoMgr.filtrarRestosPorBarrioYTipoComidaYRating(listTipoComida, rating, filtroBarrio);
+        }
+
+        ObservableList<Restaurant> resultados = FXCollections.observableArrayList();
+
+        for (int i = 0; i < restoPorBarrio.size(); i++) {
+            resultados.add(restoPorBarrio.get(i));
+        }
+        listaRestaurantes.setItems(resultados);
+
+        listaRestaurantes.setCellFactory(new Callback<ListView<Restaurant>, ListCell<Restaurant>>() {
+            @Override
+            public ListCell<Restaurant> call(ListView<Restaurant> listView) {
+                return new CustomListCell(cf, restoMgr, resMgr);
+            }
+        });
+
+    }
 
     @FXML
     void goBack(ActionEvent event) throws IOException {
@@ -165,8 +165,8 @@ public class ClienteFinalFiltroController {
         stage.setResizable(false);
         stage.show();
 
-        Node source = (Node)  event.getSource();
-        stage  = (Stage) source.getScene().getWindow();
+        Node source = (Node) event.getSource();
+        stage = (Stage) source.getScene().getWindow();
         stage.close();
 
     }

@@ -147,8 +147,7 @@ public class MenuInicioRestoController {
         ReservasEntrantesController controller = Main.getContext().getBean(ReservasEntrantesController.class);
         controller.setResto(resto);
 
-        Parent root = fxmlLoader.load(
-                MenuInicioRestoController.class.getResourceAsStream("ReservasEntrantes.fxml"));
+        Parent root = fxmlLoader.load(MenuInicioRestoController.class.getResourceAsStream("ReservasEntrantes.fxml"));
 
         Stage stage = new Stage();
         Scene scene = new Scene(root);

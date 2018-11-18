@@ -8,7 +8,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@NamedEntityGraph(name = "reserva.detail", attributeNodes = {@NamedAttributeNode("cf"), @NamedAttributeNode("resto")} )
+@NamedEntityGraph(name = "reserva.detail", attributeNodes = {@NamedAttributeNode("cf"),
+        @NamedAttributeNode("resto")} )
 @Table(name = "reserva")
 public class Reserva {
 

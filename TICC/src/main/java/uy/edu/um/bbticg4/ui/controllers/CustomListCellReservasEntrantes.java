@@ -69,14 +69,14 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
         negar.setText("Rechazar"); //Poner cruz y color rojo
 
 
-        confirmar.setOnAction(new EventHandler<ActionEvent>() {
+/*        confirmar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
 
             cre.displayReservas(event);
 
             }
-        });
+        });*/
 
         headline = new HBox(new Label("Reserva de"),mesa, new Label("mesa por:"), client);
 
