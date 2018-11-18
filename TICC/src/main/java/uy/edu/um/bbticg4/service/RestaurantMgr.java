@@ -145,4 +145,5 @@ public class RestaurantMgr {
 
     public Restaurant getRestaurant(String email){ return restaurantRepository.findRestaurantsByEmail(email);}
 
+    public Restaurant getRestaurantByDireccion(String direccion){ return restaurantRepository.findRestaurantByDireccion(direccion);}
 }

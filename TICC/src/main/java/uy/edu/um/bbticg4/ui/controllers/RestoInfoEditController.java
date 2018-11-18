@@ -105,13 +105,13 @@ public class RestoInfoEditController {
     private RadioButton another;
 
     @FXML
-    private Spinner<Integer> mesa2Spinner;
+    private Spinner<Double> mesa2Spinner;
     @FXML
-    private Spinner<Integer> mesa4Spinner;
+    private Spinner<Double> mesa4Spinner;
     @FXML
-    private Spinner<Integer> mesa6Spinner;
+    private Spinner<Double> mesa6Spinner;
     @FXML
-    private Spinner<Integer> mesa8Spinner;
+    private Spinner<Double> mesa8Spinner;
 
     @FXML
     public void initialize(){
@@ -206,10 +206,10 @@ public class RestoInfoEditController {
                 resto.setHorario(ScheduleField.getText());}
 
             List<Integer> listaCategoriaComida = new ArrayList<>();
-            Integer mesas2 = mesa2Spinner.getValue();
-            Integer mesas4 = mesa4Spinner.getValue();
-            Integer mesas6 = mesa6Spinner.getValue();
-            Integer mesas8 = mesa8Spinner.getValue();
+            Double mesas2 = mesa2Spinner.getValue();
+            Double mesas4 = mesa4Spinner.getValue();
+            Double mesas6 = mesa6Spinner.getValue();
+            Double mesas8 = mesa8Spinner.getValue();
             List<Mesa> mesasResto = new ArrayList<>();
 
             if(cafe.isSelected())
@@ -300,6 +300,8 @@ public class RestoInfoEditController {
 
             stage2.setResizable(false);
             stage2.show();
+
+
         }
     }
 

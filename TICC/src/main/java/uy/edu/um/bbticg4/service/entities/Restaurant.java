@@ -14,7 +14,7 @@ public class Restaurant{
     @SequenceGenerator(name="id_generator", sequenceName = "id_seq", allocationSize=1)
     private Integer id;
 
-    @ManyToMany(fetch = FetchType.EAGER,
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy ="",
             cascade = { CascadeType.ALL })
     @JoinTable(
             name = "restaurant_tipo_comida",
@@ -22,11 +22,11 @@ public class Restaurant{
     private List<TipoComida> listaCategoriaComida = new ArrayList<>(5);
     private Integer rating = 3;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="id_barrio")
     private Barrio barrio;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name ="id_resto")
     List<Mesa> mesasTotales;
 
