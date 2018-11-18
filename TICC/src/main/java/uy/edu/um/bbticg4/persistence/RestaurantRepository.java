@@ -46,6 +46,8 @@ public interface RestaurantRepository extends CrudRepository<Restaurant, Integer
 
     boolean existsByRuc(Long ruc);
 
+    Restaurant findRestaurantByDireccion(String direccion);
+
     Restaurant findRestaurantsByEmail(String email);
 
 }

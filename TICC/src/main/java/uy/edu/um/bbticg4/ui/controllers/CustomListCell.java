@@ -28,6 +28,7 @@ import uy.edu.um.Main;
 import uy.edu.um.bbticg4.exceptions.InvalidInformation;
 import uy.edu.um.bbticg4.service.ClienteFinalMgr;
 import uy.edu.um.bbticg4.service.ReservaMgr;
+import uy.edu.um.bbticg4.service.RestaurantMgr;
 import uy.edu.um.bbticg4.service.entities.ClienteFinal;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 
@@ -35,6 +36,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 
 public class CustomListCell extends ListCell<Restaurant> {
@@ -47,17 +49,43 @@ public class CustomListCell extends ListCell<Restaurant> {
     private Text horario;
     private Text descripcion;
     private Button reservar;
+    @Autowired
     private ReservaMgr resMgr;
+    @Autowired
+    private RestaurantMgr restoMgr;
+
+    private ClienteFinal cf;
+    private Restaurant resto;
 
     private VBox datosReserva;
     private TextField hora;
     private Label pregunta;
-    private Spinner<Integer> ocupantes;
-    private ClienteFinal cf;
-    private Restaurant resto;
 
-    public CustomListCell(ClienteFinal cf) {
+    private Spinner<Double> mesSpinner = new Spinner<>();
+    private Spinner<Double> diaSpinner = new Spinner<>();
+    private Spinner<Double> horaSpinner = new Spinner<>();
+    private Spinner<Double> minutosSpinner = new Spinner<>();
+    private Spinner<Double> ocupantesSpinner = new Spinner<>();
+
+
+
+
+    public CustomListCell(ClienteFinal cf, RestaurantMgr restoMgr, ReservaMgr resMgr) {
         super();
+
+            SpinnerValueFactory mesSpinnerSVF = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,30,10);
+            SpinnerValueFactory diaSpinnerSVF = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,30,10);
+            SpinnerValueFactory horaSpinnerSVF = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,30,10);
+            SpinnerValueFactory minutosSpinnerSVF = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,30,10);
+            SpinnerValueFactory ocupantesSpinnerSVF = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,30,10);
+
+            this.mesSpinner.setValueFactory(mesSpinnerSVF);
+            this.diaSpinner.setValueFactory(diaSpinnerSVF);
+            this.horaSpinner.setValueFactory(horaSpinnerSVF);
+            this.minutosSpinner.setValueFactory(minutosSpinnerSVF);
+            this.ocupantesSpinner.setValueFactory(ocupantesSpinnerSVF);
+
+
 
         this.cf = cf;
         this.resto = resto;
@@ -76,12 +104,15 @@ public class CustomListCell extends ListCell<Restaurant> {
 
         reservar = new Button();
         reservar.setText("Reservar");
-        Label pregunta = new Label("Cuantos van a ir?");
-        TextField hora = new TextField();
-        hora.setPromptText("Hora a reservar");
-        Spinner<Integer> ocupantes = new Spinner<Integer>(1,10,1,1);
+        Label mes = new Label("Seleccione el mes");
+        Label dia= new Label("Seleccione el día");
+        Label hora = new Label("Seleccione la hora?");
+        Label minutos = new Label("Seleccione los minutos");
+        Label ocupantes = new Label("Seleccione la cantidad de gente");
 
-        VBox datosReserva = new VBox(hora, pregunta, ocupantes, reservar);
+
+
+        VBox datosReserva = new VBox( mes, mesSpinner, dia, diaSpinner, hora, horaSpinner, minutos, minutosSpinner, ocupantes, ocupantesSpinner, reservar);
 
 
 
@@ -103,13 +134,28 @@ public class CustomListCell extends ListCell<Restaurant> {
         grid.add(descripcion,0,2,3,1);
         grid.setAlignment(Pos.CENTER);
 
+
         reservar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MMM-dd");
-                LocalDateTime date = LocalDateTime.parse(hora.getText(), formatter);
+                DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT,FormatStyle.SHORT);
+                Integer datoAno = LocalDateTime.now().getYear();
+
+         Double datoMes = mesSpinner.getValue();
+        Double datoDia = diaSpinner.getValue();
+        Double datoHora = horaSpinner.getValue();
+        Double datoMinutos = minutosSpinner.getValue();
+        Double datoOcupantes = ocupantesSpinner.getValue();
+
+                LocalDateTime date = LocalDateTime.of(datoAno.intValue(), datoMes.intValue(), datoDia.intValue(), datoHora.intValue(), datoMinutos.intValue());
+                date.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT));
+
+
+                Text textOcupantes = new Text(datoOcupantes.toString());
+
                 try {
-                    resMgr.generarReserva(cf, resto, ocupantes.getValue(), date);
+                    resto = restoMgr.getRestaurantByDireccion(direccion.getText());
+                    resMgr.generarReserva(cf, resto, ocupantesSpinner.getValue(), date);
                 } catch (InvalidInformation invalidInformation) {
                     invalidInformation.printStackTrace();
                 }

@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import uy.edu.um.Main;
 import uy.edu.um.bbticg4.exceptions.TipoComidaException;
 import uy.edu.um.bbticg4.service.BarrioMgr;
+import uy.edu.um.bbticg4.service.ReservaMgr;
 import uy.edu.um.bbticg4.service.entities.Barrio;
 import uy.edu.um.bbticg4.service.entities.ClienteFinal;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
@@ -32,6 +33,9 @@ public class ClienteFinalFiltroController {
 
     @Autowired
     private RestaurantMgr restoMgr;
+
+    @Autowired
+    private ReservaMgr resMgr;
 
     @Autowired
     private BarrioMgr barrioMgr;
@@ -141,7 +145,7 @@ public class ClienteFinalFiltroController {
             listaRestaurantes.setCellFactory(new Callback<ListView<Restaurant>, ListCell<Restaurant>>() {
                 @Override
                 public ListCell<Restaurant> call(ListView<Restaurant> listView) {
-                    return new CustomListCell(cf);
+                    return new CustomListCell(cf, restoMgr, resMgr);
                 }
             });
 

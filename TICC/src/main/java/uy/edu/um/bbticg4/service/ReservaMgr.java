@@ -28,7 +28,7 @@ public class ReservaMgr {
     @Autowired
     private MesaRepository mesaRepo;
 
-    public void generarReserva(ClienteFinal cf, Restaurant resto, Integer cantidad, LocalDateTime hora)
+    public void generarReserva(ClienteFinal cf, Restaurant resto, Double cantidad, LocalDateTime hora)
             throws InvalidInformation {
         if(cf == null || resto == null || cantidad == null || hora == null ||
                 !cfr.existsById(cf.getId()) || !restoRepo.existsById(resto.getId()) ||

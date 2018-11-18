@@ -24,7 +24,7 @@ public class Reserva {
     @JoinColumn(name = "id_resto")
     private Restaurant resto;
 
-    private Integer cantidad;
+    private Double cantidad;
     private LocalDateTime horaReserva;
     private boolean confirmada;
     private boolean asistio;
@@ -32,7 +32,7 @@ public class Reserva {
 
     public Reserva(){}
 
-    public Reserva(ClienteFinal cf, Restaurant resto,Integer cantidad, LocalDateTime horaReserva){
+    public Reserva(ClienteFinal cf, Restaurant resto,Double cantidad, LocalDateTime horaReserva){
         this.cf = cf;
         this.resto = resto;
         this.cantidad = cantidad;
@@ -47,11 +47,11 @@ public class Reserva {
 
     public void setCf(ClienteFinal cf) { this.cf = cf; }
 
-    public Integer getCantidad() {
+    public Double getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(Integer cantidad) {
+    public void setCantidad(Double cantidad) {
         this.cantidad = cantidad;
     }
 
