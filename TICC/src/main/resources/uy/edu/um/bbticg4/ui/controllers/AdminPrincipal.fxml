@@ -2,9 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -12,16 +9,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.bbticg4.ui.controllers.AdminPrincipalController">
    <children>
-      <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <menus>
-            <Menu mnemonicParsing="false" text="Admin">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Close" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
-      <GridPane hgap="10.0" layoutX="174.0" layoutY="25.0" prefHeight="375.0" prefWidth="600.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+      <GridPane hgap="10.0" layoutX="174.0" layoutY="25.0" prefHeight="400.0" prefWidth="600.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -35,6 +23,7 @@
             <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBack" text="Volver" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
             <Button fx:id="RegistrarRestauranteButton" mnemonicParsing="false" onAction="#registrarRestaurante" prefHeight="80.0" prefWidth="170.0" text="Registrar Restaurante" GridPane.rowIndex="2" />
             <Button fx:id="backdoorButton" mnemonicParsing="false" onAction="#goToFilter" prefHeight="80.0" prefWidth="170.0" text="Backdoor Filtro Cliente" GridPane.rowIndex="1" />
+            <Button fx:id="revisarDeuda" mnemonicParsing="false" onAction="#checkDebt" prefHeight="80.0" prefWidth="170.0" text="Lista de Deudas" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

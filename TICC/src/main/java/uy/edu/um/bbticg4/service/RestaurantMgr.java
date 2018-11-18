@@ -68,10 +68,10 @@ public class RestaurantMgr {
         return restaurantRepository.findByBarrio(filtroBarrio);
     }
 
-    /*publicList<Restaurant> filtrarRestosPorDeuda(BigDecimal deuda){
+    public List<Restaurant> filtrarRestosPorDeuda(BigDecimal deuda){
         return restaurantRepository.findByDeuda(deuda);
     }
-    */
+
 
     public List<Restaurant> filtrarRestosPorBarrioYRating(String filtroBarrio, Integer estrellas) {
         return restaurantRepository.findByBarrioAndRating(filtroBarrio, estrellas);

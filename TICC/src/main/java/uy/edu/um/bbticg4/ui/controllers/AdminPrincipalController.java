@@ -75,4 +75,19 @@ public class AdminPrincipalController {
         stage.show();
     }
 
+    @FXML
+    void checkDebt(ActionEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(ListaDeudasController.class.getResourceAsStream("ListaDeudas.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+
+    }
+
 }

@@ -18,10 +18,9 @@ public interface RestaurantRepository extends CrudRepository<Restaurant, Integer
     @EntityGraph(value = "barrio", type = EntityGraph.EntityGraphType.LOAD)
     List<Restaurant> findByBarrioAndRating(String filtroBarrio, Integer filtroRating);
 
-    /*@EntityGraph(value = "deuda", type = EntityGraph.EntityGraphType.LOAD)
     @Query("SELECT r FROM Restaurant r WHERE r.deuda > (?1) AND r.firstLogin = FALSE ORDER BY r.deuda desc ")
     List<Restaurant> findByDeuda(BigDecimal deuda);
-    */
+
 
     @EntityGraph(value = "barrio", type = EntityGraph.EntityGraphType.LOAD)
     @Query("SELECT r FROM Restaurant r WHERE r.barrio IN (?1) AND r.firstLogin = FALSE ORDER BY r.rating desc ")
