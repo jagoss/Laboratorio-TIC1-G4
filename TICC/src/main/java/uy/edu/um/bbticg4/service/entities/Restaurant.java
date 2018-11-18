@@ -16,7 +16,7 @@ public class Restaurant{
     @SequenceGenerator(name="id_generator", sequenceName = "id_seq", allocationSize=1)
     private Integer id;
 
-    @ManyToMany
+    @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "restaurant_tipo_comida",
             joinColumns = { @JoinColumn(name = "id_resto") })
@@ -27,7 +27,7 @@ public class Restaurant{
     @JoinColumn(name="id_barrio")
     private Barrio barrio;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name ="id_resto")
     List<Mesa> mesasTotales;
 
