@@ -12,7 +12,8 @@ import java.util.List;
 @Table(name = "reserva")
 public class Reserva {
 
-    @Id    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator_res")
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator_res")
     @SequenceGenerator(name="id_generator_res", sequenceName = "id_seq_res", allocationSize=1)
     private Integer id;
 
