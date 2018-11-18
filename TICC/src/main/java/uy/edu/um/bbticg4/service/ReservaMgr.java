@@ -43,6 +43,6 @@ public class ReservaMgr {
     }
 
     public List<Reserva> getReservas(Restaurant resto){
-        return rr.obtenerReservasdeResto(resto.getId());
+        return rr.findReservasByResto(resto);
     }
 }

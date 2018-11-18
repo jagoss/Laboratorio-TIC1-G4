@@ -13,7 +13,10 @@ import java.util.List;
 @Repository
 public interface ReservaRepository extends CrudRepository<Reserva, Integer> {
 
-    @EntityGraph(value = "reserva.detail", type = EntityGraph.EntityGraphType.LOAD)
-    @Query("SELECT r FROM Reserva r WHERE r.resto.id = idResto")
-    List<Reserva> obtenerReservasdeResto(Integer idResto);
+   /* @EntityGraph(value = "reserva.detail", type = EntityGraph.EntityGraphType.LOAD)
+    @Query("SELECT r FROM Reserva r WHERE r.resto = restaurant")
+    List<Reserva> obtenerReservasdeResto(Restaurant restaurant);*/
+
+    @EntityGraph(value = "cfYResto", type = EntityGraph.EntityGraphType.LOAD)
+    List<Reserva> findReservasByResto(Restaurant resto);
 }

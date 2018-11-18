@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@NamedEntityGraph(name = "reserva.detail", attributeNodes = {@NamedAttributeNode("cf"),
+@NamedEntityGraph(name = "cfYResto", attributeNodes = {@NamedAttributeNode("cf"),
         @NamedAttributeNode("resto")} )
 @Table(name = "reserva")
 public class Reserva {
@@ -88,4 +88,5 @@ public class Reserva {
     public void setAsistio(boolean asistio) {
         this.asistio = asistio;
     }
+    public Restaurant getResto(){return resto;}
 }
