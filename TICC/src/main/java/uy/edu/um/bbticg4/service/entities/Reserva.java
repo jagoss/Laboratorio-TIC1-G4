@@ -16,11 +16,11 @@ public class Reserva {
     @SequenceGenerator(name="id_generator_res", sequenceName = "id_seq_res", allocationSize=1)
     private Integer id;
 
-    @ManyToOne(cascade = { CascadeType.ALL })
+    @ManyToOne
     @JoinColumn(name = "id_cf")
     private ClienteFinal cf;
 
-    @ManyToOne(cascade = { CascadeType.ALL })
+    @ManyToOne
     @JoinColumn(name = "id_resto")
     private Restaurant resto;
 
