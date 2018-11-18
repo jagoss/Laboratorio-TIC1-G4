@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@NamedEntityGraph(name = "resto.detail", attributeNodes = {@NamedAttributeNode("listaCategoriaComida"),
+        @NamedAttributeNode("barrio")} )
 @Table(name = "restaurant")
 public class Restaurant{
 
@@ -14,15 +16,14 @@ public class Restaurant{
     @SequenceGenerator(name="id_generator", sequenceName = "id_seq", allocationSize=1)
     private Integer id;
 
-    @ManyToMany(fetch = FetchType.EAGER,
-            cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "restaurant_tipo_comida",
             joinColumns = { @JoinColumn(name = "id_resto") })
     private List<TipoComida> listaCategoriaComida = new ArrayList<>(5);
     private Integer rating = 3;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="id_barrio")
     private Barrio barrio;
 

@@ -2,10 +2,12 @@ package uy.edu.um.bbticg4.persistence;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 import uy.edu.um.bbticg4.service.entities.Barrio;
 
 import java.util.List;
 
+@Repository
 public interface BarrioRepository extends CrudRepository<Barrio, Integer> {
 
     Barrio findBarrioByName(String barrio);
