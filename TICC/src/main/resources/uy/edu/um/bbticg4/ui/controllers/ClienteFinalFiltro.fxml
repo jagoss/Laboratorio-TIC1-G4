@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -35,88 +36,181 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ScrollPane hbarPolicy="NEVER" prefHeight="813.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <content>
-                              <GridPane hgap="5.0" prefHeight="606.0" prefWidth="200.0" vgap="3.0">
-                                <columnConstraints>
-                                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
+                        <SplitPane dividerPositions="0.5233990147783252" orientation="VERTICAL" prefHeight="814.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
-                                    <Label text="Barrio" textAlignment="CENTER" GridPane.halignment="LEFT">
-                                       <font>
-                                          <Font name="System Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="10.0" layoutY="15.0" text="Pocitos" GridPane.rowIndex="1" />
-                                    <Label layoutX="10.0" layoutY="45.0" text="Parrilla" GridPane.rowIndex="6" />
-                                    <Label text="Malvin Norte" GridPane.rowIndex="2" />
-                                    <Label text="Buceo" GridPane.rowIndex="3" />
-                                    <Label layoutX="10.0" layoutY="105.0" text="Categoria" GridPane.halignment="LEFT" GridPane.rowIndex="5">
-                                       <font>
-                                          <Font name="System Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="Pizza" GridPane.rowIndex="7" />
-                                    <Label text="Pasta" GridPane.rowIndex="8" />
-                                    <Label text="Rating" GridPane.halignment="LEFT" GridPane.rowIndex="10">
-                                       <font>
-                                          <Font name="System Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="1 estrella" GridPane.rowIndex="11" />
-                                    <Label text="2 estrellas" GridPane.rowIndex="12" />
-                                    <Label text="3 estrellas" GridPane.rowIndex="13" />
-                                    <Label text="4 estrellas" GridPane.rowIndex="14" />
-                                    <Label text="5 estrellas" GridPane.rowIndex="15" />
-                                    <CheckBox fx:id="checkParrilla" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                    <CheckBox fx:id="checkPizza" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                    <CheckBox fx:id="checkPasta" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                                    <CheckBox fx:id="check1Star" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-                                    <CheckBox fx:id="check2Stars" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-                                    <CheckBox fx:id="check3Stars" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-                                    <CheckBox fx:id="check4Stars" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="14" />
-                                    <CheckBox fx:id="check5Stars" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="15" />
-                                    <CheckBox fx:id="checkPocitos" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1">
-                                       <GridPane.margin>
-                                          <Insets />
-                                       </GridPane.margin>
-                                    </CheckBox>
-                                    <CheckBox fx:id="checkBuceo" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
-                                       <GridPane.margin>
-                                          <Insets />
-                                       </GridPane.margin>
-                                    </CheckBox>
-                                    <CheckBox fx:id="checkMalvinNorte" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
-                                       <GridPane.margin>
-                                          <Insets />
-                                       </GridPane.margin>
-                                    </CheckBox>
+                                    <ScrollPane hbarPolicy="NEVER" prefHeight="493.0" prefWidth="198.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <GridPane hgap="5.0" prefHeight="420.0" prefWidth="200.0" vgap="3.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Barrio" textAlignment="CENTER" GridPane.halignment="LEFT">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="10.0" layoutY="15.0" text="Pocitos" GridPane.rowIndex="1" />
+                                                <Label text="Malvin Norte" GridPane.rowIndex="2" />
+                                                <Label text="Buceo" GridPane.rowIndex="3" />
+                                                <Label text="Rating" GridPane.halignment="LEFT" GridPane.rowIndex="14">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="1 estrella" GridPane.rowIndex="15" />
+                                                <Label text="2 estrellas" GridPane.rowIndex="16" />
+                                                <Label text="3 estrellas" GridPane.rowIndex="17" />
+                                                <Label text="4 estrellas" GridPane.rowIndex="18" />
+                                                <Label text="5 estrellas" GridPane.rowIndex="19" />
+                                                <CheckBox fx:id="check1Star" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                                                <CheckBox fx:id="check2Stars" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+                                                <CheckBox fx:id="check3Stars" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+                                                <CheckBox fx:id="check4Stars" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+                                                <CheckBox fx:id="check5Stars" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+                                                <CheckBox fx:id="checkPocitos" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets />
+                                                   </GridPane.margin>
+                                                </CheckBox>
+                                                <CheckBox fx:id="checkBuceo" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets />
+                                                   </GridPane.margin>
+                                                </CheckBox>
+                                                <CheckBox fx:id="checkMalvinNorte" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets />
+                                                   </GridPane.margin>
+                                                </CheckBox>
+                                                <Label text="Aguada" GridPane.rowIndex="4" />
+                                                <Label text="Barrio Sur" GridPane.rowIndex="5" />
+                                                <Label text="Carrasco" GridPane.rowIndex="6" />
+                                                <Label text="Maroñas" GridPane.rowIndex="11" />
+                                                <Label text="Parque Rodo" GridPane.rowIndex="10" />
+                                                <Label text="Cordon" GridPane.rowIndex="9" />
+                                                <Label text="Cerro" GridPane.rowIndex="8" />
+                                                <Label text="Centro" GridPane.rowIndex="7" />
+                                                <Label text="Punta Gorda" GridPane.rowIndex="12" />
+                                                <Label text="Peñarol" GridPane.rowIndex="13" />
+                                                <CheckBox fx:id="checkAguada" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <CheckBox fx:id="checkBarrioSur" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <CheckBox fx:id="checkPenarol" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                                                <CheckBox fx:id="checkPuntaGorda" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                                <CheckBox fx:id="checkMaronas" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                                <CheckBox fx:id="checkParqueRodo" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                                <CheckBox fx:id="checkCordon" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                                <CheckBox fx:id="checkCerro" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                                <CheckBox fx:id="checkCentro" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                                <CheckBox fx:id="checkCarrasco" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
                                  </children>
-                                 <padding>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </padding>
-                              </GridPane>
-                           </content>
-                        </ScrollPane>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <ScrollPane hbarPolicy="NEVER" prefHeight="402.0" prefWidth="198.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <GridPane prefHeight="378.0" prefWidth="200.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Categoria" GridPane.halignment="LEFT">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="Pasta" GridPane.rowIndex="2" />
+                                                <Label text="Parrilla" GridPane.rowIndex="1" />
+                                                <Label text="Pizza" GridPane.rowIndex="3" />
+                                                <CheckBox fx:id="checkParrilla" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <CheckBox fx:id="checkPizza" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <CheckBox fx:id="checkPasta" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label text="Arabe" GridPane.rowIndex="4" />
+                                                <Label text="Empanadas" GridPane.rowIndex="5" />
+                                                <Label text="Chivito" GridPane.rowIndex="6" />
+                                                <Label text="China" GridPane.rowIndex="7" />
+                                                <Label text="Celiaco" GridPane.rowIndex="8" />
+                                                <Label text="Cafe" GridPane.rowIndex="9" />
+                                                <Label text="Ensaladas" GridPane.rowIndex="10" />
+                                                <Label text="Sushi" GridPane.rowIndex="15" />
+                                                <Label text="Mejicana" GridPane.rowIndex="14" />
+                                                <Label text="Pescado" GridPane.rowIndex="13" />
+                                                <Label text="Milanesas" GridPane.rowIndex="12" />
+                                                <Label text="Hamburguesas" GridPane.rowIndex="11" />
+                                                <CheckBox fx:id="checkSushi" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                                                <CheckBox fx:id="checkMejicana" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                                                <CheckBox fx:id="checkPescado" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                                                <CheckBox fx:id="checkMilanesas" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                                <CheckBox fx:id="checkHamburguesas" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                                <CheckBox fx:id="checkArabe" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <CheckBox fx:id="checkEmpanadas" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <CheckBox fx:id="checkChivito" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                <CheckBox fx:id="checkChina" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                                <CheckBox fx:id="checkCeliaco" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                                <CheckBox fx:id="checkCafe" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                                <CheckBox fx:id="checkEnsaladas" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                                <CheckBox fx:id="checkOtros" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+                                                <Label text="Otros" GridPane.rowIndex="16" />
+                                             </children>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
                      </children>
                   </AnchorPane>
                </center>

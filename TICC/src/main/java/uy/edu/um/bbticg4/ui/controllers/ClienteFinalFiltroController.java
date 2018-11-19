@@ -70,6 +70,47 @@ public class ClienteFinalFiltroController {
     private CheckBox checkPasta;
 
     @FXML
+    private CheckBox checkSushi;
+
+    @FXML
+    private CheckBox checkMejicana;
+
+    @FXML
+    private CheckBox checkPescado;
+
+    @FXML
+    private CheckBox checkMilanesas;
+
+    @FXML
+    private CheckBox checkHamburguesas;
+
+    @FXML
+    private CheckBox checkArabe;
+
+    @FXML
+    private CheckBox checkEmpanadas;
+
+    @FXML
+    private CheckBox checkChivito;
+
+    @FXML
+    private CheckBox checkChina;
+
+    @FXML
+    private CheckBox checkCeliaco;
+
+    @FXML
+    private CheckBox checkCafe;
+
+    @FXML
+    private CheckBox checkEnsaladas;
+
+    @FXML
+    private CheckBox checkOtros;
+
+
+
+    @FXML
     private CheckBox check1Star;
     @FXML
     private CheckBox check2Stars;
@@ -87,6 +128,36 @@ public class ClienteFinalFiltroController {
     private CheckBox checkBuceo;
     @FXML
     private CheckBox checkMalvinNorte;
+    @FXML
+    private CheckBox checkAguada;
+
+    @FXML
+    private CheckBox checkBarrioSur;
+
+    @FXML
+    private CheckBox checkPenarol;
+
+    @FXML
+    private CheckBox checkPuntaGorda;
+
+    @FXML
+    private CheckBox checkMaronas;
+
+    @FXML
+    private CheckBox checkParqueRodo;
+
+    @FXML
+    private CheckBox checkCordon;
+
+    @FXML
+    private CheckBox checkCerro;
+
+    @FXML
+    private CheckBox checkCentro;
+
+    @FXML
+    private CheckBox checkCarrasco;
+
 
     @FXML
     private Button buttonSearch;
@@ -94,6 +165,12 @@ public class ClienteFinalFiltroController {
 
     @FXML
     void filteredConLista(ActionEvent event) throws TipoComidaException {
+
+        ObservableList<Restaurant> resultados = FXCollections.observableArrayList();
+        for (int i = 0; i < restoPorBarrio.size(); i++) {
+            resultados.clear();
+        }
+        listaRestaurantes.setItems(resultados);
 
         if (check1Star.isSelected()) {
             rating = 1;
@@ -116,6 +193,52 @@ public class ClienteFinalFiltroController {
         if (checkPizza.isSelected()) {
             listTipoComida.add(3);
         }
+        if (checkSushi.isSelected()) {
+            listTipoComida.add(15);
+        }
+        if (checkMejicana.isSelected()) {
+            listTipoComida.add(14);
+        }
+        if (checkPescado.isSelected()) {
+            listTipoComida.add(13);
+        }
+
+        if (checkMilanesas.isSelected()) {
+            listTipoComida.add(12);
+        }
+        if (checkHamburguesas.isSelected()) {
+            listTipoComida.add(11);
+        }
+        if (checkArabe.isSelected()) {
+            listTipoComida.add(4);
+        }
+
+        if (checkEmpanadas.isSelected()) {
+            listTipoComida.add(5);
+        }
+        if (checkChivito.isSelected()) {
+            listTipoComida.add(6);
+        }
+        if (checkChina.isSelected()) {
+            listTipoComida.add(7);
+        }
+
+        if (checkCeliaco.isSelected()) {
+            listTipoComida.add(8);
+        }
+        if (checkCafe.isSelected()) {
+            listTipoComida.add(9);
+        }
+        if (checkEnsaladas.isSelected()) {
+            listTipoComida.add(10);
+        }
+        if (checkOtros.isSelected()) {
+            listTipoComida.add(16);
+        }
+
+
+
+
 
         if (checkPocitos.isSelected()) {
             filtroBarrio.add(barrioMgr.getBarrio("Pocitos"));
@@ -127,6 +250,44 @@ public class ClienteFinalFiltroController {
             filtroBarrio.add(barrioMgr.getBarrio("MalvinNorte"));
         }
 
+
+        if (checkAguada.isSelected()) {
+            filtroBarrio.add(barrioMgr.getBarrio("Aguada"));
+        }
+        if (checkBarrioSur.isSelected()) {
+            filtroBarrio.add(barrioMgr.getBarrio("Barrio Sur"));
+        }
+        if (checkPenarol.isSelected()) {
+            filtroBarrio.add(barrioMgr.getBarrio("Peñarol"));
+        }
+        if (checkPuntaGorda.isSelected()) {
+            filtroBarrio.add(barrioMgr.getBarrio("Punta Gorda"));
+        }
+        if (checkMaronas.isSelected()) {
+            filtroBarrio.add(barrioMgr.getBarrio("Maroñas"));
+        }
+        if (checkParqueRodo.isSelected()) {
+            filtroBarrio.add(barrioMgr.getBarrio("Parque Rodo"));
+        }
+        if (checkCordon.isSelected()) {
+            filtroBarrio.add(barrioMgr.getBarrio("Cordon"));
+        }
+        if (checkCerro.isSelected()) {
+            filtroBarrio.add(barrioMgr.getBarrio("Cerro"));
+        }
+        if (checkCentro.isSelected()) {
+            filtroBarrio.add(barrioMgr.getBarrio("Centro"));
+        }
+        if (checkCarrasco.isSelected()) {
+            filtroBarrio.add(barrioMgr.getBarrio("Carrasco"));
+        }
+
+
+
+
+
+
+
         if ((listTipoComida == null || listTipoComida.isEmpty()) && rating.equals(0)) {
             restoPorBarrio = restoMgr.filtrarRestosPorBarrio(filtroBarrio);
         } else if (rating.equals(0)) {
@@ -135,7 +296,7 @@ public class ClienteFinalFiltroController {
             restoPorBarrio = restoMgr.filtrarRestosPorBarrioYTipoComidaYRating(listTipoComida, rating, filtroBarrio);
         }
 
-        ObservableList<Restaurant> resultados = FXCollections.observableArrayList();
+
 
         for (int i = 0; i < restoPorBarrio.size(); i++) {
             resultados.add(restoPorBarrio.get(i));
