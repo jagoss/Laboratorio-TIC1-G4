@@ -76,7 +76,7 @@ public class EstadoReservasController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
-        Parent root = fxmlLoader.load(ReservasEntrantesController.class.getResourceAsStream("MenuInicialResto.fxml"));
+        Parent root = fxmlLoader.load(EstadoReservasController.class.getResourceAsStream("MenuInicialResto.fxml"));
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pantallaPrincipalResto.css");

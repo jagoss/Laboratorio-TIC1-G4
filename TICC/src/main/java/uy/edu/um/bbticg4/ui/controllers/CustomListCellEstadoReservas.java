@@ -25,6 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uy.edu.um.Main;
 import uy.edu.um.bbticg4.service.ClienteFinalMgr;
+import uy.edu.um.bbticg4.service.RestaurantMgr;
 import uy.edu.um.bbticg4.service.entities.Reserva;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 
@@ -40,6 +41,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Component
@@ -53,6 +55,8 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
     private Button noAsistio;
     @Autowired
     private ClienteFinalMgr cfmgr;
+    @Autowired
+    private RestaurantMgr rm;
     @Autowired
     private ReservasEntrantesController cre;
 
@@ -122,6 +126,10 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
                     item.setAsistio(true);
                     item.setFinalizada(true);
                     cre.displayReservas(event);
+                    item.getResto().setDeuda(
+                            item.getResto().getDeuda().add(new BigDecimal(100.00)));
+                    rm.updateResto(item.getResto());
+
 
                 }
             });
