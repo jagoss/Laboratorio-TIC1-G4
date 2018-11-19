@@ -24,6 +24,7 @@ import org.springframework.stereotype.Component;
 import uy.edu.um.Main;
 import uy.edu.um.bbticg4.exceptions.InvalidInformation;
 import uy.edu.um.bbticg4.service.ClienteFinalMgr;
+import uy.edu.um.bbticg4.service.ReservaMgr;
 import uy.edu.um.bbticg4.service.entities.ClienteFinal;
 import uy.edu.um.bbticg4.service.entities.Reserva;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
@@ -57,13 +58,15 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
         private Button confirmar;
         private Button negar;
 
+        private ReservaMgr reservaMgr;
         private ClienteFinalMgr cfmgr;
         private ReservasEntrantesController cre;
 
-    public CustomListCellReservasEntrantes(ClienteFinalMgr cfmgr, ReservasEntrantesController cre) {
+    public CustomListCellReservasEntrantes(ClienteFinalMgr cfmgr, ReservasEntrantesController cre, ReservaMgr reservaMgr) {
             super();
             this.cre = cre;
             this.cfmgr = cfmgr;
+            this.reservaMgr = reservaMgr;
             cantidadClientes = new Text();
             hora = new Text();
             client = new Text();
@@ -82,7 +85,6 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
             public void handle(ActionEvent event) {
 
 
-                cre.displayReservas(event);
 
             }
         });
@@ -124,7 +126,9 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
                     @Override
                     public void handle(ActionEvent event) {
 
-                        item.setConfirmada(true);
+                        reservaMgr.getReservaById(item.getId()).setConfirmada(true);
+                    //    listaReservasEntrantes.getItems().clear();
+                     //   this.getSelectionModel().clearSelection();
                         cre.displayReservas(event);
 
                     }
@@ -133,9 +137,11 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
                 negar.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
+                        Integer miId = item.getId();
+                        Reserva miRes = reservaMgr.getReservaById(miId);
 
-                        item.setConfirmada(false);
-                        item.setFinalizada(true);
+                        miRes.setConfirmada(false);
+                        miRes.setFinalizada(true);
                         cre.displayReservas(event);
 
                     }

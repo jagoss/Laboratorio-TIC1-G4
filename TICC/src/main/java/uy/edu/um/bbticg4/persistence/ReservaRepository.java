@@ -19,4 +19,5 @@ public interface ReservaRepository extends CrudRepository<Reserva, Integer> {
 
     @EntityGraph(value = "cfYResto", type = EntityGraph.EntityGraphType.LOAD)
     List<Reserva> findReservasByResto_Id(Integer idRestaurant);
+    Reserva findReservaById(Integer id);
 }
