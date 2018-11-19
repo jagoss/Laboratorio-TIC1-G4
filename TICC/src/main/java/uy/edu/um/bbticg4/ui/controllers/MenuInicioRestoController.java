@@ -70,9 +70,12 @@ public class MenuInicioRestoController {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pantallaPrincipalResto.css");
         stage.setScene(scene);
-        stage.show();
         stage.setResizable(false);
         stage.show();
+
+        Node source = (Node)  event.getSource();
+        stage  = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
 
@@ -113,7 +116,9 @@ public class MenuInicioRestoController {
         stage.setResizable(false);
         stage.show();
 
-
+        Node source = (Node)  event.getSource();
+        stage  = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
@@ -135,6 +140,9 @@ public class MenuInicioRestoController {
         stage.setResizable(false);
         stage.show();
 
+        Node source = (Node)  event.getSource();
+        stage  = (Stage) source.getScene().getWindow();
+        stage.close();
 
     }
 
@@ -175,10 +183,15 @@ public class MenuInicioRestoController {
                 MenuInicioRestoController.class.getResourceAsStream("DeudaVentana.fxml"));
 
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pantallaPrincipalResto.css");
+        stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
 
+        Node source = (Node)  event.getSource();
+        stage  = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
     public Restaurant getResto() {

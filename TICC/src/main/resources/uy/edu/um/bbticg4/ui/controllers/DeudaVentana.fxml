@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="356.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.bbticg4.ui.controllers.DeudaVentanaController">
+<AnchorPane prefHeight="356.0" prefWidth="371.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.bbticg4.ui.controllers.DeudaVentanaController">
    <children>
       <BorderPane layoutX="89.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -24,7 +24,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text fill="#ff9900" strokeType="OUTSIDE" strokeWidth="0.0" text="Deuda Restaurante" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+                  <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Deuda Restaurante" GridPane.columnSpan="2" GridPane.halignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -54,7 +54,7 @@
                   </ButtonBar>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <top>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="La deuda del local es actualmente de:" BorderPane.alignment="CENTER">
+                        <Text fill="#32aabc" strokeType="OUTSIDE" strokeWidth="0.0" text="La deuda del local es actualmente de:" BorderPane.alignment="CENTER">
                            <BorderPane.margin>
                               <Insets top="40.0" />
                            </BorderPane.margin>
@@ -64,7 +64,7 @@
                         </Text>
                      </top>
                      <center>
-                        <Text fx:id="smallLoan" strokeType="OUTSIDE" strokeWidth="0.0" text="Bottom Text" BorderPane.alignment="CENTER">
+                        <Text fx:id="smallLoan" fill="#18abba" strokeType="OUTSIDE" strokeWidth="0.0" text="Bottom Text" BorderPane.alignment="CENTER">
                            <font>
                               <Font size="41.0" />
                            </font>

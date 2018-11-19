@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -38,6 +39,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
@@ -76,6 +78,24 @@ public class HistorialReservasController {
                 return new CustomListCellHistorial();
             }
         });
+    }
+
+    @FXML
+    void salir(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(ReservasEntrantesController.class.getResourceAsStream("MenuInicialResto.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pantallaPrincipalResto.css");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+
+        Node source = (Node) event.getSource();
+        stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
     public void setResto(Restaurant resto){this.resto = resto;}
