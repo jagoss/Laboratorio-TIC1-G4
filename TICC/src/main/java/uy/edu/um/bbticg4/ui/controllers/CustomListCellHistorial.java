@@ -40,10 +40,13 @@ import java.time.LocalDate;
 
 
 public class CustomListCellHistorial extends ListCell<Reserva>{
-
+    private  VBox realContent;
+    private  VBox data;
     private HBox content;
     private HBox headline;
-    //private Text mesa;
+
+
+    private Text cantidadClientes;
     private Text hora;
     private Text client;
     private Text asistio;
@@ -55,24 +58,14 @@ public class CustomListCellHistorial extends ListCell<Reserva>{
         client = new Text();
         hora = new Text();
         asistio = new Text();
-
+        cantidadClientes = new Text();
         headline = new HBox(new Label("Reserva de"), client);
-
+        client.setFont(Font.font("System", FontWeight.BOLD, 20.0));
         headline.setSpacing(5.0);
 
-        GridPane grid = new GridPane();
-        grid.setVgap(10);
-        grid.setHgap(10);
-        grid.setPadding(new Insets(10,10,10,10));
-        grid.setAlignment(Pos.CENTER);
-
-        grid.add(headline,0,0,3,1);
-        grid.add(hora,0,1,1,1);
-        grid.add(asistio, 1,0,1,1);
-
-        content = new HBox(grid);
-        content.setSpacing(40);
-        content.setPadding(new Insets(8,8,8,8));
+        data = new VBox(client, hora, cantidadClientes);
+        content = new HBox(new Label("[Graphic]"),data );
+        realContent = new VBox(headline, content);
 
     }
 
@@ -81,17 +74,15 @@ public class CustomListCellHistorial extends ListCell<Reserva>{
         super.updateItem(item, empty);
 
         if (item != null && !empty) { // <== test for null item and empty parameter
-
-            //hora.setText();
-            client.setText(item.getCf().getFirstName() +" " + item.getCf().getLastName());
+            client.setText("Cliente: " + item.getCf().getFirstName() +" " + item.getCf().getLastName());
+            hora.setText("Hora de la reserva: " + item.getHoraReserva().toString());
+            cantidadClientes.setText("Cantidad de clientes: " + item.getCantidad().toString());
             if(item.isAsistio() == true){
                 asistio.setText("Asistio");
             } else {
                 asistio.setText("No asistio");
             }
-
             setGraphic(content);
-
         } else {
             setGraphic(null);
         }

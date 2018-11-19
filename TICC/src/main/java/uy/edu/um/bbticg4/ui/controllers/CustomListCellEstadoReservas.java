@@ -60,7 +60,7 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
     private ReservaMgr reservaMgr;
 
     public CustomListCellEstadoReservas(EstadoReservasController erc, ClienteFinalMgr cfmgr, ReservaMgr reservaMgr,
-    RestaurantMgr rm) {
+                                        RestaurantMgr rm) {
 
         super();
         this.erc = erc;
@@ -77,24 +77,7 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
         noAsistio = new Button();
         noAsistio.setText("No Asistio");
 
-        /*
-        asistio.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
 
-                cre.displayReservas(event);
-
-            }
-        });
-
-        noAsistio.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
-                cre.displayReservas(event);
-
-            }
-        });*/
 
         VBox vBoxMID = new VBox(client, hora, cantidadClientes);
         VBox vBoxBotones = new VBox(asistio, noAsistio);
@@ -114,8 +97,9 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
         if (item != null && !empty) { // <== test for null item and empty parameter
 
             //hora.setText();
-            client.setText(item.getCf().getFirstName() +" " + item.getCf().getLastName());
-
+            client.setText("Cliente: " + item.getCf().getFirstName() +" " + item.getCf().getLastName());
+            hora.setText("Hora de la reserva: " + item.getHoraReserva().toString());
+            cantidadClientes.setText("Cantidad de clientes: " + item.getCantidad().toString());
             setGraphic(content);
 
             asistio.setOnAction(new EventHandler<ActionEvent>() {
