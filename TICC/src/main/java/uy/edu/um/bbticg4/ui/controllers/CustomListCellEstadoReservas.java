@@ -1,5 +1,7 @@
 package uy.edu.um.bbticg4.ui.controllers;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -112,6 +114,28 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
             client.setText(item.getCf().getFirstName() +" " + item.getCf().getLastName());
 
             setGraphic(content);
+
+            asistio.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+
+                    item.setAsistio(true);
+                    item.setFinalizada(true);
+                    cre.displayReservas(event);
+
+                }
+            });
+
+            noAsistio.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+
+                    item.setAsistio(false);
+                    item.setFinalizada(true);
+                    cre.displayReservas(event);
+
+                }
+            });
 
         } else {
             setGraphic(null);

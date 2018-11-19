@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uy.edu.um.Main;
+import uy.edu.um.bbticg4.exceptions.InvalidInformation;
 import uy.edu.um.bbticg4.service.ClienteFinalMgr;
 import uy.edu.um.bbticg4.service.entities.ClienteFinal;
 import uy.edu.um.bbticg4.service.entities.Reserva;
@@ -77,7 +78,7 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
 
 
 
-
+/*
         confirmar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -96,6 +97,7 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
 
             }
         });
+*/
 
             VBox vBoxMID = new VBox(client, hora, cantidadClientes);
             VBox vBoxBotones = new VBox(confirmar, negar);
@@ -119,6 +121,27 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
                 hora.setText("Hora de Reserva: " + item.getHoraReserva().toString());
                 client.setText("Cliente: " + clienteDeRes.getFirstName() + " " + clienteDeRes.getLastName());
                 setGraphic(content);
+
+                confirmar.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+
+                        item.setConfirmada(true);
+                        cre.displayReservas(event);
+
+                    }
+                });
+
+                negar.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+
+                        item.setConfirmada(false);
+                        item.setFinalizada(true);
+                        cre.displayReservas(event);
+
+                    }
+                });
 
 
             } else {

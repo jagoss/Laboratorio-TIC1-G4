@@ -43,7 +43,7 @@ public class CustomListCellHistorial extends ListCell<Reserva>{
 
     private HBox content;
     private HBox headline;
-    private Text mesa;
+    //private Text mesa;
     private Text hora;
     private Text client;
     private Text asistio;
@@ -52,18 +52,11 @@ public class CustomListCellHistorial extends ListCell<Reserva>{
     public CustomListCellHistorial() {
         super();
 
-        mesa = new Text();
         client = new Text();
         hora = new Text();
         asistio = new Text(); //falta setear esto dependiendo del estado del boolean, y agregar color como dice el trello
 
-        /*if(reserva.isAsistio == true){
-            asistio.setText("Asistio");
-        } else {
-            asistio.setText("No asistio");
-        }*/
-
-        headline = new HBox(new Label("Reserva de"),mesa, new Label("mesa por:"), client);
+        headline = new HBox(new Label("Reserva de"), client);
 
         headline.setSpacing(5.0);
 
@@ -75,6 +68,7 @@ public class CustomListCellHistorial extends ListCell<Reserva>{
 
         grid.add(headline,0,0,3,1);
         grid.add(hora,0,1,1,1);
+        grid.add(asistio, 1,0,1,1);
 
         content = new HBox(grid);
         content.setSpacing(40);
@@ -90,6 +84,11 @@ public class CustomListCellHistorial extends ListCell<Reserva>{
 
             //hora.setText();
             client.setText(item.getCf().getFirstName() +" " + item.getCf().getLastName());
+            if(item.isAsistio() == true){
+                asistio.setText("Asistio");
+            } else {
+                asistio.setText("No asistio");
+            }
 
             setGraphic(content);
 
