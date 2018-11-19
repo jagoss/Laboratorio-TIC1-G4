@@ -156,6 +156,10 @@ public class MenuInicioRestoController {
         stage.setResizable(false);
         stage.show();
 
+        Node source = (Node) event.getSource();
+        stage = (Stage) source.getScene().getWindow();
+        stage.close();
+
     }
 
     @FXML

@@ -42,7 +42,5 @@ public class ReservaMgr {
         rr.delete(reserva);
     }
 
-    public List<Reserva> getReservas(Restaurant resto){
-        return rr.findReservasByResto(resto);
-    }
+    public List<Reserva> getReservas(Restaurant resto){ return rr.findReservasByResto_Id(resto.getId()); }
 }

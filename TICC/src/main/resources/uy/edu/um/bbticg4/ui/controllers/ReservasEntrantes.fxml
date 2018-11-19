@@ -24,5 +24,6 @@
             <Button fx:id="refresh" mnemonicParsing="false" onAction="#displayReservas" text="Actualizar" BorderPane.alignment="CENTER" />
          </bottom>
       </BorderPane>
+      <Button fx:id="salir" layoutY="363.0" mnemonicParsing="false" onAction="#salir" prefHeight="29.0" prefWidth="80.0" text="Salir" AnchorPane.topAnchor="378.0" />
    </children>
 </AnchorPane>
