@@ -44,6 +44,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import uy.edu.um.bbticg4.ui.controllers.ReservasEntrantesController;
+import uy.edu.um.bbticg4.ui.tools.JavaFXTools;
 
 
 public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
@@ -61,6 +62,8 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
     private ReservaMgr reservaMgr;
     private ClienteFinalMgr cfmgr;
     private ReservasEntrantesController cre;
+    private JavaFXTools tools = new JavaFXTools();
+
 
     public CustomListCellReservasEntrantes(ClienteFinalMgr cfmgr, ReservasEntrantesController cre, ReservaMgr reservaMgr) {
         super();
@@ -129,7 +132,7 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
                     item.setConfirmada(true);
                     reservaMgr.update(item);
                     cre.displayReservas(event);
-
+                    tools.showAlert("Reserva confirmada", "La reserva se realizo con exito! Confirme la asistencia en Estado Reserva.");
                 }
             });
 
@@ -143,7 +146,7 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
                     miRes.setFinalizada(true);
                     reservaMgr.update(item);
                     cre.displayReservas(event);
-
+                    tools.showAlert("Reserva rechazada", "La reserva se rechazo con exito!");
                 }
             });
 

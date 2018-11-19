@@ -31,6 +31,7 @@ import uy.edu.um.bbticg4.service.ReservaMgr;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 import uy.edu.um.bbticg4.service.entities.ClienteFinal;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
+import uy.edu.um.bbticg4.ui.tools.JavaFXTools;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -67,7 +68,7 @@ public class CustomListCell extends ListCell<Restaurant> {
     private Spinner<Double> minutosSpinner = new Spinner<>();
     private Spinner<Double> ocupantesSpinner = new Spinner<>();
 
-
+    private JavaFXTools tools = new JavaFXTools();
 
 
     public CustomListCell(ClienteFinal cf, RestaurantMgr restoMgr, ReservaMgr resMgr) {
@@ -155,6 +156,8 @@ public class CustomListCell extends ListCell<Restaurant> {
                 try {
                     resto = restoMgr.getRestaurantByDireccion(direccion.getText());
                     resMgr.generarReserva(cf, resto, ocupantesSpinner.getValue(), date);
+
+                    tools.showAlert("Reserva realizada!", "Una notificación ha sido enviada al restaurant. Aguarde la confirmación del restaurant.");
                 } catch (InvalidInformation invalidInformation) {
                     invalidInformation.printStackTrace();
                 }
