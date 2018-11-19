@@ -48,19 +48,15 @@ public class MenuInicioRestoController {
     private Restaurant resto;
 
     @FXML
-    public void initialize(){
-
-        tituloResto.setText(resto.getNombreFantasia());
-
-    }
+    public void initialize(){ tituloResto.setText(resto.getNombreFantasia()); }
 
     @FXML
     void HistorialReservas(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        fxmlLoader.setLocation(ReservasEntrantesController.class.getResource("HistorialReservas.fxml"));
-        ReservasEntrantesController controller = Main.getContext().getBean(ReservasEntrantesController.class);
+        fxmlLoader.setLocation(HistorialReservasController.class.getResource("HistorialReservas.fxml"));
+        HistorialReservasController controller = Main.getContext().getBean(HistorialReservasController.class);
         controller.setResto(resto);
 
         Parent root = fxmlLoader.load(

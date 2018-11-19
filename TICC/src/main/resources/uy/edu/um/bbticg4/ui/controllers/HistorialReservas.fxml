@@ -18,7 +18,7 @@
             </Label>
          </top>
          <center>
-            <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <ListView fx:id="historial" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
       <Button fx:id="salir" layoutX="30.0" mnemonicParsing="false" onAction="#salir" prefHeight="37.0" prefWidth="59.0" text="Salir" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="50.0" />

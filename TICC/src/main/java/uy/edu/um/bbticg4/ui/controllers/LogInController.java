@@ -96,7 +96,7 @@ public class LogInController {
                     if(resto.getFistLogin()) {
                         fxmlLoader.setLocation(RestoInfoEditController.class.getResource("RestoInfoEdit.fxml"));
                         RestoInfoEditController controller = Main.getContext().getBean(RestoInfoEditController.class);
-                        controller.setResto(restoMgr.getRestaurant(userMail.getText()));
+                        controller.setResto(resto);
                         Parent root = fxmlLoader.load(
                                 LogInController.class.getResourceAsStream("RestoInfoEdit.fxml"));
                         Scene sceneRestoMain = new Scene(root);
@@ -114,8 +114,7 @@ public class LogInController {
 
                         MenuInicioRestoController controller = Main.getContext().
                                 getBean(MenuInicioRestoController.class);
-
-                        controller.setResto(restoMgr.getRestaurant(userMail.getText()));
+                        controller.setResto(resto);
                         Parent root = fxmlLoader.load(
                                 LogInController.class.getResourceAsStream("MenuInicialResto.fxml"));
 

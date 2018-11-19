@@ -53,6 +53,7 @@ public interface RestaurantRepository extends CrudRepository<Restaurant, Integer
 
     Restaurant findRestaurantByDireccion(String direccion);
 
+    @EntityGraph(value = "BarrioYListaComidas", type = EntityGraph.EntityGraphType.LOAD)
     Restaurant findRestaurantsByEmail(String email);
 
 }

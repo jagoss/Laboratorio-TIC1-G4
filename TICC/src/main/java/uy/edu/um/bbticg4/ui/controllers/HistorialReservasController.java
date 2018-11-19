@@ -54,7 +54,7 @@ public class HistorialReservasController {
     private List<Reserva> listaReservas = new LinkedList<>();
 
     @FXML
-    private ListView<Reserva> Historial;
+    private ListView<Reserva> historial;
 
     private Restaurant resto;
 
@@ -72,8 +72,8 @@ public class HistorialReservasController {
                 reservas.add(listaReservas.get(i));
             }
         }
-        Historial.setItems(reservas);
-        Historial.setCellFactory(new Callback<ListView<Reserva>, ListCell<Reserva>>() {
+        historial.setItems(reservas);
+        historial.setCellFactory(new Callback<ListView<Reserva>, ListCell<Reserva>>() {
             @Override
             public ListCell<Reserva> call(ListView<Reserva> listView) {
                 return new CustomListCellHistorial();
