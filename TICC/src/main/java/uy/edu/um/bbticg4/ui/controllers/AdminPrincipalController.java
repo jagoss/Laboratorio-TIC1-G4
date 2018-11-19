@@ -31,7 +31,7 @@ public class AdminPrincipalController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
-        Parent root = fxmlLoader.load(AdminRegistroRestauranteController.class.getResourceAsStream("InicioApp.fxml"));
+        Parent root = fxmlLoader.load(InicioAppController.class.getResourceAsStream("InicioApp.fxml"));
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pagPrincipal.css");
@@ -66,7 +66,7 @@ public class AdminPrincipalController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
-        Parent root = fxmlLoader.load(AdminRegistroRestauranteController.class.getResourceAsStream("ClienteFinalFiltro.fxml"));
+        Parent root = fxmlLoader.load(ClienteFinalFiltroController.class.getResourceAsStream("ClienteFinalFiltro.fxml"));
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pagPrincipal.css");
