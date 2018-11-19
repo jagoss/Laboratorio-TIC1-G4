@@ -12,6 +12,8 @@ import uy.edu.um.bbticg4.persistence.TipoComidaRepository;
 import uy.edu.um.bbticg4.service.entities.Barrio;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.service.entities.TipoComida;
+
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 
 import java.util.List;
@@ -28,6 +30,7 @@ public class RestaurantMgr {
     @Autowired
     private BarrioRepository barrioRepo;
 
+    @Transactional
     public void addRestaurant(String name, String nombreFantasia, String password, String cuentaBanco , Long ruc,
                               String email, String cellphone, String direccion, Barrio barrio)
             throws UserAlreadyExists, InvalidUserInformation {
@@ -48,10 +51,10 @@ public class RestaurantMgr {
         }
         if(nombreFantasia == null || nombreFantasia.equals("")){
             restaurantRepository.save(new Restaurant(name, password, cuentaBanco , ruc, email, cellphone,
-                    direccion, barrio));
+                    direccion, barrioRepo.findById(barrio.getId()).get()));
         }else{
             restaurantRepository.save(new Restaurant(name, nombreFantasia, password, cuentaBanco , ruc, email,
-                    cellphone, direccion, barrio));
+                    cellphone, direccion, barrioRepo.findById(barrio.getId()).get()));
         }
     }
 

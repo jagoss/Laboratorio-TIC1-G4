@@ -28,6 +28,7 @@ public class TipoComidaMgr {
         tcr.save(new TipoComida(id, name));
     }
 
+    public int count(){return (int) tcr.count();}
     public List<TipoComida> obtenerListaCategoria(){
         return tcr.findAllByNombre();
     }

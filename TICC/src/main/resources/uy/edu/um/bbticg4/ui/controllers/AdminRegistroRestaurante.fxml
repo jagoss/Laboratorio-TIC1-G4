@@ -73,6 +73,16 @@
                               <RadioMenuItem fx:id="pocitos" mnemonicParsing="false" onAction="#selectedPocitos" text="Pocitos" />
                               <RadioMenuItem fx:id="malvinNorte" mnemonicParsing="false" onAction="#selectedMalvinNorte" text="Malvin Norte" />
                               <RadioMenuItem fx:id="buceo" mnemonicParsing="false" onAction="#selectedBuceo" text="Buceo" />
+                              <RadioMenuItem fx:id="aguada" mnemonicParsing="false" text="Aguada" />
+                              <RadioMenuItem fx:id="barrioSur" mnemonicParsing="false" text="Barrio Sur" />
+                              <RadioMenuItem fx:id="carrasco" mnemonicParsing="false" text="Carrasco" />
+                              <RadioMenuItem fx:id="centro" mnemonicParsing="false" text="Centro" />
+                              <RadioMenuItem fx:id="cerro" mnemonicParsing="false" text="Cerro" />
+                              <RadioMenuItem fx:id="cordon" mnemonicParsing="false" text="Cordon" />
+                              <RadioMenuItem fx:id="parqueRodo" mnemonicParsing="false" text="Parque Rodo" />
+                              <RadioMenuItem fx:id="maronas" mnemonicParsing="false" text="Maroñas" />
+                              <RadioMenuItem fx:id="puntaGorda" mnemonicParsing="false" text="Punta Gorda" />
+                              <RadioMenuItem fx:id="penarol" mnemonicParsing="false" text="Peñarol" />
                            </items>
                         </MenuButton>
                      </children>

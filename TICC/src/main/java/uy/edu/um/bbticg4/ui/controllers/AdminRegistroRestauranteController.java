@@ -15,6 +15,7 @@ import uy.edu.um.bbticg4.exceptions.InvalidUserInformation;
 import uy.edu.um.bbticg4.exceptions.UserAlreadyExists;
 import uy.edu.um.bbticg4.service.BarrioMgr;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
+import uy.edu.um.bbticg4.service.entities.Barrio;
 import uy.edu.um.bbticg4.ui.tools.JavaFXTools;
 
 import java.io.IOException;
@@ -76,6 +77,37 @@ public class AdminRegistroRestauranteController {
     @FXML
     private RadioMenuItem buceo;
 
+    /*   @FXML
+    private RadioMenuItem aguada;
+
+    @FXML
+    private RadioMenuItem barrioSur;
+
+    @FXML
+    private RadioMenuItem carrasco;
+
+    @FXML
+    private RadioMenuItem centro;
+
+    @FXML
+    private RadioMenuItem cerro;
+
+    @FXML
+    private RadioMenuItem cordon;
+
+    @FXML
+    private RadioMenuItem parqueRodo;
+
+    @FXML
+    private RadioMenuItem maronas;
+
+    @FXML
+    private RadioMenuItem puntaGorda;
+
+    @FXML
+    private RadioMenuItem penarol;*/
+
+
     @FXML
     private TextField txtTelefono;
 
@@ -116,9 +148,9 @@ public class AdminRegistroRestauranteController {
                 String direccion = txtDireccion.getText();
 
                 try {
-
+                    Barrio miBarrio = barrioMgr.getBarrio(barrio);
                     restaurantMgr.addRestaurant(name, nombreFantasia, contrasena, cuentaBancaria, ruc, email, telefono,
-                            direccion, barrioMgr.getBarrio(barrio));
+                            direccion, miBarrio);
 
 
                     tools.showAlert("Restaurante agregado", "Se agrego con exito el restaurante!");
@@ -168,7 +200,74 @@ public class AdminRegistroRestauranteController {
         barriosDisponibles.setText("Buceo");
         txtBarrio.setText("Buceo");
     }
+   /* @FXML
+    public void selectedAguada(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Aguada");
+        txtBarrio.setText("Aguada");
+    }
+    @FXML
+    public void selectedBarrioSur(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Barrio Sur");
+        txtBarrio.setText("Barrio Sur");
+    }
+    @FXML
+    public void selectedCarrasco(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Carrasco");
+        txtBarrio.setText("Carrasco");
+    }
+    @FXML
+    public void selectedCentro(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Centro");
+        txtBarrio.setText("Centro");
+    }
+    @FXML
+    public void selectedCerro(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Cerro");
+        txtBarrio.setText("Cerro");
+    }
+    @FXML
+    public void selectedCordon(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Cordon");
+        txtBarrio.setText("Cordon");
+    }
+    @FXML
+    public void selectedParqueRodo(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Parque Rodo");
+        txtBarrio.setText("Parque Rodo");
+    }
+    @FXML
+    public void selectedMaronas(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Maroñas");
+        txtBarrio.setText("Maroñas");
+    }
+    @FXML
+    public void selectedPuntaGorda(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Punta Gorda");
+        txtBarrio.setText("Punta Gorda");
+    }
+    @FXML
+    public void selectedPenarol(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Peñarol");
+        txtBarrio.setText("Peñarol");
+    }
 
+    @FXML
+    public void selectedBarrio(ActionEvent actionEvent) {
+        ToggleGroup toggleGroup = new ToggleGroup();
+        pocitos.setToggleGroup(toggleGroup);
+        malvinNorte.setToggleGroup(toggleGroup);
+        buceo.setToggleGroup(toggleGroup);
+    }*/
 
     @FXML
     public void selectedBarrio(ActionEvent actionEvent) {

@@ -28,7 +28,7 @@ public class Restaurant{
     private List<TipoComida> listaCategoriaComida = new ArrayList<>(5);
     private Integer rating = 3;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id_barrio")
     private Barrio barrio;
 
