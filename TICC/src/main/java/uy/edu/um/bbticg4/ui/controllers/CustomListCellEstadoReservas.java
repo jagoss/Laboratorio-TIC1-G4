@@ -19,8 +19,10 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uy.edu.um.Main;
+import uy.edu.um.bbticg4.service.ClienteFinalMgr;
 import uy.edu.um.bbticg4.service.entities.Reserva;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 
@@ -42,21 +44,24 @@ import java.time.LocalDate;
 public class CustomListCellEstadoReservas extends ListCell<Reserva>{
 
     private HBox content;
-    private HBox headline;
-    private Text mesa;
+    private Text cantidadClientes;
     private Text hora;
     private Text client;
     private Button asistio;
     private Button noAsistio;
+    @Autowired
+    private ClienteFinalMgr cfmgr;
+    @Autowired
+    private ReservasEntrantesController cre;
 
 
 
 
 
-    public CustomListCellEstadoReservas() {
+    public CustomListCellEstadoReservas(ClienteFinalMgr cfmgr) {
         super();
 
-        his.cfmgr = cfmgr;
+        this.cfmgr = cfmgr;
         cantidadClientes = new Text();
         hora = new Text();
         client = new Text();
@@ -87,7 +92,7 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
         });*/
 
         VBox vBoxMID = new VBox(client, hora, cantidadClientes);
-        VBox vBoxBotones = new VBox(confirmar, negar);
+        VBox vBoxBotones = new VBox(asistio, noAsistio);
 
         content = new HBox(new Label("[ImageUser]"), vBoxMID, vBoxBotones);
         content.setSpacing(15);

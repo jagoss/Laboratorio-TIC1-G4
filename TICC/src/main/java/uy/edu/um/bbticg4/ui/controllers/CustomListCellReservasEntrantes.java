@@ -98,6 +98,8 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
 
             VBox vBoxMID = new VBox(client, hora, cantidadClientes);
             VBox vBoxBotones = new VBox(confirmar, negar);
+            vBoxMID.setSpacing(5);
+            vBoxBotones.setSpacing(5);
 
             content = new HBox(new Label("[ImageUser]"), vBoxMID, vBoxBotones);
             content.setSpacing(15);
