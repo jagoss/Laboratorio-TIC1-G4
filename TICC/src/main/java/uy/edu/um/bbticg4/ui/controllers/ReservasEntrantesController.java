@@ -57,6 +57,8 @@ public class ReservasEntrantesController {
     @FXML
     void displayReservas(ActionEvent event) {
 
+        ReservasEntrantesController nuevaREC = this;
+
         listaReservas = reservaMgr.getReservas(resto);
 
         ObservableList<Reserva> reservas = FXCollections.observableArrayList();
@@ -71,7 +73,7 @@ public class ReservasEntrantesController {
         listaReservasEntrantes.setCellFactory(new Callback<ListView<Reserva>, ListCell<Reserva>>() {
             @Override
             public ListCell<Reserva> call(ListView<Reserva> listView) {
-                return new CustomListCellReservasEntrantes(cfmgr);
+                return new CustomListCellReservasEntrantes(cfmgr, nuevaREC);
             }
         });
     }

@@ -56,15 +56,13 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
 
         private Button confirmar;
         private Button negar;
-        @Autowired
+
         private ClienteFinalMgr cfmgr;
-        @Autowired
         private ReservasEntrantesController cre;
 
-
-    public CustomListCellReservasEntrantes(ClienteFinalMgr cfmgr) {
+    public CustomListCellReservasEntrantes(ClienteFinalMgr cfmgr, ReservasEntrantesController cre) {
             super();
-
+            this.cre = cre;
             this.cfmgr = cfmgr;
             cantidadClientes = new Text();
             hora = new Text();
