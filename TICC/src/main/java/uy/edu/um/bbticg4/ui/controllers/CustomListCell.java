@@ -3,13 +3,10 @@ package uy.edu.um.bbticg4.ui.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.*;
 
 import javafx.scene.layout.BorderPane;
@@ -21,20 +18,17 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import uy.edu.um.Main;
+
 import uy.edu.um.bbticg4.exceptions.InvalidInformation;
-import uy.edu.um.bbticg4.service.ClienteFinalMgr;
+
 import uy.edu.um.bbticg4.service.ReservaMgr;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 import uy.edu.um.bbticg4.service.entities.ClienteFinal;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 import uy.edu.um.bbticg4.ui.tools.JavaFXTools;
 
-import java.io.IOException;
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
@@ -157,7 +151,7 @@ public class CustomListCell extends ListCell<Restaurant> {
                     resto = restoMgr.getRestaurantByDireccion(direccion.getText());
                     resMgr.generarReserva(cf, resto, ocupantesSpinner.getValue(), date);
 
-                    tools.showAlert("Reserva realizada!", "Una notificación ha sido enviada al restaurant. Aguarde la confirmación del restaurant.");
+                    tools.showAlert("Reserva realizada!", "Una notificación ha sido enviada. Aguarde la confirmación del restaurant.");
                 } catch (InvalidInformation invalidInformation) {
                     invalidInformation.printStackTrace();
                 }
