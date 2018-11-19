@@ -45,7 +45,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import uy.edu.um.bbticg4.ui.controllers.ReservasEntrantesController;
 
-@Component
+
 public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
 
 
@@ -126,10 +126,9 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
                     @Override
                     public void handle(ActionEvent event) {
 
-                        reservaMgr.getReservaById(item.getId()).setConfirmada(true);
-                    //    listaReservasEntrantes.getItems().clear();
-                     //   this.getSelectionModel().clearSelection();
-                        cre.displayReservas(event);
+                      item.setConfirmada(true);
+                      reservaMgr.update(item);
+                      cre.displayReservas(event);
 
                     }
                 });

@@ -38,7 +38,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
-@Component
+
 public class CustomListCellHistorial extends ListCell<Reserva>{
 
     private HBox content;

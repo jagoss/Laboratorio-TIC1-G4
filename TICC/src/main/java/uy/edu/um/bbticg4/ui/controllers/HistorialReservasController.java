@@ -59,11 +59,12 @@ public class HistorialReservasController {
     private Restaurant resto;
 
 
+
     @FXML
-    void displayReservas(ActionEvent event) {
+    public void initialize() {
 
         listaReservas = reservaMgr.getReservas(resto);
-
+        HistorialReservasController controller = this;
         ObservableList<Reserva> reservas = FXCollections.observableArrayList();
 
         for (int i = 0; i < listaReservas.size(); i++) {

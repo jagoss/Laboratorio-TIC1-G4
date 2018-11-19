@@ -18,6 +18,7 @@ import org.springframework.stereotype.Component;
 import uy.edu.um.Main;
 import uy.edu.um.bbticg4.service.ClienteFinalMgr;
 import uy.edu.um.bbticg4.service.ReservaMgr;
+import uy.edu.um.bbticg4.service.RestaurantMgr;
 import uy.edu.um.bbticg4.service.entities.Reserva;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
 
@@ -34,6 +35,9 @@ public class EstadoReservasController {
     @Autowired
     private ClienteFinalMgr cfmgr;
 
+    @Autowired
+    RestaurantMgr rm;
+
     @FXML
     private Button refresh;
 
@@ -46,8 +50,14 @@ public class EstadoReservasController {
 
     @FXML
     public void initialize() {
+        refresh.fire();
+    }
 
+    @FXML
+    void refresh (ActionEvent event){
         listaReservas = reservaMgr.getReservas(resto);
+
+        EstadoReservasController controller = this;
 
         ObservableList<Reserva> reservas = FXCollections.observableArrayList();
 
@@ -61,14 +71,9 @@ public class EstadoReservasController {
         listaReservasEntrantes.setCellFactory(new Callback<ListView<Reserva>, ListCell<Reserva>>() {
             @Override
             public ListCell<Reserva> call(ListView<Reserva> listView) {
-                return new CustomListCellEstadoReservas(cfmgr);
+                return new CustomListCellEstadoReservas(controller, cfmgr, reservaMgr,rm);
             }
         });
-    }
-
-    @FXML
-    void refresh (ActionEvent event){
-
     }
 
     @FXML

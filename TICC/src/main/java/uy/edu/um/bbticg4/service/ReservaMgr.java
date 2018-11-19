@@ -45,4 +45,6 @@ public class ReservaMgr {
     public List<Reserva> getReservas(Restaurant resto){ return rr.findReservasByResto_Id(resto.getId()); }
 
     public Reserva getReservaById(Integer id){ return rr.findReservaById(id);}
+
+    public void update(Reserva reserva){rr.save(reserva);}
 }

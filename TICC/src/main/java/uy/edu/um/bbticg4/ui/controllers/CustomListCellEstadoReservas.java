@@ -25,6 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uy.edu.um.Main;
 import uy.edu.um.bbticg4.service.ClienteFinalMgr;
+import uy.edu.um.bbticg4.service.ReservaMgr;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 import uy.edu.um.bbticg4.service.entities.Reserva;
 import uy.edu.um.bbticg4.service.entities.Restaurant;
@@ -44,7 +45,6 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Component
 public class CustomListCellEstadoReservas extends ListCell<Reserva>{
 
     private HBox content;
@@ -53,20 +53,19 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
     private Text client;
     private Button asistio;
     private Button noAsistio;
-    @Autowired
+
     private ClienteFinalMgr cfmgr;
-    @Autowired
     private RestaurantMgr rm;
-    @Autowired
-    private ReservasEntrantesController cre;
+    private EstadoReservasController erc;
+    private ReservaMgr reservaMgr;
 
+    public CustomListCellEstadoReservas(EstadoReservasController erc, ClienteFinalMgr cfmgr, ReservaMgr reservaMgr,
+    RestaurantMgr rm) {
 
-
-
-
-    public CustomListCellEstadoReservas(ClienteFinalMgr cfmgr) {
         super();
-
+        this.erc = erc;
+        this.rm = rm;
+        this.reservaMgr = reservaMgr;
         this.cfmgr = cfmgr;
         cantidadClientes = new Text();
         hora = new Text();
@@ -125,7 +124,8 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
 
                     item.setAsistio(true);
                     item.setFinalizada(true);
-                    cre.displayReservas(event);
+                    erc.refresh(event);
+                    reservaMgr.update(item);
                     item.getResto().setDeuda(
                             item.getResto().getDeuda().add(new BigDecimal(100.00)));
                     rm.updateResto(item.getResto());
@@ -140,7 +140,7 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
 
                     item.setAsistio(false);
                     item.setFinalizada(true);
-                    cre.displayReservas(event);
+                    erc.refresh(event);
 
                 }
             });
