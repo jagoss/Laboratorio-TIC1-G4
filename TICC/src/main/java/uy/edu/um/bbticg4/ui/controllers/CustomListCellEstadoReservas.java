@@ -56,32 +56,41 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
     public CustomListCellEstadoReservas() {
         super();
 
-        mesa = new Text();
-        client = new Text();
+        his.cfmgr = cfmgr;
+        cantidadClientes = new Text();
         hora = new Text();
+        client = new Text();
+        client.setFont(Font.font("System", FontWeight.BOLD, 20.0));
 
         asistio = new Button();
         asistio.setText("Asistio");
         noAsistio = new Button();
-        noAsistio.setText("No asistio");
-        headline = new HBox(new Label("Reserva de"),mesa, new Label("mesa por:"), client);
+        noAsistio.setText("No Asistio");
 
-        headline.setSpacing(5.0);
+        /*
+        asistio.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
 
-        GridPane grid = new GridPane();
-        grid.setVgap(10);
-        grid.setHgap(10);
-        grid.setPadding(new Insets(10,10,10,10));
-        grid.setAlignment(Pos.CENTER);
+                cre.displayReservas(event);
 
-        grid.add(headline,0,0,3,1);
-        grid.add(hora,0,1,1,1);
-        grid.add(asistio,1,1,1,1);
-        grid.add(noAsistio,2,1,1,1);
+            }
+        });
 
+        noAsistio.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
 
-        content = new HBox(grid);
-        content.setSpacing(40);
+                cre.displayReservas(event);
+
+            }
+        });*/
+
+        VBox vBoxMID = new VBox(client, hora, cantidadClientes);
+        VBox vBoxBotones = new VBox(confirmar, negar);
+
+        content = new HBox(new Label("[ImageUser]"), vBoxMID, vBoxBotones);
+        content.setSpacing(15);
         content.setPadding(new Insets(8,8,8,8));
 
     }

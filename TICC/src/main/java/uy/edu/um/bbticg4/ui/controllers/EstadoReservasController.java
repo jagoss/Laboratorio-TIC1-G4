@@ -12,31 +12,38 @@ import uy.edu.um.bbticg4.service.entities.Restaurant;
 @Component
 public class EstadoReservasController {
 
-  /*  @FXML
+    @FXML
     private Button refresh;
+
 
     @FXML
     private ListView<Reserva> listaReservasEntrantes;
 
-
-    ObservableList<Restaurant> resultados = FXCollections.observableArrayList();
-
-            for (int i = 0; i < restoPorBarrio.size(); i++) {
-        resultados.add(restoPorBarrio.get(i));
-    }
-            listaRestaurantes.setItems(resultados);
-
-            listaRestaurantes.setCellFactory(new Callback<ListView<Restaurant>, ListCell<Restaurant>>() {
-        @Override
-        public ListCell<Restaurant> call(ListView<Restaurant> listView) {
-            return new CustomListCellEstadoReservas();
-        }
-    });
-
-
     @FXML
-    void refresh(ActionEvent event) {
+    public initialize() {
 
-    }*/
+        listaReservas = reservaMgr.getReservas(resto);
 
+        ObservableList<Reserva> reservas = FXCollections.observableArrayList();
+
+        for (int i = 0; i < listaReservas.size(); i++) {
+            if (!listaReservas.get(i).isFinalizada() && listaReservas.get(i).isConfirmada()) {
+                reservas.add(listaReservas.get(i));
+            }
+        }
+        listaReservasEntrantes.setItems(reservas);
+
+        listaReservasEntrantes.setCellFactory(new Callback<ListView<Reserva>, ListCell<Reserva>>() {
+            @Override
+            public ListCell<Reserva> call(ListView<Reserva> listView) {
+                return new CustomListCellEstadoReservas(cfmgr);
+            }
+        });
+
+
+        @FXML
+        void refresh (ActionEvent event){
+
+        }
+    }
 }
