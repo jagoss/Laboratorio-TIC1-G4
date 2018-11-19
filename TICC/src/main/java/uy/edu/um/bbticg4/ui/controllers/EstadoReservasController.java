@@ -63,4 +63,12 @@ public class EstadoReservasController {
     void refresh (ActionEvent event){
 
     }
+
+    public void setResto(Restaurant resto) {
+        this.resto = resto;
+    }
+
+    public Restaurant getResto() {
+        return resto;
+    }
 }

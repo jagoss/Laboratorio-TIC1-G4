@@ -122,8 +122,8 @@ public class MenuInicioRestoController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
-        fxmlLoader.setLocation(RestoInfoEditController.class.getResource("EstadoReservas.fxml"));
-        RestoInfoEditController controller = Main.getContext().getBean(RestoInfoEditController.class);
+        fxmlLoader.setLocation(EstadoReservasController.class.getResource("EstadoReservas.fxml"));
+        EstadoReservasController controller = Main.getContext().getBean(EstadoReservasController.class);
         controller.setResto(resto);
         Parent root = fxmlLoader.load(
                 MenuInicioRestoController.class.getResourceAsStream("EstadoReservas.fxml"));

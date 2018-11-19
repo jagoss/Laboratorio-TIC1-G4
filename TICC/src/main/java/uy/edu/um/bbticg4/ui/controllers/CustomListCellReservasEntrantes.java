@@ -77,10 +77,11 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
 
 
 
-/*
+
         confirmar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+
 
                 cre.displayReservas(event);
 
@@ -94,7 +95,7 @@ public class CustomListCellReservasEntrantes extends ListCell<Reserva>{
                 cre.displayReservas(event);
 
             }
-        });*/
+        });
 
             VBox vBoxMID = new VBox(client, hora, cantidadClientes);
             VBox vBoxBotones = new VBox(confirmar, negar);
