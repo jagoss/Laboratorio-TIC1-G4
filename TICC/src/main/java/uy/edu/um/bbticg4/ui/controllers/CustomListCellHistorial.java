@@ -54,7 +54,7 @@ public class CustomListCellHistorial extends ListCell<Reserva>{
 
         client = new Text();
         hora = new Text();
-        asistio = new Text(); //falta setear esto dependiendo del estado del boolean, y agregar color como dice el trello
+        asistio = new Text();
 
         headline = new HBox(new Label("Reserva de"), client);
 
