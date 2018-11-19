@@ -71,7 +71,7 @@ public class EstadoReservasController {
         listaReservasEntrantes.setCellFactory(new Callback<ListView<Reserva>, ListCell<Reserva>>() {
             @Override
             public ListCell<Reserva> call(ListView<Reserva> listView) {
-                return new CustomListCellEstadoReservas(controller, cfmgr, reservaMgr,rm);
+                return new CustomListCellEstadoReservas(controller, cfmgr, reservaMgr,rm, resto);
             }
         });
     }

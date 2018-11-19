@@ -22,7 +22,7 @@ import uy.edu.um.bbticg4.service.ClienteFinalMgr;
 import uy.edu.um.bbticg4.service.ReservaMgr;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 import uy.edu.um.bbticg4.service.entities.Reserva;
-
+import uy.edu.um.bbticg4.service.entities.Restaurant;
 
 
 import java.math.BigDecimal;
@@ -41,11 +41,13 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
     private RestaurantMgr rm;
     private EstadoReservasController erc;
     private ReservaMgr reservaMgr;
+    private Restaurant resto;
 
     public CustomListCellEstadoReservas(EstadoReservasController erc, ClienteFinalMgr cfmgr, ReservaMgr reservaMgr,
-                                        RestaurantMgr rm) {
+                                        RestaurantMgr rm, Restaurant resto) {
 
         super();
+        this.resto = resto;
         this.erc = erc;
         this.rm = rm;
         this.reservaMgr = reservaMgr;
@@ -93,9 +95,9 @@ public class CustomListCellEstadoReservas extends ListCell<Reserva>{
                     item.setFinalizada(true);
                     erc.refresh(event);
                     reservaMgr.update(item);
-                    item.getResto().setDeuda(
-                            item.getResto().getDeuda().add(new BigDecimal(100.00)));
-                    rm.updateResto(item.getResto());
+                    resto.setDeuda(
+                            resto.getDeuda().add(new BigDecimal(100.00)));
+                    rm.updateResto(resto);
 
 
                 }

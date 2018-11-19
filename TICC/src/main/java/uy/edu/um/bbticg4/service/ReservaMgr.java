@@ -47,4 +47,5 @@ public class ReservaMgr {
     public Reserva getReservaById(Integer id){ return rr.findReservaById(id);}
 
     public void update(Reserva reserva){rr.save(reserva);}
+
 }

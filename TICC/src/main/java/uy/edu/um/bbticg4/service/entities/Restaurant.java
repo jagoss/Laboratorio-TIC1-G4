@@ -73,7 +73,7 @@ public class Restaurant{
         this.barrio = barrio;
         this.name = name;
         this.cuentaBanco = cuentaBanco;
-        deuda = BigDecimal.valueOf(0);
+        this.deuda = new BigDecimal(0);
     }
 
     public Restaurant(String name, String nombreFantasia,String password,String cuentaBanco , Long ruc,
