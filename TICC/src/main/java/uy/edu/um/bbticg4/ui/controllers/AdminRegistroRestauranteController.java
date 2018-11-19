@@ -77,6 +77,43 @@ public class AdminRegistroRestauranteController {
     private RadioMenuItem buceo;
 
     @FXML
+    private RadioMenuItem aguada;
+
+    @FXML
+    private RadioMenuItem barrioSur;
+
+    @FXML
+    private RadioMenuItem carrasco;
+
+    @FXML
+    private RadioMenuItem centro;
+
+    @FXML
+    private RadioMenuItem cerro;
+
+    @FXML
+    private RadioMenuItem cordon;
+
+    @FXML
+    private RadioMenuItem parqueRodo;
+
+    @FXML
+    private RadioMenuItem maronas;
+
+    @FXML
+    private RadioMenuItem laUnion;
+
+    @FXML
+    private RadioMenuItem barrioCapurro;
+
+    @FXML
+    private RadioMenuItem penarol;
+
+    @FXML
+    private RadioMenuItem puntaGorda;
+
+
+    @FXML
     private TextField txtTelefono;
 
     @FXML
@@ -159,14 +196,86 @@ public class AdminRegistroRestauranteController {
     @FXML
     public void selectedMalvinNorte(ActionEvent actionEvent) {
         selectedBarrio(actionEvent);
-        barriosDisponibles.setText("Malvin Norte");
-        txtBarrio.setText("MalvinNorte");
+        barriosDisponibles.setText("MalvinNorte");
+        txtBarrio.setText("Malvin Norte");
     }
     @FXML
     public void selectedBuceo(ActionEvent actionEvent) {
         selectedBarrio(actionEvent);
         barriosDisponibles.setText("Buceo");
         txtBarrio.setText("Buceo");
+    }
+    @FXML
+    public void selectedAguada(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Aguada");
+        txtBarrio.setText("Aguada");
+    }
+    @FXML
+    public void selectedCarrasco(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Carrasco");
+        txtBarrio.setText("Carrasco");
+    }
+    @FXML
+    public void selectedCentro(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Centro");
+        txtBarrio.setText("Centro");
+    }
+    @FXML
+    public void selectedCerro(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Cerro");
+        txtBarrio.setText("Cerro");
+    }
+    @FXML
+    public void selectedParqueRodo(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("ParqueRodo");
+        txtBarrio.setText("Parque Rodo");
+    }
+    @FXML
+    public void selectedMaronas(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Maroñas");
+        txtBarrio.setText("Maroñas");
+    }
+    @FXML
+    public void selectedPuntaGorda(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("PuntaGorda");
+        txtBarrio.setText("Punta Gorda");
+    }
+    @FXML
+    public void selectedLaUnion(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("LaUnion");
+        txtBarrio.setText("La Union");
+    }
+    @FXML
+    public void selectedBarrioCapurro(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("BarrioCapurro");
+        txtBarrio.setText("Barrio Capurro");
+    }
+    @FXML
+    public void selectedBarrioSur(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("BarrioSur");
+        txtBarrio.setText("Barrio Sur");
+    }
+    @FXML
+    public void selectedPenarol(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Peñarol");
+        txtBarrio.setText("Peñarol");
+    }
+    @FXML
+    public void selectedCordon(ActionEvent actionEvent) {
+        selectedBarrio(actionEvent);
+        barriosDisponibles.setText("Cordon");
+        txtBarrio.setText("Cordon");
     }
 
 
@@ -176,6 +285,18 @@ public class AdminRegistroRestauranteController {
         pocitos.setToggleGroup(toggleGroup);
         malvinNorte.setToggleGroup(toggleGroup);
         buceo.setToggleGroup(toggleGroup);
+        aguada.setToggleGroup(toggleGroup);
+        carrasco.setToggleGroup(toggleGroup);
+        centro.setToggleGroup(toggleGroup);
+        cerro.setToggleGroup(toggleGroup);
+        parqueRodo.setToggleGroup(toggleGroup);
+        maronas.setToggleGroup(toggleGroup);
+        puntaGorda.setToggleGroup(toggleGroup);
+        laUnion.setToggleGroup(toggleGroup);
+        barrioCapurro.setToggleGroup(toggleGroup);
+        barrioSur.setToggleGroup(toggleGroup);
+        penarol.setToggleGroup(toggleGroup);
+        cordon.setToggleGroup(toggleGroup);
     }
 
     @FXML

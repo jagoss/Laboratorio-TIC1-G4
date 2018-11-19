@@ -84,11 +84,11 @@ public class DeudaVentanaController {
 
             try{
 
-                if(BigDecimal.valueOf(new Double(amountToPay.getText())).compareTo(resto.getDeuda()) > 0 ){
+                if(BigDecimal.valueOf(new Double(amountToPay.getText())).compareTo(resto.getDeuda()) > 0 || BigDecimal.valueOf(new Double(amountToPay.getText())).compareTo(new BigDecimal(0.0)) < 0){
 
                     tools.showAlert(
-                            "Esta intentando pagar mas de lo que debe!",
-                            "Ingrese un valor menor o igual a su deuda.");
+                            "Esta intentando pagar un valor incorrecto!",
+                            "Ingrese un valor acorde a su deuda.");
 
                 } else {
 

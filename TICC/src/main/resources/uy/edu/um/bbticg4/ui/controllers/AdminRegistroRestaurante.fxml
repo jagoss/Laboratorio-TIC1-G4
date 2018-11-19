@@ -73,6 +73,18 @@
                               <RadioMenuItem fx:id="pocitos" mnemonicParsing="false" onAction="#selectedPocitos" text="Pocitos" />
                               <RadioMenuItem fx:id="malvinNorte" mnemonicParsing="false" onAction="#selectedMalvinNorte" text="Malvin Norte" />
                               <RadioMenuItem fx:id="buceo" mnemonicParsing="false" onAction="#selectedBuceo" text="Buceo" />
+                              <RadioMenuItem fx:id="aguada" mnemonicParsing="false" onAction="#selectedAguada" text="Aguada" />
+                              <RadioMenuItem fx:id="barrioSur" mnemonicParsing="false" onAction="#selectedBarrioSur" text="Barrio Sur" />
+                              <RadioMenuItem fx:id="carrasco" mnemonicParsing="false" onAction="#selectedCarrasco" text="Carrasco" />
+                              <RadioMenuItem fx:id="centro" mnemonicParsing="false" onAction="#selectedCentro" text="Centro" />
+                              <RadioMenuItem fx:id="cerro" mnemonicParsing="false" onAction="#selectedCerro" text="Cerro" />
+                              <RadioMenuItem fx:id="cordon" mnemonicParsing="false" onAction="#selectedCordon" text="Cordon" />
+                              <RadioMenuItem fx:id="parqueRodo" mnemonicParsing="false" onAction="#selectedParqueRodo" text="Parque Rodo" />
+                              <RadioMenuItem fx:id="maronas" mnemonicParsing="false" onAction="#selectedMaronas" text="Maroñas" />
+                              <RadioMenuItem fx:id="laUnion" mnemonicParsing="false" onAction="#selectedLaUnion" text="La Union" />
+                              <RadioMenuItem fx:id="barrioCapurro" mnemonicParsing="false" onAction="#selectedBarrioCapurro" text="Barrio Capurro" />
+                              <RadioMenuItem fx:id="penarol" mnemonicParsing="false" onAction="#selectedPenarol" text="Peñarol" />
+                              <RadioMenuItem fx:id="puntaGorda" mnemonicParsing="false" onAction="#selectedPuntaGorda" text="Punta Gorda" />
                            </items>
                         </MenuButton>
                      </children>
