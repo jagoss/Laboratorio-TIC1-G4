@@ -8,8 +8,6 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -22,7 +20,7 @@
 
       <BorderPane layoutX="100.0" layoutY="143.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <Label text="Reservame App" textFill="#32c79e" BorderPane.alignment="CENTER">
+            <Label text="FIIIIUUUUUUM" textFill="#1e68b2" BorderPane.alignment="CENTER">
                <font>
                   <Font name="System Bold" size="39.0" />
                </font>
@@ -41,7 +39,7 @@
                 <RowConstraints maxHeight="125.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Iniciar Sesion" GridPane.halignment="CENTER">
+                  <Label text="Iniciar Sesion" textFill="#085c94" GridPane.halignment="CENTER">
                      <font>
                         <Font name="System Bold Italic" size="19.0" />
                      </font>

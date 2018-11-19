@@ -2,7 +2,10 @@ package uy.edu.um.bbticg4.ui.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,8 @@ import uy.edu.um.bbticg4.exceptions.UserAlreadyExists;
 import uy.edu.um.bbticg4.service.BarrioMgr;
 import uy.edu.um.bbticg4.service.RestaurantMgr;
 import uy.edu.um.bbticg4.ui.tools.JavaFXTools;
+
+import java.io.IOException;
 
 @Component
 public class AdminRegistroRestauranteController {
@@ -129,6 +134,8 @@ public class AdminRegistroRestauranteController {
                             "Restaurante ya registrado !",
                             "El Restaurante indicado ya ha sido registrado en el sistema).");
 
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
 
 
@@ -172,10 +179,22 @@ public class AdminRegistroRestauranteController {
     }
 
     @FXML
-    public void cerrar(ActionEvent event) {
-        Node source = (Node)  event.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
+    public void cerrar(ActionEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(AdminRegistroRestauranteController.class.getResourceAsStream("AdminPrincipal.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pagPrincipal.css");
+        stage.setScene(scene);
         stage.setResizable(false);
+        stage.show();
+
+        Node source = (Node) event.getSource();
+        stage = (Stage) source.getScene().getWindow();
+        stage.close();
         stage.close();
     }
 }

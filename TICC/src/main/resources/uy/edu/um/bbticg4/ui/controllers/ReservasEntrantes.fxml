@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="395.0" prefWidth="395.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.bbticg4.ui.controllers.ReservasEntrantesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.bbticg4.ui.controllers.ReservasEntrantesController">
    <children>
       <BorderPane prefHeight="395.0" prefWidth="395.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -18,12 +18,12 @@
             </Text>
          </top>
          <center>
-            <ListView fx:id="listaReservasEntrantes" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <ListView fx:id="listaReservasEntrantes" prefHeight="360.0" prefWidth="410.0" BorderPane.alignment="CENTER" />
          </center>
          <bottom>
             <Button fx:id="refresh" mnemonicParsing="false" onAction="#displayReservas" text="Actualizar" BorderPane.alignment="CENTER" />
          </bottom>
       </BorderPane>
-      <Button fx:id="salir" layoutY="363.0" mnemonicParsing="false" onAction="#salir" prefHeight="29.0" prefWidth="80.0" text="Salir" AnchorPane.topAnchor="378.0" />
+      <Button fx:id="salir" layoutY="363.0" mnemonicParsing="false" onAction="#salir" prefHeight="29.0" prefWidth="80.0" text="Salir" AnchorPane.topAnchor="580.0" />
    </children>
 </AnchorPane>

@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -15,6 +16,8 @@ import uy.edu.um.bbticg4.exceptions.InvalidUserInformation;
 import uy.edu.um.bbticg4.exceptions.UserAlreadyExists;
 import uy.edu.um.bbticg4.service.ClienteFinalMgr;
 import uy.edu.um.bbticg4.ui.tools.JavaFXTools;
+
+import java.io.IOException;
 
 @Component
 public class RegistroClienteController {
@@ -53,10 +56,20 @@ public class RegistroClienteController {
     private TextField confirmPassField;
 
     @FXML
-    void cancelation(ActionEvent event) {
+    void cancelation(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(RegistroClienteController.class.getResourceAsStream("InicioApp.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pagPrincipal.css");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
 
         Node source = (Node)  event.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
+        stage  = (Stage) source.getScene().getWindow();
         stage.setResizable(false);
         stage.close();
 
@@ -100,6 +113,8 @@ public class RegistroClienteController {
                 tools.showAlert(
                         "Restaurante ya registrado !",
                         "El Restaurante indicado ya ha sido registrado en el sistema).");
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         } catch (NumberFormatException e) {
 
@@ -109,10 +124,20 @@ public class RegistroClienteController {
     }
 
     @FXML
-    public void cerrar(ActionEvent event) {
-        Node source = (Node)  event.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
+    public void cerrar(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(RegistroClienteController.class.getResourceAsStream("InicioApp.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("uy/edu/um/bbticg4/ui/images/pagPrincipal.css");
+        stage.setScene(scene);
         stage.setResizable(false);
+        stage.show();
+
+        Node source = (Node) event.getSource();
+        stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
 }
