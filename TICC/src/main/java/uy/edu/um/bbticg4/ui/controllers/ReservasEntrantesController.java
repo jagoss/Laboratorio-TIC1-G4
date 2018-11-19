@@ -39,10 +39,10 @@ public class ReservasEntrantesController {
     private Button refresh;
 
 
-/*    @FXML
+    @FXML
     public void initialize() {
         refresh.fire();
-    }*/
+    }
 
 
     @FXML
@@ -53,7 +53,9 @@ public class ReservasEntrantesController {
         ObservableList<Reserva> reservas = FXCollections.observableArrayList();
 
         for (int i = 0; i < listaReservas.size(); i++) {
-            reservas.add(listaReservas.get(i));
+            if(!listaReservas.get(i).isFinalizada() && !listaReservas.get(i).isConfirmada()) {
+                reservas.add(listaReservas.get(i));
+            }
         }
         listaReservasEntrantes.setItems(reservas);
 

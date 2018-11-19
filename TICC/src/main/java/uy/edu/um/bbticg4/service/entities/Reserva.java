@@ -28,9 +28,9 @@ public class Reserva {
 
     private Double cantidad;
     private LocalDateTime horaReserva;
-    private boolean confirmada;
-    private boolean asistio;
-    private boolean finalizada;
+    private boolean confirmada = false;
+    private boolean asistio = false;
+    private boolean finalizada = false;
 
     public Reserva(){}
 
